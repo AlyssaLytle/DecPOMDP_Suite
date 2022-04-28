@@ -12,24 +12,34 @@ def H(delta, dpomdp):
     # which means it must be an overestimation of the actual expected reward 
     # for a policy
     
-    return 0
+    [h_tree, m_tree] = delta
+    if h_tree.get_height() == (dpomdp.horizon - 1):
+        # If trees are height = horizon - 1, then just return 0 because there is not future to predict
+        return 0
+    else:
+        return 0
 
 def F(delta, dpomdp):
     #TODO: Write Method to compute tree value
     [h_tree, m_tree] = delta
     return dpomdp.get_value(h_tree,m_tree,dpomdp.start_state,0,0) + H(delta, dpomdp)
 
-def prune(dlist):
-    #only keep elements with max fscore
+def prune_by_score(dlist, score):
+    #only keep elements with fscore >= input score
     ret_list = []
-    max_fscore = dlist[0][1]
     for elem in dlist:
-        if max_fscore == elem[1]:
+        if score >= elem[1]:
             ret_list.append(elem)
-        elif max_fscore < elem[1]:
-            ret_list = [elem]
-            max_fscore = elem[1]
     return ret_list
+
+def get_min_score(dlist):
+    #returns the minimum fscore that shows up in list
+    min = dlist[0][1]
+    for elem in dlist:
+        if min > elem[1]:
+            min = elem[1]
+    return min
+        
 
 def get_max(dlist, horizon):
     #input dlist and return max fscore tree that hasn't been fully explored
@@ -93,9 +103,12 @@ def expand(delta, dpomdp):
     print("Number of combined trees: " + str(len(list_of_deltas)))
     dlist = []
     for elem in list_of_deltas:
-        fscore = F(elem,dpomdp)
-        dlist.append([elem, fscore])
-    return prune(dlist)
+        print("Pruning unsafe actions")
+        if F(elem,dpomdp) > dpomdp.costs["unsafe"]:
+            #only include incidents where an accident hasn't happened
+            dlist.append([elem, F(elem,dpomdp)])
+        print("New number of trees: " + str(len(dlist)))
+    return dlist
 
 def solve(dPOMDP):
     #input any type of decPOMDP
@@ -120,10 +133,11 @@ def solve(dPOMDP):
             return D
         else:
             D.remove(d_star)
-            #expand tree list which is d_star[0], THIS RETURNS AN ALREADY PRUNED BY FSCORE LIST
+            #expand tree list which is d_star[0], THIS RETURNS AN ALREADY PRUNED LIST
             d_star_prime_list = expand(d_star[0],dPOMDP)
-            #new max is d_star's fscore which is d_star[1]
-            max_fscore = d_star[1]
+            #new threshold is d_star prime's minimum
+            if get_min_score(d_star_prime_list) > get_min_score(D):
+                #if any existing tree has a score less than these new trees, delete it
+                prune_by_score(D, get_min_score(d_star_prime_list))
             D.extend(d_star_prime_list)
-            D = prune(D)
-            print("Length of D: " + str(len(D))) 
+            print("new length of D: " + str(len(D))) 
