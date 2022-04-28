@@ -394,8 +394,8 @@ def array_product4(array1,array2,array3, array4):
 def all_k_length(set, k):
     #print("LENGTH:")
     #print(len(set))
-    perms = [p for p in itertools.product(set, repeat=k)]
-    return perms
+    return [p for p in itertools.product(set, repeat=k)]
+    
 
 #def all_k_length(set, k):
 

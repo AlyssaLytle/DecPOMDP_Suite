@@ -1,7 +1,7 @@
 # Main methods of MAAstar for human and machine
 from NodeClass import Node
 from TreeClass import Tree
-from Dlist import Dlistelem, Dlist
+
 import copy
 from helper_methods import *
 
