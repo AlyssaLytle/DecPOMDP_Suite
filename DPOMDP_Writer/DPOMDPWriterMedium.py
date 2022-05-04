@@ -318,7 +318,7 @@ class DPOMDPWriterACC:
 
     def make_decpomdp(self, start_state):
         [transitions, observations, rewards] = self.get_transitions()
-        t_string = ''.join(transitions)
+        t_string = ''.join(transitions) 
         #t_string = t_string.replace(' ', '')
         t_string = t_string.split("\n")
         for elem in t_string:
