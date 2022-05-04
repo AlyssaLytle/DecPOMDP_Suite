@@ -97,8 +97,8 @@ class DPOMDPWriterACC:
         safety = self.get_safety(hum_mvmt, mach_mvmt)
         cost = 0
         # cost for human to move
-        if hum_mvmt != "none":
-            cost += self.costs["human movement"]
+        #if hum_mvmt != "none":
+        #    cost += self.costs["human movement"]
         # cost for unsafe state
         if safety == False:
             cost += self.costs["unsafe"]
