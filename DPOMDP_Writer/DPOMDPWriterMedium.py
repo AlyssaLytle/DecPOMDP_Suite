@@ -311,7 +311,7 @@ class DPOMDPWriterACC:
                     rewards.append(self.get_reward_string(state,h_action,m_action))
                 for m_action in m_actions2:
                     transitions += "T: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : 1\n"   
-                    observations += "O: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : none sink : 1\n"   
+                    observations += "O: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : none sink : 1\n"   
                     rwd = "R: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : * : * : -100000\n"
                     rewards.append(rwd)
         return [transitions, observations, rewards]
