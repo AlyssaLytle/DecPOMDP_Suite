@@ -136,21 +136,21 @@ class ACC_DPOMDP:
         if (scenario == 1) | (scenario == 2) | (scenario == 5):
             if (human_action == "decel"):
                 return True
-            elif (machine_action == "decel") & ~(human_action in anti_decel):
+            elif (machine_action == "decel"): #& ~(human_action in anti_decel):
                 return True
             else:
                 return False
         elif (scenario == 3) | (scenario == 7):
             if (human_action == "decel"):
                 return False
-            elif (machine_action == "decel") & ~(human_action in anti_decel):
+            elif (machine_action == "decel"): #& ~(human_action in anti_decel):
                 return False
             else:
                 return True
         elif (scenario == 4) | (scenario == 8):
             if human_action == "accel":
                 return True
-            elif (machine_action == "accel") & ~(human_action in anti_accel):
+            elif (machine_action == "accel"): #& ~(human_action in anti_accel):
                 return True
             else:
                 return False
@@ -210,3 +210,25 @@ class ACC_DPOMDP:
                 #print("Child edge index: " + str(h_tree.get_child_edge_idx_with_value(h_idx, h_obs)))
                 val += prob * self.get_value(h_tree, m_tree, next_state, h_tree.get_child_edge_idx_with_value(h_idx, h_obs), m_tree.get_child_edge_idx_with_value(m_idx, m_obs))
         return val
+    
+    def prune_check(self, tree):
+        # for any node on bottom level, 
+        # if human phys action is dangerous 
+        # AND human comm action is NONE 
+        # THEN CHECK human observation (aka edge )== none
+        # if so, prune tree 
+        return False
+    
+    def prune_check_machine(self, tree):
+        #for any node on bottom level,
+        # if phys action is dangerous,
+        # THEN check if obs is possible,
+        # if so, prune tree
+        return False
+        
+    def prune_check_human(self, tree):
+        #for any node on bottom level,
+        # if phys action is dangerous,
+        # THEN check if obs is not "none" & is possible,
+        # if so, prune tree
+        return False

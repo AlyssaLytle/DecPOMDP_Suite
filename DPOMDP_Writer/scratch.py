@@ -2,7 +2,7 @@ import itertools
 import sys
 import time
 
-
+from reader import *
 from ACCDPOMDP import ACC_DPOMDP
 from ExtractCSV import latex_to_table
 
@@ -53,17 +53,20 @@ scenario = 3
 dpomdp = ACC_DPOMDP(start_state, mode_change_table, machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, modes,prob_dict,cost_dict, scenario, human_observations, machine_observations,horizon, init_actions)
 
 
-start_time = time.perf_counter()
-solutions = solve(dpomdp)
-for sol in solutions:
-    [trees, f] = sol
-    [h_tree, m_tree] = trees
-    h_tree.print()
-    m_tree.print()
-print("Num solutions: " + len(solutions))
-print("Run time: " + str(start_time - time.perf_counter()))
+# start_time = time.perf_counter()
+# solutions = solve(dpomdp)
+# for sol in solutions:
+#     [trees, f] = sol
+#     [h_tree, m_tree] = trees
+#     h_tree.print()
+#     m_tree.print()
+# print("Num solutions: " + len(solutions))
+# print("Run time: " + str(start_time - time.perf_counter()))
 
-
+[h_tree, m_tree] = get_trees(filename, 7, 6)
+h_tree.print()
+m_tree.print()
+print(dpomdp.get_value(h_tree, m_tree, start_state, 0, 0))
 
 # #print(dpomdp.get_transition_table("following", ["decel", "pushbutton"], ["none", "dontcommunicate"]))
 
