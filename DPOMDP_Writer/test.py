@@ -21,7 +21,7 @@ exit_hold_prob = .01
 
 states = modes
 machine_observations = states
-human_observations = states + ["none"]
+human_observations = states + ["none"] #- ["sink"]
 #print(human_observations)
 
 prob_dict = {"exithold": exit_hold_prob, "error":error_prob}

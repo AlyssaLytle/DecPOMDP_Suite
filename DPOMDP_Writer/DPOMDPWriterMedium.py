@@ -33,6 +33,15 @@ class DPOMDPWriterACC:
         else:
             allowed_mvmts = ["none"]
         return list(itertools.product(allowed_mvmts,self.machine_comm_actions))
+    
+    def get_unallowed_machine_actions(self,mode):
+        sc = (mode == "speedcontrol")
+        follow = (mode == "following")
+        if sc | follow :
+            unallowed_mvmts = ["none"]
+        else:
+            unallowed_mvmts = ["accel", "decel", "maintainspeed"]
+        return list(itertools.product(unallowed_mvmts,self.machine_comm_actions))
 
     def all_states_to_str(self):
         state_str = "states:"
@@ -294,11 +303,17 @@ class DPOMDPWriterACC:
         rewards = []
         for state in self.states:
             m_actions = self.get_allowed_machine_actions(state)
+            m_actions2 = self.get_unallowed_machine_actions(state)
             for h_action in self.human_actions:
                 for m_action in m_actions:
                     transitions += self.get_transition_strings(state,h_action,m_action)
                     observations.append(self.get_observation_string(state,h_action,m_action))
                     rewards.append(self.get_reward_string(state,h_action,m_action))
+                for m_action in m_actions2:
+                    #transitions += "T: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : 1\n"   
+                    #observations += "O: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : none sink : 1\n"   
+                    rwd = "R: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : * : * : -100000\n"
+                    rewards.append(rwd)
         return [transitions, observations, rewards]
 
     def make_decpomdp(self, start_state):
