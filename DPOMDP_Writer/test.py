@@ -2,7 +2,7 @@ import itertools
 from DPOMDPWriterMedium import DPOMDPWriterACC
 #from help_methods import *
 
-modes = ["standby", "following", "speedcontrol", "hold", "override", "error"]
+modes = ["standby", "following", "speedcontrol", "hold", "override", "error", "sink"]
 automated_modes = ["following", "speedcontrol"]
 non_automated_modes = ["canceled", "hold", "override","error"]
 human_mvmt_actions = ["accel", "decel", "maintainspeed", "none"]
@@ -21,7 +21,8 @@ exit_hold_prob = .01
 
 states = modes
 machine_observations = states
-human_observations = states + ["none"] #- ["sink"]
+human_observations = states + ["none"] 
+human_observations.remove("sink")
 #print(human_observations)
 
 prob_dict = {"exithold": exit_hold_prob, "error":error_prob}
