@@ -314,6 +314,8 @@ class DPOMDPWriterACC:
                     observations += "O: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : none sink : 1\n"   
                     rwd = "R: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : * : * : -100000\n"
                     rewards.append(rwd)
+                transitions += "T: * * : sink : sink : 1 \n"
+                observations += "O: * * : sink : sink : none sink : 1\n"
         return [transitions, observations, rewards]
 
     def make_decpomdp(self, start_state):
