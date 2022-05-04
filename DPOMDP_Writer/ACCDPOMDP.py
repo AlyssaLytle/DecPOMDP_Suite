@@ -167,14 +167,17 @@ class ACC_DPOMDP:
         safety = self.get_safety(hum_mvmt, mach_mvmt)
         cost = 0
         # cost for human to move
-        if hum_mvmt != "none":
-            cost += self.costs["human movement"]
+        #if hum_mvmt != "none":
+        #    cost += self.costs["human movement"]
         # cost for unsafe state
         if safety == False:
             cost += self.costs["unsafe"]
         # cost of machine updating the interface
         if mach_comm == "communicate":
             cost += self.costs["machine communication"]
+        #reward for automation
+        if mach_mvmt != "none":
+            cost += self.costs["automation reward"]
         return cost
 
     def get_human_observation(self,next_state,human_action, machine_action):

@@ -29,7 +29,7 @@ prob_dict = {"exithold": exit_hold_prob, "error":error_prob}
 human_movement_cost = -1
 unsafe_cost = -100
 comm_cost = -1
-cost_dict = {"human movement":human_movement_cost, "unsafe": unsafe_cost, "machine communication": comm_cost}
+cost_dict = {"human movement":human_movement_cost, "unsafe": unsafe_cost, "machine communication": comm_cost, "automation reward" : 1}
 
 
 writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, modes,prob_dict,cost_dict,1, human_observations, machine_observations)

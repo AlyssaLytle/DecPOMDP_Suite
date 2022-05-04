@@ -37,7 +37,7 @@ prob_dict = {"exithold": exit_hold_prob, "error":error_prob}
 human_movement_cost = -1
 unsafe_cost = -100
 comm_cost = -1
-cost_dict = {"human movement":human_movement_cost, "unsafe": unsafe_cost, "machine communication": comm_cost}
+cost_dict = {"human movement":human_movement_cost, "unsafe": unsafe_cost, "machine communication": comm_cost, "automation reward" : 1}
 
 mode_change_table = latex_to_table("TransitionLatexClean.csv")
 

@@ -105,6 +105,9 @@ class DPOMDPWriterACC:
         # cost of machine updating the interface
         if mach_comm == "communicate":
             cost += self.costs["machine communication"]
+        #reward for automation
+        if mach_mvmt != "none":
+            cost += self.costs["automation reward"]
         return cost
 
 
