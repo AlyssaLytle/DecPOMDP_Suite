@@ -1,5 +1,6 @@
 import itertools
 import sys
+import time
 
 
 from ACCDPOMDP import ACC_DPOMDP
@@ -7,7 +8,7 @@ from ExtractCSV import latex_to_table
 
 sys.path.append("..")
 from ArrayTree import ArrayTree
-#from help_methods import *
+from MAAstarmod import *
 
 modes = ["standby", "following", "speedcontrol", "hold", "override", "error"]
 automated_modes = ["following", "speedcontrol"]
@@ -40,47 +41,64 @@ cost_dict = {"human movement":human_movement_cost, "unsafe": unsafe_cost, "machi
 
 mode_change_table = latex_to_table("TransitionLatexClean.csv")
 
-
+init_h_action = human_actions[0]
+init_m_action = machine_actions[0]
+init_actions = {"human" : init_h_action, "machine": init_m_action}
 start_state = modes[0]
 
 horizon = 2
 
-dpomdp = ACC_DPOMDP(start_state, mode_change_table, machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, modes,prob_dict,cost_dict,1, human_observations, machine_observations,horizon)
+scenario = 3
 
-#print(dpomdp.get_transition_table("following", ["decel", "pushbutton"], ["none", "dontcommunicate"]))
-
-
-
-for a1 in human_actions:
-    for a2 in machine_actions:
-        for mode in modes:
-            table = dpomdp.get_transition_table(mode,a1,a2)
-            #print(table)
-            sum = 0
-            for elem in table:
-                sum += elem[1]
+dpomdp = ACC_DPOMDP(start_state, mode_change_table, machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, modes,prob_dict,cost_dict, scenario, human_observations, machine_observations,horizon, init_actions)
 
 
-tlist = [0,1,2,3,4,5,6,7,8,9,10,11,12]
-tlist2 = [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
-edges = ["a","b"] * 6
-elist = [""]+ edges
-print(elist)
-elist2 = elist + ["c"]
-print(elist2)
-test_tree1 = ArrayTree(3,tlist, elist)
-test_tree2 = ArrayTree(3,tlist2, elist2)
+start_time = time.perf_counter()
+solutions = solve(dpomdp)
+for sol in solutions:
+    [trees, f] = sol
+    [h_tree, m_tree] = trees
+    h_tree.print()
+    m_tree.print()
+print("Num solutions: " + len(solutions))
+print("Run time: " + str(start_time - time.perf_counter()))
 
 
-test_tree2.print()
 
-print(test_tree1.get_children(0))
+# #print(dpomdp.get_transition_table("following", ["decel", "pushbutton"], ["none", "dontcommunicate"]))
 
-# D = [1,2,[3,"apples"]]
-# print(D)
-# D.remove([3,"apples"])
-# print(D)
-# a = [3,"apples"]
-# D.append(a)
-# D.append([3,"apples"])
-# print(D)
+
+
+# for a1 in human_actions:
+#     for a2 in machine_actions:
+#         for mode in modes:
+#             table = dpomdp.get_transition_table(mode,a1,a2)
+#             #print(table)
+#             sum = 0
+#             for elem in table:
+#                 sum += elem[1]
+
+
+# tlist = [0,1,2,3,4,5,6,7,8,9,10,11,12]
+# tlist2 = [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+# edges = ["a","b"] * 6
+# elist = [""]+ edges
+# print(elist)
+# elist2 = elist + ["c"]
+# print(elist2)
+# test_tree1 = ArrayTree(3,tlist, elist)
+# test_tree2 = ArrayTree(3,tlist2, elist2)
+
+
+# test_tree2.print()
+
+# print(test_tree1.get_children(0))
+
+# # D = [1,2,[3,"apples"]]
+# # print(D)
+# # D.remove([3,"apples"])
+# # print(D)
+# # a = [3,"apples"]
+# # D.append(a)
+# # D.append([3,"apples"])
+# # print(D)

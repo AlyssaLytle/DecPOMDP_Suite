@@ -7,7 +7,7 @@ from ArrayTree import ArrayTree
 
 class ACC_DPOMDP:
 
-    def __init__(self,start_state, mode_change_table, mach_comm_acts, mach_move_acts,hum_comm_acts,hum_move_acts,modes,prob_dict,cost_dict, scenario_number, human_observations, machine_observations, horizon):
+    def __init__(self,start_state, mode_change_table, mach_comm_acts, mach_move_acts,hum_comm_acts,hum_move_acts,modes,prob_dict,cost_dict, scenario_number, human_observations, machine_observations, horizon, init_actions):
         self.mode_change_table = mode_change_table
         self.states = modes
         self.human_actions = list(itertools.product(hum_move_acts, hum_comm_acts))
@@ -21,6 +21,7 @@ class ACC_DPOMDP:
         self.human_observations = human_observations
         self.machine_observations = machine_observations
         self.horizon = horizon
+        self.init_actions = init_actions
 
     def get_possible_transitions(self, start_state, hum_action, mach_action):
         #gives set of possible end states and the cause for those transitions
@@ -161,6 +162,8 @@ class ACC_DPOMDP:
             print("ERROR! Unrecognized scenario!")
 
     def get_cost(self, human_action, machine_action):
+        #print("human action")
+        #print(human_action)
         [hum_mvmt, hum_comm] = human_action
         [mach_mvmt, mach_comm] = machine_action
         safety = self.get_safety(hum_mvmt, mach_mvmt)
@@ -180,40 +183,32 @@ class ACC_DPOMDP:
         [hum_mvmt, hum_comm] = human_action
         [mach_mvmt, mach_comm] = machine_action
         if (mach_comm == "communicate") | (hum_comm == "pushbutton"):
-            return self.state_to_str(next_state)
+            return next_state
         else:
             return "none"
         
 
     
-    def get_cost(self, start_state, human_action, machine_action):
-        [hum_mvmt, hum_comm] = human_action
-        [mach_mvmt, mach_comm] = machine_action
-        safety = self.get_safety(hum_mvmt, mach_mvmt)
-        cost = 0
-        # cost for human to move
-        if hum_mvmt != "none":
-            cost += self.costs["human movement"]
-        # cost for unsafe state
-        if safety == False:
-            cost += self.costs["unsafe"]
-        # cost of machine updating the interface
-        if mach_comm == "communicate":
-            cost += self.costs["machine communication"]
-        return cost
+
     
     def get_one_step_value(self, state, human_action, machine_action):
         return 
     
     def get_value(self,h_tree,m_tree,state,h_idx, m_idx):
         #a state probability mapping should look like [[state1, prob1], [state2,prob2], etc...]
-        val = self.get_cost(state, h_tree.nodes[h_idx], m_tree.nodes[m_idx])
+        #h_tree.print()
+        #m_tree.print()
+        val = self.get_cost(h_tree.nodes[h_idx], m_tree.nodes[m_idx])
         
         if h_tree.has_child(h_idx):
             next_state_distribution = self.get_transition_table(state, h_tree.nodes[h_idx], m_tree.nodes[m_idx])
             for elem in next_state_distribution:
                 [next_state, prob] = elem
+                #print("Next state + probability: ")
+                #print(elem)
                 h_obs = self.get_human_observation(next_state,h_tree.nodes[h_idx], m_tree.nodes[m_idx])
                 m_obs = next_state
-                val += prob * self.get_value(h_tree, m_tree, h_tree.get_child_edge_idx_with_value(h_idx, h_obs), m_tree.get_child_edge_idx_with_value(m_idx, m_obs))
+                #print("Tree size: " + str(len(h_tree.nodes)))
+                #print("Child edge index: " + str(h_tree.get_child_edge_idx_with_value(h_idx, h_obs)))
+                val += prob * self.get_value(h_tree, m_tree, next_state, h_tree.get_child_edge_idx_with_value(h_idx, h_obs), m_tree.get_child_edge_idx_with_value(m_idx, m_obs))
         return val

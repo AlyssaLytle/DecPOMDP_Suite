@@ -1,3 +1,5 @@
+import copy
+
 class ArrayTree:
 
     #child_idx = given a node p, which index child is c?
@@ -67,10 +69,18 @@ class ArrayTree:
         #check if len(inp_array) == len(self.get_leaves())*num_branches
         self.nodes.extend(inp_nodes)
         self.edges.extend(inp_edges)
-    
+        
+    def copy_and_add_level(self, inp_nodes, inp_edges):
+        #input array should be the proper length
+        #check if len(inp_array) == len(self.get_leaves())*num_branches
+        tree = ArrayTree(self.num_branches, self.nodes.copy(), self.edges.copy())
+        tree.nodes.extend(inp_nodes)
+        tree.edges.extend(inp_edges)
+        return tree
     
     def fully_explored(self,horizon):
         #height of tree should be 1 less than horizon, e.g. if horizon is 1, return tree of height 0
+        #print("Height: " + str(self.get_height()))
         return ((horizon - 1) <= (self.get_height()))
     
     def get_level(self, idx):
