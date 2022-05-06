@@ -151,7 +151,7 @@ class DPOMDPWriterACC:
         #sample string: O: right comm : loc31-rmap2-ctrlH : obs2 obs2: 1
         obs_str = ""
         prefix = "O: " + self.action_to_str(human_action) + " " + self.action_to_str(machine_action) + " : "
-        prefix += self.state_to_str(start_state) + " : "
+        #prefix += self.state_to_str(start_state) + " : "
         transitions = self.get_possible_transitions(start_state, human_action, machine_action)
         if len(transitions) == 0:
             #state stays the same
@@ -310,12 +310,11 @@ class DPOMDPWriterACC:
                     observations.append(self.get_observation_string(state,h_action,m_action))
                     rewards.append(self.get_reward_string(state,h_action,m_action))
                 for m_action in m_actions2:
-                    transitions += "T: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : 1\n"   
-                    observations += "O: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : none sink : 1\n"   
+                    transitions += "T: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : 1\n"     
                     rwd = "R: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : * : * : -100000\n"
                     rewards.append(rwd)
                 transitions += "T: * * : sink : sink : 1 \n"
-                observations += "O: * * : sink : sink : none sink : 1\n"
+                observations += "O: * * : sink : none sink : 1\n"
         return [transitions, observations, rewards]
 
     def make_decpomdp(self, start_state):
