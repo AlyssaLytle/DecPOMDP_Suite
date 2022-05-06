@@ -302,19 +302,20 @@ class DPOMDPWriterACC:
         observations = []
         rewards = []
         for state in self.states:
-            m_actions = self.get_allowed_machine_actions(state)
-            m_actions2 = self.get_unallowed_machine_actions(state)
-            for h_action in self.human_actions:
-                for m_action in m_actions:
-                    transitions += self.get_transition_strings(state,h_action,m_action)
-                    observations.append(self.get_observation_string(state,h_action,m_action))
-                    rewards.append(self.get_reward_string(state,h_action,m_action))
-                for m_action in m_actions2:
-                    transitions += "T: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : 1\n"     
-                    rwd = "R: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : * : * : -100000\n"
-                    rewards.append(rwd)
-                transitions += "T: * * : sink : sink : 1 \n"
-                observations += "O: * * : sink : none sink : 1\n"
+            if state != "sink":
+                m_actions = self.get_allowed_machine_actions(state)
+                m_actions2 = self.get_unallowed_machine_actions(state)
+                for h_action in self.human_actions:
+                    for m_action in m_actions:
+                        transitions += self.get_transition_strings(state,h_action,m_action)
+                        observations.append(self.get_observation_string(state,h_action,m_action))
+                        rewards.append(self.get_reward_string(state,h_action,m_action))
+                    for m_action in m_actions2:
+                        transitions += "T: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : 1\n"     
+                        rwd = "R: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : * : * : -100000\n"
+                        rewards.append(rwd)
+        transitions += "T: * * : sink : sink : 1 \n"
+        observations += "O: * * : sink : none sink : 1\n"
         return [transitions, observations, rewards]
 
     def make_decpomdp(self, start_state):
