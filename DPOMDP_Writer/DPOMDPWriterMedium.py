@@ -103,7 +103,7 @@ class DPOMDPWriterACC:
     def get_cost(self, human_action, machine_action, start_state):
         [hum_mvmt, hum_comm] = human_action
         [mach_mvmt, mach_comm] = machine_action
-        non_auto_states = ["standby", "override"]
+        non_auto_states = ["standby", "override","error"]
         is_auto = start_state in non_auto_states
         safety = self.get_safety(hum_mvmt, mach_mvmt)
         cost = 0
@@ -119,6 +119,9 @@ class DPOMDPWriterACC:
         #reward for the human trying to switch to autonomous state from non-auto one
         if (is_auto == False) & (hum_comm == "pushbutton") :
             cost += self.costs["automation reward"]
+        #reward for STAYING in autonomous state
+        if is_auto & (hum_comm == "dontpushbutton"):
+            cost += self.costs["automation reward"]            
         return cost
 
 
