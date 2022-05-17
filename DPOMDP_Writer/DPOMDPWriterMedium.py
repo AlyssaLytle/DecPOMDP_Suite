@@ -100,22 +100,24 @@ class DPOMDPWriterACC:
         else:
             print("ERROR! Unrecognized scenario!")
 
-    def get_cost(self, human_action, machine_action):
+    def get_cost(self, human_action, machine_action, start_state):
         [hum_mvmt, hum_comm] = human_action
         [mach_mvmt, mach_comm] = machine_action
+        non_auto_states = ["standby", "override"]
+        is_auto = start_state in non_auto_states
         safety = self.get_safety(hum_mvmt, mach_mvmt)
         cost = 0
         # cost for human to move
-        #if hum_mvmt != "none":
-        #    cost += self.costs["human movement"]
+        if hum_mvmt != "none":
+            cost += self.costs["human movement"]
         # cost for unsafe state
         if safety == False:
             cost += self.costs["unsafe"]
         # cost of machine updating the interface
         if mach_comm == "communicate":
             cost += self.costs["machine communication"]
-        #reward for automation
-        if mach_mvmt != "none":
+        #reward for the human trying to switch to autonomous state from non-auto one
+        if (is_auto == False) & (hum_comm == "pushbutton") :
             cost += self.costs["automation reward"]
         return cost
 
@@ -124,7 +126,7 @@ class DPOMDPWriterACC:
         #Sample str: R: switch-ctrl down : loc23-rmap2-ctrlM : * : * : 95
         rew_str = "R: " + self.action_to_str(human_action) + " " + self.action_to_str(machine_action) + " : "
         rew_str += self.state_to_str(start_state) + " : * : * : "
-        rew_str += str(self.get_cost(human_action,machine_action)) + "\n"
+        rew_str += str(self.get_cost(human_action,machine_action,start_state)) + "\n"
         return rew_str
 
 
@@ -178,8 +180,8 @@ class DPOMDPWriterACC:
         return prefix
 
     def get_cost_from_start_state(self, start_state, hum_action, mach_action):
-        next_state = self.decpomdp.transition(start_state,hum_action,mach_action)
-        return self.decpomdp.get_cost(hum_action,mach_action)
+        #next_state = self.decpomdp.transition(start_state,hum_action,mach_action)
+        return self.decpomdp.get_cost(hum_action,mach_action, start_state)
 
     def get_possible_transitions(self, start_state, hum_action, mach_action):
         #gives set of possible end states and the cause for those transitions
@@ -280,7 +282,15 @@ class DPOMDPWriterACC:
         return self.combine_duplicate_transitions(transition_table)
                                             
 
-
+    def get_observation_probabilities(self, state, human_action, machine_action):
+        #given a start state and actions, what possible things could I observe with what likelihood
+        possible_transitions = self.get_transition_table(state, human_action, machine_action)
+        for elem in possible_transitions:
+            [next_state, probability] = elem
+            [human_obs, machine_obs] = self.get_observation(next_state, human_action, machine_action)
+            print("Next state: " + next_state)
+            print("--> Human will observe " + human_obs + " with " + str(round(100*probability,2)) + "%% likelihood")
+            print("--> Machine will observe " + machine_obs + " with " + str(round(100*probability,2)) + "%% likelihood")
 
 
     def get_transition_strings(self, state, human_action, machine_action):
