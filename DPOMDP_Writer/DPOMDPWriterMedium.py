@@ -104,7 +104,7 @@ class DPOMDPWriterACC:
         [hum_mvmt, hum_comm] = human_action
         [mach_mvmt, mach_comm] = machine_action
         non_auto_states = ["standby", "override","error"]
-        is_auto = start_state in non_auto_states
+        is_non_auto = start_state in non_auto_states
         safety = self.get_safety(hum_mvmt, mach_mvmt)
         cost = 0
         # cost for human to move
@@ -117,10 +117,10 @@ class DPOMDPWriterACC:
         if mach_comm == "communicate":
             cost += self.costs["machine communication"]
         #reward for the human trying to switch to autonomous state from non-auto one
-        if (is_auto == False) & (hum_comm == "pushbutton") :
+        if (is_non_auto) & (hum_comm == "pushbutton") :
             cost += self.costs["automation reward"]
         #reward for STAYING in autonomous state
-        if is_auto & (hum_comm == "dontpushbutton"):
+        if (is_non_auto == False) & (hum_comm == "dontpushbutton"):
             cost += self.costs["automation reward"]            
         return cost
 
@@ -158,6 +158,14 @@ class DPOMDPWriterACC:
         prefix = "O: " + self.action_to_str(human_action) + " " + self.action_to_str(machine_action) + " : "
         #prefix += self.state_to_str(start_state) + " : "
         transitions = self.get_possible_transitions(start_state, human_action, machine_action)
+        #[hum_mvmt, hum_comm] = human_action
+        #[mach_mvmt, mach_comm] = machine_action
+        #flag = False
+        # if (hum_mvmt == "accel") & (hum_comm == "pushbutton") & (start_state == "following") & (mach_mvmt == "accel"):
+        #     print(human_action)
+        #     print(machine_action)
+        #     print(transitions)
+        #     flag = True
         if len(transitions) == 0:
             #state stays the same
             next_state = start_state
@@ -165,6 +173,7 @@ class DPOMDPWriterACC:
             obs_str += prefix + self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
         else:
             explored_transitions = []
+            
             for t in transitions:
                 [cause, next_state] = t
                 start_end_pair = [start_state, next_state]
@@ -172,6 +181,7 @@ class DPOMDPWriterACC:
                 check = self.has_array_match(explored_transitions,start_end_pair)
                 if (check == False):
                     explored_transitions.append(start_end_pair)
+                    #print(explored_transitions)
                     [human_obs, machine_obs] = self.get_observation(next_state,human_action,machine_action)
                     obs_str += prefix + self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
         return obs_str
