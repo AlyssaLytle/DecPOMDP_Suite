@@ -1,5 +1,6 @@
 import copy
 
+
 class ArrayTree:
 
     #child_idx = given a node p, which index child is c?
@@ -96,6 +97,24 @@ class ArrayTree:
         print(self.nodes[0])
         for i in range(1,len(self.nodes)):
             print("-" * self.get_level(i) + " Obs: " + str(self.edges[i]) + " -> Act: " + str(self.nodes[i]))
+    
+   
+    def get_graph_viz(self, tree_name):
+        #returns tree in graph_viz format
+        output = ''
+        output += 'digraph ' + tree_name + ' {\n'
+        output += 'edge [dir=none];\n'
+        for i in range(len(self.nodes)):
+            output += 'node' + str(i) + ' [ label = "' + str(self.nodes[i]) + '" ];\n'
+        for i in range(1,len(self.nodes)):
+            output += 'node' + str(self.get_parent_idx(i)) + ' -> ' 
+            output += 'node' + str(i) + ' [label="' + str(self.edges[i]) + '"];\n'
+        output += "}"
+        return output
+    
+    
+    
+    
             
     def get_child_edge_idx_with_value(self, parent_idx, value):
         for child_idx in self.get_children_indexes(parent_idx):

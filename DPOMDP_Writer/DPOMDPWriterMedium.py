@@ -2,11 +2,14 @@
 import itertools
 import copy
 #from help_methods import *
-from ExtractCSV import latex_to_table
+from DPOMDP_Writer.ExtractCSV import latex_to_table
+import sys
+sys.path.append("..")
+from ArrayTree import ArrayTree
 
 
 
-mode_change_table = latex_to_table("TransitionLatexClean.csv")
+mode_change_table = latex_to_table("DPOMDP_Writer/TransitionLatexClean.csv")
 
 class DPOMDPWriterACC:
 
@@ -137,7 +140,7 @@ class DPOMDPWriterACC:
         [hum_mvmt, hum_comm] = human_action
         [mach_mvmt, mach_comm] = machine_action
         machine_obs = self.state_to_str(next_state)
-        if (mach_comm == "communicate") | (hum_comm == "pushbutton"):
+        if (mach_comm == "communicate"): # | (hum_comm == "pushbutton"):
             human_obs = self.state_to_str(next_state)
         else:
             human_obs = "none"
@@ -304,7 +307,26 @@ class DPOMDPWriterACC:
             print("Next state: " + next_state)
             print("--> Human will observe " + human_obs + " with " + str(round(100*probability,2)) + "%% likelihood")
             print("--> Machine will observe " + machine_obs + " with " + str(round(100*probability,2)) + "%% likelihood")
-
+            
+    def get_possible_observations(self, state, human_action, machine_action):
+        #returns a list of all possible observations for human and machine [human_obs_list, machine_obs_list]
+        human_obs_list = []
+        mach_obs_list = []
+        possible_transitions = self.get_transition_table(state, human_action, machine_action)
+        for elem in possible_transitions:
+            [next_state, probability] = elem
+            [human_obs, machine_obs] = self.get_observation(next_state, human_action, machine_action)
+            human_obs_list.append(human_obs)
+            mach_obs_list.append(machine_obs)
+        return [human_obs_list, mach_obs_list]
+    
+    def get_possible_next_states(self, state, human_action, machine_action):
+        possible_transitions = self.get_transition_table(state, human_action, machine_action)
+        next_states = []
+        for elem in possible_transitions:
+            [next_state, probability] = elem
+            next_states.append(next_state)
+        return next_states
 
     def get_transition_strings(self, state, human_action, machine_action):
         #Gets Transition strings for the LARGE ACC Model
@@ -353,6 +375,40 @@ class DPOMDPWriterACC:
                 entry = [actions[1].split("-"), actions[2].split("-"), t_list[2].replace(' ',''), t_list[4].replace(' ',''), float(t_list[5])]
                 print(entry)
 
+    
+    def get_graph_viz_limit_branches(self, human_tree, machine_tree, start_state):
+        #returns trees in graph_viz format including only relevant branches
+        #ONLY WRITTEN FOR TREES OF HEIGHT 1 FOR NOW
+        output1 = 'digraph human_tree {\n'
+        output2 = 'digraph machine_tree {\n'
+        output1 += 'edge [dir=none];\n'
+        output2 += 'edge [dir=none];\n'
+        nodes_h = ""
+        edges_h = ""
+        nodes_m = ""
+        edges_m = ""
+        output1 += 'node0 [ label = "' + self.action_to_str(human_tree.nodes[0]) + '" ];\n'
+        output2 += 'node0 [ label = "' + self.action_to_str(machine_tree.nodes[0]) + '" ];\n'
+        [human_obs, mach_obs] = self.get_possible_observations(start_state, human_tree.nodes[0], machine_tree.nodes[0])
+        num_hum_nodes = 1
+        num_mach_nodes = 1
+        for i in range(1,len(human_tree.nodes)):
+            human_edge = human_tree.edges[i]
+            machine_edge = machine_tree.edges[i]
+            if human_edge in human_obs:
+                nodes_h += 'node' + str(num_hum_nodes) + ' [ label = "' + self.action_to_str(human_tree.nodes[i]) + '" ];\n'
+                edges_h += 'node0 -> ' 
+                edges_h += 'node' + str(num_hum_nodes) + ' [label="' + str(human_tree.edges[i]) + '"];\n'
+                num_hum_nodes += 1
+            if machine_edge in mach_obs:
+                nodes_m += 'node' + str(num_mach_nodes) + ' [ label = "' + self.action_to_str(machine_tree.nodes[i]) + '" ];\n'
+                edges_m += 'node0 -> ' 
+                edges_m += 'node' + str(num_mach_nodes) + ' [label="' + str(machine_tree.edges[i]) + '"];\n'
+                num_mach_nodes += 1
+        output1 += nodes_h + edges_h
+        output2 += nodes_m + edges_m
+        output = output1 + '}\n \n' + output2 + '}'
+        return output
     
     def write_to_file(self, filename, start_state):
         file_data = []
