@@ -78,23 +78,23 @@ class DPOMDPWriterACC:
         anti_decel = ["accel", "maintainspeed"]
         anti_accel = ["decel"]
         if (scenario == 1) | (scenario == 2) | (scenario == 5):
-            if (human_action == "decel"):
+            if (human_action == "decel") & ~(machine_action in anti_decel):
                 return True
-            elif (machine_action == "decel"): #& ~(human_action in anti_decel):
+            elif (machine_action == "decel") & ~(human_action in anti_decel):
                 return True
             else:
                 return False
         elif (scenario == 3) | (scenario == 7):
-            if (human_action == "decel"):
+            if (human_action == "decel") & ~(machine_action in anti_decel):
                 return False
-            elif (machine_action == "decel"): #& ~(human_action in anti_decel):
+            elif (machine_action == "decel") & ~(human_action in anti_decel):
                 return False
             else:
                 return True
         elif (scenario == 4) | (scenario == 8):
-            if human_action == "accel":
+            if (human_action == "accel") & ~(machine_action in anti_accel):
                 return True
-            elif (machine_action == "accel"): #& ~(human_action in anti_accel):
+            elif (machine_action == "accel") & ~(human_action in anti_accel):
                 return True
             else:
                 return False
@@ -407,7 +407,7 @@ class DPOMDPWriterACC:
                 num_mach_nodes += 1
         output1 += nodes_h + edges_h
         output2 += nodes_m + edges_m
-        output = output1 + '}\n \n' + output2 + '}'
+        output = [output1 + '}', output2 + '}']
         return output
     
     def write_to_file(self, filename, start_state):
