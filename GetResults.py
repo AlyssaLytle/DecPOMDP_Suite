@@ -10,6 +10,7 @@ path_to_res = "~/.madp/results/" + filename + "/" + result
 with open('dpomdp.csv', newline='') as csvfile:
     dreader = csv.reader(csvfile)
     data = list(dreader)
+    print(data)
     machine_comm_actions = data[0]
     machine_mvmt_actions = data[1]
     human_comm_actions = data[2]

@@ -1,1 +1,9 @@
-lkj
+communicate,dontcommunicate
+accel,decel,maintainspeed,none
+pushbutton,dontpushbutton
+accel,decel,maintainspeed,none
+standby,following,speedcontrol,hold,override,error,sink
+exithold,error
+human movement,unsafe,machine communication,automation reward
+standby,following,speedcontrol,hold,override,error,none
+standby,following,speedcontrol,hold,override,error,sink
