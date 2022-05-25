@@ -2,6 +2,7 @@ import sys
 from DPOMDP_Writer.Reader import *
 from DPOMDP_Writer.DPOMDPWriterMedium import DPOMDPWriterACC
 import csv
+import json
 #Call should look like python3 Getgit aResults.py filename start_state scenario_number
 [cmd, filename, start_state, scenario_number] = sys.argv
 result = "GMAA_" + filename + "_kGMAA_QMDP_h2_restarts1_k1_NoCache_BGIP-AM_AM_restarts10_JPol"
@@ -16,8 +17,10 @@ with open('dpomdp.csv', newline='') as csvfile:
     human_comm_actions = data[2]
     human_mvmt_actions = data[3]
     modes = data[4]
-    prob_dict = data[5]
-    cost_dict = data[6]
+    prob_dict = json.loads(data[5])
+    print(prob_dict)
+    cost_dict = json.loads(data[6])
+    print(cost_dict)
     human_observations = data[7]
     machine_observations = data[8]
 
