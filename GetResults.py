@@ -23,6 +23,6 @@ with open('dpomdp.csv', newline='') as csvfile:
 
 writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, modes,prob_dict,cost_dict,scenario_number, human_observations, machine_observations)
 
-[h_tree, m_tree] = get_trees(result, len(human_observations), len(machine_observations))
+[h_tree, m_tree] = get_trees(path_to_res, len(human_observations), len(machine_observations))
 graphs = writer.get_graph_viz_limit_branches(h_tree,m_tree, start_state)
 print(graphs)
