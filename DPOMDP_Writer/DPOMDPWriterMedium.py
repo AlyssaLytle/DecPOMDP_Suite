@@ -27,6 +27,23 @@ class DPOMDPWriterACC:
         self.human_observations = human_observations
         self.machine_observations = machine_observations
 
+    def get_value(self,h_tree,m_tree,state,h_idx, m_idx):
+        #a state probability mapping should look like [[state1, prob1], [state2,prob2], etc...]
+        #h_tree.print()
+        #m_tree.print()
+        val = self.get_cost(h_tree.nodes[h_idx], m_tree.nodes[m_idx], state)
+        
+        if h_tree.has_child(h_idx):
+            next_state_distribution = self.get_transition_table(state, h_tree.nodes[h_idx], m_tree.nodes[m_idx])
+            for elem in next_state_distribution:
+                [next_state, prob] = elem
+                #print("Next state + probability: ")
+                #print(elem)
+                [h_obs, m_obs] = self.get_observation(next_state,h_tree.nodes[h_idx], m_tree.nodes[m_idx])
+                #print("Tree size: " + str(len(h_tree.nodes)))
+                #print("Child edge index: " + str(h_tree.get_child_edge_idx_with_value(h_idx, h_obs)))
+                val += prob * self.get_value(h_tree, m_tree, next_state, h_tree.get_child_edge_idx_with_value(h_idx, h_obs), m_tree.get_child_edge_idx_with_value(m_idx, m_obs))
+        return val
 
     def get_allowed_machine_actions(self,mode):
         sc = (mode == "speedcontrol")
@@ -111,7 +128,7 @@ class DPOMDPWriterACC:
         safety = self.get_safety(hum_mvmt, mach_mvmt)
         cost = 0
         # cost for human to move
-        if hum_mvmt != "none":
+        if (hum_mvmt != "none"): #& (is_non_auto == False):
             cost += self.costs["human movement"]
         # cost for unsafe state
         if safety == False:
