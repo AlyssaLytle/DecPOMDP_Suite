@@ -1,4 +1,5 @@
 import sys
+from tracemalloc import start
 from DPOMDP_Writer.Reader import *
 from DPOMDP_Writer.DPOMDPWriterMedium import DPOMDPWriterACC
 import csv
@@ -33,9 +34,22 @@ writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_
 
 [h_tree, m_tree] = get_trees(path_to_res, len(human_observations), len(machine_observations))
 [hgraph, mgraph] = writer.get_graph_viz_limit_branches(h_tree,m_tree, start_state)
-f = open("htree.gv", "w")
+f = open("htree.dot", "w")
 f.writelines(hgraph)
 f.close()
-g = open("mtree.gv", "w")
+g = open("mtree.dot", "w")
 g.writelines(mgraph)
 g.close()
+
+graph = graphviz.Source.from_file('htree.dot')
+graph.format = 'png'
+#graph.view()
+tree_name = "figs/" + start_state + "-scen" + str(scenario_number) + "_hum"
+filename = graph.render(filename=tree_name)
+
+graph = graphviz.Source.from_file('mtree.dot')
+graph.format = 'png'
+#graph.view()
+tree_name = "figs/" + start_state + "-scen" + str(scenario_number) + "_mach"
+filename = graph.render(filename=tree_name)
+
