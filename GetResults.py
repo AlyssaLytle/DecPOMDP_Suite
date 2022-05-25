@@ -14,19 +14,15 @@ path_to_res = "/afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/" + filename + "
 with open('dpomdp.csv', newline='') as csvfile:
     dreader = csv.reader(csvfile)
     data = list(dreader)
-    print(data)
     machine_comm_actions = data[0]
     machine_mvmt_actions = data[1]
     human_comm_actions = data[2]
     human_mvmt_actions = data[3]
     modes = data[4]
     pdict = data[5][0].replace('""','"')
-    print(pdict)
     prob_dict = json.loads(pdict)
-    print(prob_dict)
     cdict = data[6][0].replace('""','"')
     cost_dict = json.loads(cdict)
-    print(cost_dict)
     human_observations = data[7]
     machine_observations = data[8]
 
