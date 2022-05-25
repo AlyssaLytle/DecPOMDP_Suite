@@ -17,9 +17,12 @@ with open('dpomdp.csv', newline='') as csvfile:
     human_comm_actions = data[2]
     human_mvmt_actions = data[3]
     modes = data[4]
-    prob_dict = json.loads(data[5][0])
+    pdict = data[5][0].replace('""','"')
+    print(pdict)
+    prob_dict = json.loads(pdict)
     print(prob_dict)
-    cost_dict = json.loads(data[6][0])
+    cdict = data[6][0].replace('""','"')
+    cost_dict = json.loads(cdict)
     print(cost_dict)
     human_observations = data[7]
     machine_observations = data[8]
