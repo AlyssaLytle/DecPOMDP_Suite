@@ -1,0 +1,6 @@
+*.log
+.DS_Store
+__pycache__/
+MADPtools/testpolicy
+MADPtools/transtable.txt
+MADPtools/gvscratch.py
