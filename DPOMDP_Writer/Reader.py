@@ -1,4 +1,4 @@
-filename = "testpolicy"
+
 
 import sys
 sys.path.append("..")

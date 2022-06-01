@@ -31,7 +31,7 @@ class DPOMDPWriterACC:
         #a state probability mapping should look like [[state1, prob1], [state2,prob2], etc...]
         #h_tree.print()
         #m_tree.print()
-        val = self.get_cost(h_tree.nodes[h_idx], m_tree.nodes[m_idx], state)
+        val = self.get_reward(h_tree.nodes[h_idx], m_tree.nodes[m_idx], state)
         
         if h_tree.has_child(h_idx):
             next_state_distribution = self.get_transition_table(state, h_tree.nodes[h_idx], m_tree.nodes[m_idx])
@@ -144,6 +144,25 @@ class DPOMDPWriterACC:
             cost += self.costs["automation reward"]            
         return cost
 
+    def get_reward(self,human_action, machine_action, start_state):
+        [hum_mvmt, hum_comm] = human_action
+        [mach_mvmt, mach_comm] = machine_action
+        non_auto_states = ["standby", "override","error"]
+        is_non_auto = start_state in non_auto_states
+        safety = self.get_safety(hum_mvmt, mach_mvmt)
+        reward = 0
+        #award for human not doing physical action
+        if hum_mvmt == "none":
+            reward += 5
+        if safety:
+            reward += 10
+        if mach_comm == "dontcommunicate":
+            reward += .5
+        if (is_non_auto) & (hum_comm == "pushbutton") :
+            reward += 1
+        if (is_non_auto == False) & (hum_comm == "dontpushbutton"):
+            reward += 1
+        return reward
 
     def get_reward_string(self, start_state, human_action, machine_action):
         #Sample str: R: switch-ctrl down : loc23-rmap2-ctrlM : * : * : 95
@@ -214,7 +233,7 @@ class DPOMDPWriterACC:
 
     def get_cost_from_start_state(self, start_state, hum_action, mach_action):
         #next_state = self.decpomdp.transition(start_state,hum_action,mach_action)
-        return self.decpomdp.get_cost(hum_action,mach_action, start_state)
+        return self.decpomdp.get_reward(hum_action,mach_action, start_state)
 
     def get_possible_transitions(self, start_state, hum_action, mach_action):
         #gives set of possible end states and the cause for those transitions
@@ -313,6 +332,89 @@ class DPOMDPWriterACC:
             trans_line = [[state,float(1)]]
             transition_table += trans_line
         return self.combine_duplicate_transitions(transition_table)
+    
+    def combine_duplicate_transitions_with_strings(self, trans_table):
+        #combines probabilities for transitions that end up in the same next-state
+        
+        prelen = len(trans_table)
+        return_table = []
+        
+        while len(trans_table)>1:
+            # Format: [[state1,p1,f1,cause], [state2,p2,f2,cause],...]
+            flag = True 
+            j = 1
+            while j < len(trans_table):
+                if (trans_table[0][0] == trans_table[j][0]) & (trans_table[0][3] == trans_table[j][3]) :
+                    #Same start state AND same cause
+                    #print("Duplicate Found")
+                    flag = False
+                    combined_prob = trans_table[0][1]+trans_table[j][1]
+                    combined_prob_form = trans_table[0][2]+ " + " + trans_table[j][2]
+                    combined_cause = trans_table[0][3]
+    
+                    return_table += [[trans_table[0][0], combined_prob, combined_prob_form, combined_cause]]
+                    trans_table.remove(trans_table[j])
+                else:
+                    j += 1
+            if flag:
+                return_table += [trans_table[0]]
+            trans_table.remove(trans_table[0])
+            if trans_table is None:
+                trans_table = []
+        return_table += trans_table
+        return return_table
+    
+    def get_transition_table_with_form_and_event(self, state, human_action, machine_action):
+        #Gets table of possible next states and their probability 
+        # PLUS formula of probability AND cause of transition
+        #[[state1,p1,f1,cause], [state2,p2,f2,cause],...]
+        transition_table = []
+        p_error = float(self.prob_dict["error"])
+        p_hold_exit = float(self.prob_dict["exithold"])
+
+        possible_transitions = self.get_possible_transitions(state, human_action, machine_action)
+        if len(possible_transitions)>0:
+            num_transitions = len(possible_transitions)
+            remaining_prob = float(1/num_transitions)
+            remaining_prob_str = "1/" + str(num_transitions) 
+            if (state == "following")|(state == "speedcontrol")|(state=="hold"):
+                prob_error = float(p_error/num_transitions)
+                prob_error_str = str(p_error)+ "/" + str(num_transitions)
+                num_transitions = num_transitions - 1
+                if num_transitions > 0:
+                    remaining_prob = float((1 - prob_error)/num_transitions)
+                    remaining_prob_str = "(1 - " + prob_error_str + ")/" + str(num_transitions)
+                else:
+                    remaining_prob = float((1 - prob_error))
+                    remaining_prob_str = "1 - " + prob_error_str
+            if state == "hold":
+                prob_hold = p_hold_exit/num_transitions
+                prob_hold_str = "p_hold_exit/" + str(num_transitions)
+                num_transitions = num_transitions - 1
+                if num_transitions > 0:
+                    remaining_prob = float((1 - prob_hold - prob_error)/num_transitions)
+                    remaining_prob_str = "(1 - " + prob_hold_str + " - " + prob_error_str + ")/" + str(num_transitions)
+                else: 
+                    remaining_prob = float((1 - prob_hold - prob_error))
+                    remaining_prob_str = "1 - "  + prob_hold_str + " - " + prob_error_str
+            if num_transitions == 0:
+                #state stays the same unless there's an event
+                trans_line = [[state, remaining_prob, remaining_prob_str, "no events occur"]]
+                transition_table += trans_line
+            for transition in possible_transitions:
+                [cause, end_state] = transition
+                if cause[1] == "error":
+                    trans_line = [[end_state, prob_error, prob_error_str, "error event"] ]
+                elif cause[1] == "exit": 
+                    trans_line = [[end_state, prob_hold, prob_hold_str, "exit hold event"]]
+                else:
+                    trans_line = [[end_state, remaining_prob, remaining_prob_str, cause[0] + ": " + cause[1] + cause[2]]]
+                transition_table += trans_line
+        else:
+            #state stays the same
+            trans_line = [[state,float(1), str(1), "state never changes"]]
+            transition_table += trans_line
+        return self.combine_duplicate_transitions_with_strings(transition_table)
                                             
 
     def get_observation_probabilities(self, state, human_action, machine_action):
@@ -357,7 +459,28 @@ class DPOMDPWriterACC:
             transition_list += prefix  + self.state_to_str(end_state) + " : " + str(prob) + "\n"
         return transition_list
         
-
+    def get_printable_transition_table(self):
+        #outputs table of transition conditions with probabilities
+        #elements should look like 
+        # [start_state, next_state, event, probability equation, prob number]
+        t_table = []
+        for state in self.states:
+            if state != "sink":
+                m_actions = self.get_allowed_machine_actions(state)
+                m_actions2 = self.get_unallowed_machine_actions(state)
+                for h_action in self.human_actions:
+                    for m_action in m_actions:
+                        trans = self.get_transition_table_with_form_and_event(state, h_action, m_action)
+                        for elem in trans:
+                            [next_state, prob, form, event] = elem
+                            new_elem = [state, next_state, event, form, prob, h_action, m_action]
+                            t_table.append(new_elem)
+                    for m_action in m_actions2:
+                        #forbidden transitions (we define these with sink states)
+                        new_elem = [state, "sink", "impossible transition", str(1), 1]
+                        t_table.append(new_elem)
+        return t_table
+            
 
     def get_transitions(self):
         transitions = []
