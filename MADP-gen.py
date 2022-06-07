@@ -39,7 +39,8 @@ human_movement_cost = -2
 unsafe_cost = -100
 comm_cost = -1
 automation_reward = 1
-cost_dict = {"human movement":human_movement_cost, "unsafe": unsafe_cost, "machine communication": comm_cost, "automation reward" : automation_reward}
+safety_reward = 5
+cost_dict = {"human movement":human_movement_cost, "unsafe": unsafe_cost, "machine communication": comm_cost, "automation reward" : automation_reward, "safety reward" : safety_reward}
 
 ### Write DPOMDP info to a csv file
 with open('dpomdp.csv', 'w', newline='') as csvfile:

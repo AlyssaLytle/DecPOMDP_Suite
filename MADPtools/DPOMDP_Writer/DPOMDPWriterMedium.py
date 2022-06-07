@@ -133,6 +133,9 @@ class DPOMDPWriterACC:
         # cost for unsafe state
         if safety == False:
             cost += self.costs["unsafe"]
+        #reward for not crashing
+        else:
+            cost += self.costs["safety reward"]
         # cost of machine updating the interface
         if mach_comm == "communicate":
             cost += self.costs["machine communication"]
@@ -143,6 +146,7 @@ class DPOMDPWriterACC:
         if (is_non_auto == False) & (hum_comm == "dontpushbutton"):
             cost += self.costs["automation reward"]            
         return cost
+    
 
     def get_reward(self,human_action, machine_action, start_state):
         [hum_mvmt, hum_comm] = human_action
