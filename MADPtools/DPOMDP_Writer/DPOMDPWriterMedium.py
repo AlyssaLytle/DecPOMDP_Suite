@@ -2,14 +2,14 @@
 import itertools
 import copy
 #from help_methods import *
-from DPOMDP_Writer.ExtractCSV import latex_to_table
+from MADPtools.DPOMDP_Writer.ExtractCSV import latex_to_table
 import sys
 sys.path.append("..")
 from ArrayTree import ArrayTree
 
 
 
-mode_change_table = latex_to_table("DPOMDP_Writer/TransitionLatexClean.csv")
+mode_change_table = latex_to_table("MADPtools/DPOMDP_Writer/TransitionLatexClean.csv")
 
 class DPOMDPWriterACC:
 
@@ -456,7 +456,7 @@ class DPOMDPWriterACC:
         transition_table = self.get_transition_table(state, human_action, machine_action)
         for elem in transition_table:
             [end_state, prob] = elem
-            transition_list += prefix  + self.state_to_str(end_state) + " : " + str(prob) + "\n"
+            transition_list += prefix  + self.state_to_str(end_state) + " : " + str(round(prob,2)) + "\n"
         return transition_list
         
     def get_printable_transition_table(self):
