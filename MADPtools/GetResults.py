@@ -6,7 +6,7 @@ import csv
 import json
 import graphviz
 
-#Call should look like python3 Getgit aResults.py filename start_state scenario_number
+#Call should look like python3 GetResults.py filename start_state scenario_number
 [cmd, filename, start_state, scenario_number] = sys.argv
 result = "GMAA_" + filename + "_kGMAA_QMDP_h2_restarts1_k1_NoCache_BGIP-AM_AM_restarts10_JPol"
 path_to_res = "/afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/" + filename + "/" + result

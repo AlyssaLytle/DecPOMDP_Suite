@@ -3,7 +3,7 @@ from gettext import find
 import itertools
 import copy
 #from help_methods import *
-from MADPtools.DPOMDP_Writer.ExtractCSV import latex_to_table
+from DPOMDP_Writer.ExtractCSV import latex_to_table
 import sys
 sys.path.append("..")
 from ArrayTree import ArrayTree
@@ -33,7 +33,7 @@ def find_possible_action_next_state_combos(transition_list):
                 action_state_combos.append(triple)
     return action_state_combos
 
-mode_change_table = latex_to_table("MADPtools/DPOMDP_Writer/TransitionLatexClean.csv")
+mode_change_table = latex_to_table("DPOMDP_Writer/TransitionLatexClean.csv")
 
 class DPOMDPWriterACC:
 
@@ -55,7 +55,7 @@ class DPOMDPWriterACC:
         #a state probability mapping should look like [[state1, prob1], [state2,prob2], etc...]
         #h_tree.print()
         #m_tree.print()
-        val = self.get_reward(h_tree.nodes[h_idx], m_tree.nodes[m_idx], state)
+        val = self.get_cost(h_tree.nodes[h_idx], m_tree.nodes[m_idx], state)
         
         if h_tree.has_child(h_idx):
             next_state_distribution = self.get_transition_table(state, h_tree.nodes[h_idx], m_tree.nodes[m_idx])
@@ -152,17 +152,24 @@ class DPOMDPWriterACC:
         safety = self.get_safety(hum_mvmt, mach_mvmt)
         cost = 0
         # cost for human to move
-        if (hum_mvmt != "none"): #& (is_non_auto == False):
-            cost += self.costs["human movement"]
+        #if (hum_mvmt != "none"): #& (is_non_auto == False):
+        #    cost += self.costs["human movement"]
         # cost for unsafe state
-        if safety == False:
-            cost += self.costs["unsafe"]
+        if (hum_mvmt == "none"):
+            no_mvmt_rew = -1 * self.costs["human movement"]
+            cost += no_mvmt_rew
+        #if safety == False:
+        #    cost += self.costs["unsafe"]
         #reward for not crashing
-        else:
-            cost += self.costs["safety reward"]
+        if safety:
+            safe_rew = self.costs["unsafe"] * -1
+            cost += safe_rew
         # cost of machine updating the interface
-        if mach_comm == "communicate":
-            cost += self.costs["machine communication"]
+        #if mach_comm == "communicate":
+        #    cost += self.costs["machine communication"]
+        if mach_comm == "dontcommunicate":
+            no_comm_rew = self.costs["machine communication"] * -1
+            cost += no_comm_rew
         #reward for the human trying to switch to autonomous state from non-auto one
         if (is_non_auto) & (hum_comm == "pushbutton") :
             cost += self.costs["automation reward"]
@@ -172,25 +179,7 @@ class DPOMDPWriterACC:
         return cost
     
 
-    def get_reward(self,human_action, machine_action, start_state):
-        [hum_mvmt, hum_comm] = human_action
-        [mach_mvmt, mach_comm] = machine_action
-        non_auto_states = ["standby", "override","error"]
-        is_non_auto = start_state in non_auto_states
-        safety = self.get_safety(hum_mvmt, mach_mvmt)
-        reward = 0
-        #award for human not doing physical action
-        if hum_mvmt == "none":
-            reward += 5
-        if safety:
-            reward += 10
-        if mach_comm == "dontcommunicate":
-            reward += .5
-        if (is_non_auto) & (hum_comm == "pushbutton") :
-            reward += 1
-        if (is_non_auto == False) & (hum_comm == "dontpushbutton"):
-            reward += 1
-        return reward
+    
 
     def get_reward_string(self, start_state, human_action, machine_action):
         #Sample str: R: switch-ctrl down : loc23-rmap2-ctrlM : * : * : 95
@@ -258,9 +247,7 @@ class DPOMDPWriterACC:
         prefix += self.state_to_str(next_state) + " : " + str(prob) + "\n"
         return prefix
 
-    def get_cost_from_start_state(self, start_state, hum_action, mach_action):
-        #next_state = self.decpomdp.transition(start_state,hum_action,mach_action)
-        return self.decpomdp.get_reward(hum_action,mach_action, start_state)
+    
 
     def get_possible_transitions(self, start_state, hum_action, mach_action):
         #gives set of possible end states and the cause for those transitions

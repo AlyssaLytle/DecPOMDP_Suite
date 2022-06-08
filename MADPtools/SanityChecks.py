@@ -1,7 +1,9 @@
 import json
 import csv
+from DPOMDP_Writer.Reader import *
+from DPOMDP_Writer.DPOMDPWriterMedium import *
 
-with open('../dpomdp.csv', newline='') as csvfile:
+with open('dpomdp.csv', newline='') as csvfile:
     dreader = csv.reader(csvfile)
     data = list(dreader)
     machine_comm_actions = data[0]
@@ -17,6 +19,9 @@ with open('../dpomdp.csv', newline='') as csvfile:
     machine_observations = data[8]
 
 
+test_dpomdp = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, modes,prob_dict,cost_dict, 1, human_observations, machine_observations)
+
+
 def triple_in_list(inp_list, pair):
     #checks if a list of size 3 is in inp_list
     for elem in inp_list:
@@ -24,8 +29,9 @@ def triple_in_list(inp_list, pair):
             return True
     return False
 
+### make sure all possible action,next-state pairs have observations that sum to 1 ###
+
 def check_obs_sums(filename):
-    ### makes sure all possible action,next-state pairs have observations that sum to 1
     #first, find all possible action, next-state pairs
     action_state_combos = []
     observations = []
@@ -69,6 +75,16 @@ def check_obs_sums(filename):
     return obs_sums    
         
 
-output = check_obs_sums("ACC/ACC-ss-standby-scen-1.dpomdp")
-#for l in output:
-#    print(l)
+#output = check_obs_sums("ACC/ACC-ss-standby-scen-1.dpomdp")
+
+### Check output values ###
+[h_tree, m_tree] = get_trees("testpolicy", len(human_observations), len(machine_observations))
+value = test_dpomdp.get_value(h_tree, m_tree, "standby", 0, 0)
+print("Value of output: " + str(round(value,2)))  
+[comp_h_tree, comp_m_tree] = get_trees("optimalpolicy", len(human_observations), len(machine_observations))
+value2 = test_dpomdp.get_value(comp_h_tree, comp_m_tree, "standby", 0, 0)
+print("Value of believed optimal solution: " + str(round(value2,2)))
+if (value2 > value):
+    print("NOT finding optimal solution.")
+else:
+    print("Finding optimal solution.")
