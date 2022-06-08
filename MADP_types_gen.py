@@ -15,17 +15,17 @@ for solver in solver_types:
             command += "-G " + gmaa_param 
             command += " -B " + solver 
             command += " -Q " + q
-            command += " ACC/ACC-ss-standby-scen-1.dpomdp -h2"
+            command += " MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2"
             output += command + "\n"
         
-output = ""
+
 for solver in solver_types:
     for q in q_heur:
         command = "timeout -k 5m 5m ../MADP/src/solvers/GMAA "
         command += "-G MAAstar"
         command += " -B " + solver 
         command += " -Q " + q
-        command += " ACC/ACC-ss-standby-scen-1.dpomdp -h2"
+        command += " MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2"
         output += command + "\n"
         
 f = open("ACCtest.sh", "w")
