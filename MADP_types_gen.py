@@ -1,4 +1,5 @@
 import os
+
 script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
 
 
@@ -41,11 +42,25 @@ for solver in solver_types:
         command += " MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2"
         output += command + "\n"
         #remove optimal value database
-        output += "rm ~/.madp/results/GMAA/optimalValueDatabase\n"
+        #output += "rm ~/.madp/results/GMAA/optimalValueDatabase\n"
         count += 1
         
 f = open("ACCtest.sh", "w")
 f.writelines(output)
 f.close()
 
+### Write evaluator for results
 
+# Get list of all results
+command = "ls -lrt >> lsOutput.log\n"
+f = open("listresults.sh", "w")
+f.writelines(command)
+f.close()
+
+# Write shell script that reads all file names and get results
+output = "chmod +x listresults.sh \n"
+output += "./listresults.sh"
+y = "hkjjh_JPol"
+print(y[-3:])
+
+f = open("lsOutput.log")
