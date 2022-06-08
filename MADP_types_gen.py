@@ -64,11 +64,11 @@ f.close()
 ### Write evaluator for results
 
 # Get list of all results
-command = "cd ~/.madp/results/GMAA/ACC-ss-standby-scen-1/\n"
-command += "ls -lrt >> lsOutput.log\n"
+#command = "cd ~/.madp/results/GMAA/ACC-ss-standby-scen-1/\n"
+command += "ls ~/.madp/results/GMAA/ACC-ss-standby-scen-1 >> lsOutput.log\n"
 
 # Run python program that prints all results from this log
-command += "cd ~/public/alyssadpomdp/DecPOMDP_Suite\n"
+#command += "cd ~/public/alyssadpomdp/DecPOMDP_Suite\n"
 command += "python3 PrintResults.py"
 f = open("listresults.sh", "w")
 f.writelines(command)

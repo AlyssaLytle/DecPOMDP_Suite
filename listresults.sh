@@ -1,4 +1,2 @@
-cd ~/.madp/results/GMAA/ACC-ss-standby-scen-1/
-ls -lrt >> lsOutput.log
-cd ~/public/alyssadpomdp/DecPOMDP_Suite
+timeout -k 5m 5m ../MADP/src/solvers/GMAA -G MAAstar -B BnB -Q QBGTreeIncPruneBnB MADPtools/ACC/ACC-ss-standby-scen-1-obs.dpomdp -h2ls ~/.madp/results/GMAA/ACC-ss-standby-scen-1 >> lsOutput.log
 python3 PrintResults.py
