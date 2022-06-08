@@ -1,2 +1,3 @@
+cd ~/.madp/results/GMAA/ACC-ss-standby-scen-1/
 ls -lrt >> lsOutput.log
-python3 PrintResults.py
+cd ~/public/alyssadpomdp/DecPOMDP_Suitepython3 PrintResults.py
