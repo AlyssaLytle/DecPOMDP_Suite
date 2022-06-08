@@ -78,6 +78,15 @@ for scenario in range(1,9):
         writer.write_to_file(abs_file_path, start_state)
 
 
+### Generate .dpomdp files with impossible observations ###
+for scenario in range(1,9):
+    for start_state in modes:
+        writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, states,prob_dict,cost_dict, scenario, human_observations, machine_observations)
+        filename = "ACC-ss-" + start_state + "-scen-" + str(scenario) + "-obs"
+        rel_path = "ACC/" + filename + ".dpomdp"
+        abs_file_path = os.path.join(script_dir, rel_path)
+        writer.write_to_file_obs(abs_file_path, start_state)
+
 ### Generate shell file to run all of these ###
 shell_file = "ACC.sh"
 file_data = ""

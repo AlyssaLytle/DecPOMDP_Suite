@@ -45,6 +45,18 @@ for solver in solver_types:
         #output += "rm ~/.madp/results/GMAA/optimalValueDatabase\n"
         count += 1
         
+for solver in solver_types:
+    for q in q_heur:
+        command = "timeout -k 5m 5m ../MADP/src/solvers/GMAA "
+        command += "-G MAAstar"
+        command += " -B " + solver 
+        command += " -Q " + q
+        command += " MADPtools/ACC/ACC-ss-standby-scen-1-obs.dpomdp -h2"
+        output += command + "\n"
+        #remove optimal value database
+        #output += "rm ~/.madp/results/GMAA/optimalValueDatabase\n"
+        count += 1
+        
 f = open("ACCtest.sh", "w")
 f.writelines(output)
 f.close()
@@ -53,14 +65,10 @@ f.close()
 
 # Get list of all results
 command = "ls -lrt >> lsOutput.log\n"
+# Run python program that prints all results from this log
+command += "python3 PrintResults.py"
 f = open("listresults.sh", "w")
 f.writelines(command)
 f.close()
 
-# Write shell script that reads all file names and get results
-output = "chmod +x listresults.sh \n"
-output += "./listresults.sh"
-y = "hkjjh_JPol"
-print(y[-3:])
 
-f = open("lsOutput.log")

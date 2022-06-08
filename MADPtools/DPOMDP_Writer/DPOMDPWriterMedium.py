@@ -524,6 +524,7 @@ class DPOMDPWriterACC:
         transitions = ""
         nonsink_transitions = ""
         observations = []
+        obs2 = []
         rewards = []
         for state in self.states:
             if state != "sink":
@@ -549,6 +550,7 @@ class DPOMDPWriterACC:
             [human_obs, machine_obs] = self.get_observation(next_state, h_action,m_action)
             prefix += self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
             observations.append(prefix)
+            obs2.append(prefix)
         ## ADD impossible observations to appease MADP
         impossible_obs = self.get_impossible_action_next_states(transitions)
         for elem in impossible_obs:
@@ -556,11 +558,12 @@ class DPOMDPWriterACC:
             prefix = "O: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : "
             [human_obs, machine_obs] = self.get_observation(next_state, h_action,m_action)
             prefix += self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
-            observations.append(prefix)
+            obs2.append(prefix)
         ## Add generic sink states
         observations.append("O: * * : sink : none sink : 1\n")
+        obs2.append("O: * * : sink : none sink : 1\n")
         transitions += "T: * * : sink : sink : 1\n"
-        return [[transitions], observations, rewards]
+        return [[transitions], observations, rewards, obs2]
 
     def make_decpomdp(self, start_state):
         [transitions, observations, rewards] = self.get_transitions()
@@ -623,10 +626,36 @@ class DPOMDPWriterACC:
         file_data.append("observations:\n")
         file_data.append(self.list_to_str(self.human_observations) + "\n")
         file_data.append(self.list_to_str(self.machine_observations) + "\n")
-        [transitions, observations, rewards] = self.get_transitions()
+        [transitions, observations, rewards, obs2] = self.get_transitions()
         file_data += transitions
         file_data += observations
         file_data += rewards
+        
+        #print(file_data)
+        f = open(filename, "w")
+        f.writelines(file_data)
+        f.close()
+
+
+    def write_to_file_obs(self, filename, start_state):
+        file_data = []
+        file_data.append("agents: 2" + "\n")
+        file_data.append("discount: 1" + "\n")
+        file_data.append("values: reward" + "\n")
+        file_data.append(self.all_states_to_str() + "\n")
+        start_str = "start include: " + self.state_to_str(start_state) + "\n"
+        file_data.append(start_str)
+        file_data.append("actions:\n")
+        file_data.append(self.action_list_to_str(self.human_actions) + "\n")
+        file_data.append(self.action_list_to_str(self.machine_actions) + "\n")
+        file_data.append("observations:\n")
+        file_data.append(self.list_to_str(self.human_observations) + "\n")
+        file_data.append(self.list_to_str(self.machine_observations) + "\n")
+        [transitions, observations, rewards, obs2] = self.get_transitions()
+        file_data += transitions
+        file_data += obs2
+        file_data += rewards
+        
         #print(file_data)
         f = open(filename, "w")
         f.writelines(file_data)
