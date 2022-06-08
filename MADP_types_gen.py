@@ -31,6 +31,7 @@ for solver in solver_types:
         output += command + "\n"
         count += 1       
 
+output = ""
 for solver in solver_types:
     for q in q_heur:
         command = "timeout -k 5m 5m ../MADP/src/solvers/GMAA "

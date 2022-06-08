@@ -1,13 +1,3 @@
-timeout -k 1m 1m ../MADP/src/solvers/GMAA -G FSPC -B BFS MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
-timeout -k 1m 1m ../MADP/src/solvers/GMAA -G kGMAA -B BFS MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
-timeout -k 1m 1m ../MADP/src/solvers/GMAA -G FSPC -B AM MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
-timeout -k 1m 1m ../MADP/src/solvers/GMAA -G kGMAA -B AM MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
-timeout -k 1m 1m ../MADP/src/solvers/GMAA -G FSPC -B CE MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
-timeout -k 1m 1m ../MADP/src/solvers/GMAA -G kGMAA -B CE MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
-timeout -k 1m 1m ../MADP/src/solvers/GMAA -G FSPC -B MP MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
-timeout -k 1m 1m ../MADP/src/solvers/GMAA -G kGMAA -B MP MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
-timeout -k 1m 1m ../MADP/src/solvers/GMAA -G FSPC -B BnB MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
-timeout -k 1m 1m ../MADP/src/solvers/GMAA -G kGMAA -B BnB MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
 timeout -k 5m 5m ../MADP/src/solvers/GMAA -G MAAstar -B BFS -Q QMDP MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
 rm ~/.madp/results/GMAA/optimalValueDatabase
 timeout -k 5m 5m ../MADP/src/solvers/GMAA -G MAAstar -B BFS -Q QPOMDP MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2
