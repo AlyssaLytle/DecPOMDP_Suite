@@ -513,6 +513,7 @@ class DPOMDPWriterACC:
 
     def get_transitions(self):
         transitions = ""
+        nonsink_transitions = ""
         observations = []
         rewards = []
         for state in self.states:
@@ -522,16 +523,15 @@ class DPOMDPWriterACC:
                 for h_action in self.human_actions:
                     for m_action in m_actions:
                         transitions += self.get_transition_strings(state,h_action,m_action)
+                        nonsink_transitions += self.get_transition_strings(state,h_action,m_action)
                         #observations.append(self.get_observation_string(state,h_action,m_action))
                         rewards.append(self.get_reward_string(state,h_action,m_action))
                     for m_action in m_actions2:
                         transitions += "T: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : 1\n"     
                         rwd = "R: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : * : * : -100000\n"
                         rewards.append(rwd)
-        
-        
         #from your transitions list, find every possible action set and next state
-        action_state_combos = find_possible_action_next_state_combos(transitions)
+        action_state_combos = find_possible_action_next_state_combos(nonsink_transitions)
         for elem in action_state_combos:
             [h_action, m_action, next_state] = elem
             h_action = h_action.split("-")
