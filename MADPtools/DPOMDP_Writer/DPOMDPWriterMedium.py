@@ -33,6 +33,9 @@ def find_possible_action_next_state_combos(transition_list):
                 action_state_combos.append(triple)
     return action_state_combos
 
+
+    
+
 mode_change_table = latex_to_table("DPOMDP_Writer/TransitionLatexClean.csv")
 
 class DPOMDPWriterACC:
@@ -495,7 +498,26 @@ class DPOMDPWriterACC:
                         t_table.append(new_elem)
         return t_table
             
-
+    def get_impossible_action_next_states(self, transition_list):
+        possible_as_combos = find_possible_action_next_state_combos(transition_list)
+        all_actions = list(itertools.product(self.human_actions, self.machine_actions))
+        all_as_combos = list(itertools.product(all_actions, self.states))
+        #print(len(all_as_combos))
+        impossible_as = []
+        for combo in all_as_combos:
+            [actions, state] = combo
+            [h_act, m_act] = actions
+            h_act_str = self.action_to_str(h_act)
+            m_act_str = self.action_to_str(m_act)
+            flag = True
+            for elem in possible_as_combos:
+                [h_action, m_action, next_state] = elem
+                if (h_action == h_act_str) & (m_action == m_act_str) & (state == next_state):
+                    flag = False
+            if flag:
+                impossible_as.append([h_act, m_act, state])
+        return impossible_as
+        
             
 
     def get_transitions(self):
@@ -527,6 +549,15 @@ class DPOMDPWriterACC:
             [human_obs, machine_obs] = self.get_observation(next_state, h_action,m_action)
             prefix += self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
             observations.append(prefix)
+        ## ADD impossible observations to appease MADP
+        impossible_obs = self.get_impossible_action_next_states(transitions)
+        for elem in impossible_obs:
+            [h_action, m_action, next_state] = elem
+            prefix = "O: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : "
+            [human_obs, machine_obs] = self.get_observation(next_state, h_action,m_action)
+            prefix += self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
+            observations.append(prefix)
+        ## Add generic sink states
         observations.append("O: * * : sink : none sink : 1\n")
         transitions += "T: * * : sink : sink : 1\n"
         return [[transitions], observations, rewards]

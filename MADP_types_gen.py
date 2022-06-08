@@ -39,6 +39,8 @@ for solver in solver_types:
         command += " -Q " + q
         command += " MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2"
         output += command + "\n"
+        #remove optimal value database
+        output += "rm ~/.madp/results/GMAA/optimalValueDatabase\n"
         count += 1
         
 f = open("ACCtest.sh", "w")
