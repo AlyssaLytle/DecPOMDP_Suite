@@ -1,4 +1,5 @@
 
+from gettext import find
 import itertools
 import copy
 #from help_methods import *
@@ -8,6 +9,29 @@ sys.path.append("..")
 from ArrayTree import ArrayTree
 
 
+def triple_in_list(inp_list, pair):
+    #checks if a list of size 3 is in inp_list
+    for elem in inp_list:
+        if (pair[0] == elem[0]) & (pair[1] == elem[1]) & (pair[2] == elem[2]):
+            return True
+    return False
+
+def find_possible_action_next_state_combos(transition_list):
+    #give the list of transitions, generate which action,state combos are possible
+    action_state_combos = []
+    transitions = transition_list.split("\n")
+    for elem in transitions:
+        #print(elem)
+        if len(elem) > 2:
+            x = elem.split(" ")
+            h_action = x[1]
+            m_action = x[2]
+            start_state = x[4]
+            next_state = x[6]
+            triple = [h_action, m_action, next_state]
+            if (triple_in_list(action_state_combos,triple) == False):
+                action_state_combos.append(triple)
+    return action_state_combos
 
 mode_change_table = latex_to_table("MADPtools/DPOMDP_Writer/TransitionLatexClean.csv")
 
@@ -195,7 +219,7 @@ class DPOMDPWriterACC:
                 return True
         return False
 
-    def get_observation_string(self, start_state, human_action, machine_action):
+    '''def get_observation_string(self, start_state, human_action, machine_action):
         #sample string: O: right comm : loc31-rmap2-ctrlH : obs2 obs2: 1
         obs_str = ""
         prefix = "O: " + self.action_to_str(human_action) + " " + self.action_to_str(machine_action) + " : "
@@ -227,9 +251,8 @@ class DPOMDPWriterACC:
                     #print(explored_transitions)
                     [human_obs, machine_obs] = self.get_observation(next_state,human_action,machine_action)
                     obs_str += prefix + self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
-        return obs_str
-
-
+        return obs_str'''
+  
 
     def new_trans_string(self, prefix, next_state, prob) :
         prefix += self.state_to_str(next_state) + " : " + str(prob) + "\n"
@@ -454,7 +477,7 @@ class DPOMDPWriterACC:
     def get_transition_strings(self, state, human_action, machine_action):
         #Gets Transition strings for the LARGE ACC Model
         #T: right right : loc23-rmap2-ctrlM : loc23-rmap1-ctrlM : .1
-        transition_list = []
+        transition_list = ""
         prefix = "T: " + self.action_to_str(human_action) + " " + self.action_to_str(machine_action) + " : "
         prefix += self.state_to_str(state) + " : "
         transition_table = self.get_transition_table(state, human_action, machine_action)
@@ -486,8 +509,10 @@ class DPOMDPWriterACC:
         return t_table
             
 
+            
+
     def get_transitions(self):
-        transitions = []
+        transitions = ""
         observations = []
         rewards = []
         for state in self.states:
@@ -497,15 +522,27 @@ class DPOMDPWriterACC:
                 for h_action in self.human_actions:
                     for m_action in m_actions:
                         transitions += self.get_transition_strings(state,h_action,m_action)
-                        observations.append(self.get_observation_string(state,h_action,m_action))
+                        #observations.append(self.get_observation_string(state,h_action,m_action))
                         rewards.append(self.get_reward_string(state,h_action,m_action))
                     for m_action in m_actions2:
                         transitions += "T: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : 1\n"     
                         rwd = "R: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : * : * : -100000\n"
                         rewards.append(rwd)
+        
+        
+        #from your transitions list, find every possible action set and next state
+        action_state_combos = find_possible_action_next_state_combos(transitions)
+        for elem in action_state_combos:
+            [h_action, m_action, next_state] = elem
+            h_action = h_action.split("-")
+            m_action = m_action.split("-")
+            prefix = "O: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : "
+            [human_obs, machine_obs] = self.get_observation(next_state, h_action,m_action)
+            prefix += self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
+            observations.append(prefix)
+        observations.append("O: * * : sink : none sink : 1\n")
         transitions += "T: * * : sink : sink : 1\n"
-        observations += "O: * * : sink : none sink : 1\n"
-        return [transitions, observations, rewards]
+        return [[transitions], observations, rewards]
 
     def make_decpomdp(self, start_state):
         [transitions, observations, rewards] = self.get_transitions()
@@ -517,7 +554,7 @@ class DPOMDPWriterACC:
             if len(t_list) >= 6:
                 actions = t_list[1].split(' ')
                 entry = [actions[1].split("-"), actions[2].split("-"), t_list[2].replace(' ',''), t_list[4].replace(' ',''), float(t_list[5])]
-                print(entry)
+                #print(entry)
 
     
     def get_graph_viz_limit_branches(self, human_tree, machine_tree, start_state):
