@@ -483,7 +483,7 @@ class DPOMDPWriterACC:
         transition_table = self.get_transition_table(state, human_action, machine_action)
         for elem in transition_table:
             [end_state, prob] = elem
-            transition_list += prefix  + self.state_to_str(end_state) + " : " + str(round(prob,2)) + "\n"
+            transition_list += prefix  + self.state_to_str(end_state) + " : " + str(prob) + "\n"
         return transition_list
         
     def get_printable_transition_table(self):
