@@ -10,7 +10,7 @@ count = 0
 
 output = ""
 for solver in solver_types:
-    for gmaa_param in GMAA_param:
+    for gmaa_param in ["FSPC", "kGMAA"]:
         for q in q_heur:
             command = "timeout -k 1m 1m ../MADP/src/solvers/GMAA "
             command += "-G " + gmaa_param 
@@ -23,7 +23,7 @@ for solver in solver_types:
 output = ""
 
 for solver in solver_types:
-    for gmaa_param in GMAA_param:
+    for gmaa_param in ["FSPC", "kGMAA"]:
         command = "timeout -k 1m 1m ../MADP/src/solvers/GMAA "
         command += "-G " + gmaa_param 
         command += " -B " + solver 
