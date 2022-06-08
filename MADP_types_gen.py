@@ -27,7 +27,6 @@ for solver in solver_types:
         command = "timeout -k 1m 1m ../MADP/src/solvers/GMAA "
         command += "-G " + gmaa_param 
         command += " -B " + solver 
-        command += " -Q " + q
         command += " MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2"
         output += command + "\n"
         count += 1       
