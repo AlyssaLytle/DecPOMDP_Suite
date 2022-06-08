@@ -1,0 +1,1856 @@
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368876412416
+Policy for agent 0 (index 4194311):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="accel-pushbutton" ];
+node2 [ label="accel-pushbutton" ];
+node3 [ label="accel-pushbutton" ];
+node4 [ label="accel-pushbutton" ];
+node5 [ label="accel-pushbutton" ];
+node6 [ label="accel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="accel-communicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="accel-communicate" ];
+node6 [ label="accel-communicate" ];
+node7 [ label="accel-communicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 93686523084573
+Policy for agent 0 (index 5584151):
+() --> decel-pushbutton
+(standby) --> maintainspeed-dontpushbutton
+(following) --> decel-pushbutton
+(speedcontrol) --> decel-dontpushbutton
+(hold) --> decel-pushbutton
+(override) --> maintainspeed-pushbutton
+(error) --> decel-pushbutton
+(none) --> none-dontpushbutton
+Policy for agent 1 (index 15580957):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> maintainspeed-communicate
+(error) --> decel-dontcommunicate
+(sink) --> maintainspeed-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="maintainspeed-dontpushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="decel-dontpushbutton" ];
+node4 [ label="decel-pushbutton" ];
+node5 [ label="maintainspeed-pushbutton" ];
+node6 [ label="decel-pushbutton" ];
+node7 [ label="none-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="decel-dontcommunicate" ];
+node3 [ label="decel-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node5 [ label="maintainspeed-communicate" ];
+node6 [ label="decel-dontcommunicate" ];
+node7 [ label="maintainspeed-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="hold"];
+node0 -> node5 [label="override"];
+node0 -> node6 [label="error"];
+node0 -> node7 [label="sink"];
+}
