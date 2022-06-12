@@ -17,7 +17,9 @@ def get_node_and_edge(line):
 def get_trees(filename, agent0_branch_size, agent1_branch_size):   
     f = open(filename, "r")
     #skip first 3 lines
-    f.readline()
+    line0 = f.readline()
+    if line0 == False:
+        return []
     f.readline()
     f.readline()
     flag = True
