@@ -11,17 +11,44 @@ count = 0
 
 output = ""
 for solver in solver_types:
-    for gmaa_param in ["FSPC", "kGMAA"]:
+    for gmaa_param in GMAA_param:
         for q in q_heur:
-            command = "timeout -k 1m 1m ../MADP/src/solvers/GMAA "
-            command += "-G " + gmaa_param 
+            if gmaa_param == "MAAstar":
+                command = "timeout -k 5m 5m ../MADP/src/solvers/GMAA "
+                command += "-G " + gmaa_param 
+            elif gmaa_param == "kGMAA":
+                command = "timeout -k 5m 5m ../MADP/src/solvers/GMAA "
+                command += "-G " + gmaa_param 
+                command += " -k 1000" 
+            else:
+                command = "timeout -k 1m 1m ../MADP/src/solvers/GMAA "
+                command += "-G " + gmaa_param 
             command += " -B " + solver 
             command += " -Q " + q
             command += " MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2"
             output += command + "\n"
             count += 1
+            
+for solver in solver_types:
+    for gmaa_param in GMAA_param:
+        for q in q_heur:
+            if gmaa_param == "MAAstar":
+                command = "timeout -k 5m 5m ../MADP/src/solvers/GMAA "
+                command += "-G " + gmaa_param 
+            elif gmaa_param == "kGMAA":
+                command = "timeout -k 5m 5m ../MADP/src/solvers/GMAA "
+                command += "-G " + gmaa_param 
+                command += " -k 1000" 
+            else:
+                command = "timeout -k 1m 1m ../MADP/src/solvers/GMAA "
+                command += "-G " + gmaa_param 
+            command += " -B " + solver 
+            command += " -Q " + q
+            command += " MADPtools/ACC/ACC-ss-standby-scen-1-obs.dpomdp -h2"
+            output += command + "\n"
+            count += 1
 
-output = ""
+'''output = ""
 
 for solver in solver_types:
     for gmaa_param in ["FSPC", "kGMAA"]:
@@ -32,7 +59,7 @@ for solver in solver_types:
         output += command + "\n"
         count += 1       
 
-output = ""
+
 for solver in solver_types:
     for q in q_heur:
         command = "timeout -k 5m 5m ../MADP/src/solvers/GMAA "
@@ -56,7 +83,9 @@ for solver in solver_types:
         #remove optimal value database
         #output += "rm ~/.madp/results/GMAA/optimalValueDatabase\n"
         count += 1
-        
+'''
+   
+    
 f = open("ACCtest.sh", "w")
 f.writelines(output)
 f.close()

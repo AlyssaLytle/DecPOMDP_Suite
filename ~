@@ -1,0 +1,24 @@
+Merge remote-tracking branch 'refs/remotes/origin/main'
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please run
+#	git update-ref -d MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: Alyssa Byrnes <alyssa@Alyssas-MacBook-Pro.local>
+#
+# On branch main
+# Your branch and 'origin/main' have diverged,
+# and have 1 and 1 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	new file:   output.txt
+t 
+#
