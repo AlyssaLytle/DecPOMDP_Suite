@@ -38,7 +38,7 @@ test_dpomdp = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_
 
 #for each file, read the file to see if it gave a result, then get value of result
 
-successful_solvers = []
+successful_solvers = ""
 unsuccessful_solvers = []
 for filename in filepaths:
     path = "/afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/ACC-ss-standby-scen-1/" + filename
@@ -47,9 +47,8 @@ for filename in filepaths:
     print(filename)
     if len(result) > 0:
         [h_tree, m_tree] = result
-        h_tree.print()
         value = test_dpomdp.get_value(h_tree, m_tree, "standby", 0, 0)
-        successful_solvers.append([filename,value])
+        successful_solvers += filename + ": " + str(value) + "\n"
     else:
         #no solution was returned by MADP
         unsuccessful_solvers.append(filename)
