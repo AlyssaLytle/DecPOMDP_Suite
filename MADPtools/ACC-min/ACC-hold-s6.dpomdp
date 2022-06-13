@@ -1,14 +1,14 @@
 agents: 2
 discount: 1
 values: reward
-states: standby auto hold
+states: standby auto hold sink
 start include: hold
 actions:
 accel-pushbutton accel-dontpushbutton decel-pushbutton decel-dontpushbutton maintainspeed-pushbutton maintainspeed-dontpushbutton none-pushbutton none-dontpushbutton
 accel-communicate accel-dontcommunicate decel-communicate decel-dontcommunicate maintainspeed-communicate maintainspeed-dontcommunicate none-communicate none-dontcommunicate
 observations:
 standby auto hold none
-standby auto hold
+standby auto hold sink
 T: accel-pushbutton none-communicate : standby : auto : 0.5
 T: accel-pushbutton none-communicate : standby : hold : 0.5
 T: accel-pushbutton none-dontcommunicate : standby : auto : 0.5

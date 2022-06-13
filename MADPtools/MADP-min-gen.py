@@ -28,9 +28,10 @@ error_prob = .01
 exit_hold_prob = .01
 
 states = modes.copy()
+states.append("sink")
 machine_observations = states
 human_observations = states + ["none"] 
-
+human_observations.remove("sink")
 prob_dict = {"exithold": exit_hold_prob, "error":error_prob}
 
 human_movement_cost = -5
