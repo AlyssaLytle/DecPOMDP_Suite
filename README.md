@@ -3,7 +3,7 @@
 - ACCtest.sh: Shell script that tests many different solvers on MADP toolbox
 - dpomdp.csv: Stores information of Decpomdp to be read later, updated when MADP_types_gen.py is run
 - listresults.sh: prints results and stores them in "lsOutput.log"
-- Personal Solver (dir): personal MAA* implementation (not up-to-date/maintained)
+[]: # - Personal Solver (dir): personal MAA* implementation (not up-to-date/maintained)
 - MADPtools (dir): tools to write .dpomdp files for the MADP solver
   - DPOMDP_Writer (dir): Contains "writer" class
     - DPOMDPWriterMedium.py: Main class for decpomdp creation. Includes value methods as well.
