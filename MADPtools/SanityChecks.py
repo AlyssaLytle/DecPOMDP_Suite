@@ -86,9 +86,5 @@ value2 = test_dpomdp.get_value(comp_h_tree, comp_m_tree, "standby", 0, 0)
 print("Value of believed optimal solution: " + str(round(value2,2)))
 if (value2 > value):
     print("NOT finding optimal solution.")
-    print(value)
-    print(value2)
 else:
     print("Finding optimal solution.")
-    print(value)
-    print(value2)

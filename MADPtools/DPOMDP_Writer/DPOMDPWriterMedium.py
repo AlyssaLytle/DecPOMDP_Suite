@@ -36,8 +36,8 @@ def find_possible_action_next_state_combos(transition_list):
 
     
 
-#mode_change_table = latex_to_table("DPOMDP_Writer/TransitionLatexClean.csv")
-mode_change_table = latex_to_table("DPOMDP_Writer/MinExampleTransitions.csv")
+mode_change_table = latex_to_table("DPOMDP_Writer/TransitionLatexClean.csv")
+#mode_change_table = latex_to_table("DPOMDP_Writer/MinExampleTransitions.csv")
 
 class DPOMDPWriterACC:
 
@@ -76,7 +76,8 @@ class DPOMDPWriterACC:
     def get_allowed_machine_actions(self,mode):
         sc = (mode == "speedcontrol")
         follow = (mode == "following")
-        if sc | follow | (mode == "auto"):
+        auto = (mode == "auto")
+        if sc | follow | auto:
             allowed_mvmts = ["accel", "decel", "maintainspeed"]
         else:
             allowed_mvmts = ["none"]
@@ -85,7 +86,8 @@ class DPOMDPWriterACC:
     def get_unallowed_machine_actions(self,mode):
         sc = (mode == "speedcontrol")
         follow = (mode == "following")
-        if sc | follow | (mode == "auto") :
+        auto = (mode == "auto")
+        if sc | follow | auto :
             unallowed_mvmts = ["none"]
         else:
             unallowed_mvmts = ["accel", "decel", "maintainspeed"]
