@@ -75,7 +75,7 @@ for scenario in range(1,9):
         filename = "ACC-ss-" + start_state + "-scen-" + str(scenario)
         rel_path = "ACC/" + filename + ".dpomdp"
         abs_file_path = os.path.join(script_dir, rel_path)
-        writer.write_to_file(abs_file_path, start_state)
+        writer.write_to_file(abs_file_path, start_state, True, True)
 
 
 ### Generate .dpomdp files with impossible observations ###
@@ -85,7 +85,7 @@ for scenario in range(1,9):
         filename = "ACC-ss-" + start_state + "-scen-" + str(scenario) + "-obs"
         rel_path = "ACC/" + filename + ".dpomdp"
         abs_file_path = os.path.join(script_dir, rel_path)
-        writer.write_to_file_obs(abs_file_path, start_state)
+        writer.write_to_file(abs_file_path, start_state, True, True)
 
 ### Generate shell file to run all of these ###
 shell_file = "ACC.sh"

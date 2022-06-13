@@ -5,3 +5,6 @@ MADPtools/testpolicy
 MADPtools/transtable.txt
 MADPtools/gvscratch.py
 PersonalSolver/
+MADPtools/optimalpolicy
+MADPtools/minoptimalpolicy
+MADPtools/mintestpolicy
