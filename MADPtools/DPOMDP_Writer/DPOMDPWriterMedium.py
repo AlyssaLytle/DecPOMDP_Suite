@@ -76,7 +76,7 @@ class DPOMDPWriterACC:
     def get_allowed_machine_actions(self,mode):
         sc = (mode == "speedcontrol")
         follow = (mode == "following")
-        if sc | follow :
+        if sc | follow | (mode == "auto"):
             allowed_mvmts = ["accel", "decel", "maintainspeed"]
         else:
             allowed_mvmts = ["none"]
@@ -85,7 +85,7 @@ class DPOMDPWriterACC:
     def get_unallowed_machine_actions(self,mode):
         sc = (mode == "speedcontrol")
         follow = (mode == "following")
-        if sc | follow :
+        if sc | follow | (mode == "auto") :
             unallowed_mvmts = ["none"]
         else:
             unallowed_mvmts = ["accel", "decel", "maintainspeed"]
@@ -395,7 +395,7 @@ class DPOMDPWriterACC:
             num_transitions = len(possible_transitions)
             remaining_prob = float(1/num_transitions)
             remaining_prob_str = "1/" + str(num_transitions) 
-            if (state == "following")|(state == "speedcontrol")|(state=="hold"):
+            if (state == "following")|(state == "speedcontrol")|(state=="hold")|(state=="auto"):
                 prob_error = float(p_error/num_transitions)
                 prob_error_str = str(p_error)+ "/" + str(num_transitions)
                 num_transitions = num_transitions - 1
@@ -521,7 +521,7 @@ class DPOMDPWriterACC:
         
             
 
-    def get_transitions(self):
+    def get_transitions(self, sink_flag, impossible_obs_flag):
         transitions = ""
         nonsink_transitions = ""
         observations = []
@@ -537,10 +537,12 @@ class DPOMDPWriterACC:
                         nonsink_transitions += self.get_transition_strings(state,h_action,m_action)
                         #observations.append(self.get_observation_string(state,h_action,m_action))
                         rewards.append(self.get_reward_string(state,h_action,m_action))
-                    for m_action in m_actions2:
-                        transitions += "T: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : 1\n"     
-                        rwd = "R: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : * : * : -100000\n"
-                        rewards.append(rwd)
+                    #add transitions and rewards for going to a sink state
+                    if sink_flag:
+                        for m_action in m_actions2:
+                            transitions += "T: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : sink : 1\n"     
+                            rwd = "R: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : * : * : -100000\n"
+                            rewards.append(rwd)
         #from your transitions list, find every possible action set and next state
         action_state_combos = find_possible_action_next_state_combos(nonsink_transitions)
         for elem in action_state_combos:
@@ -551,20 +553,20 @@ class DPOMDPWriterACC:
             [human_obs, machine_obs] = self.get_observation(next_state, h_action,m_action)
             prefix += self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
             observations.append(prefix)
-            obs2.append(prefix)
-        ## ADD impossible observations to appease MADP
-        impossible_obs = self.get_impossible_action_next_states(transitions)
-        for elem in impossible_obs:
-            [h_action, m_action, next_state] = elem
-            prefix = "O: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : "
-            [human_obs, machine_obs] = self.get_observation(next_state, h_action,m_action)
-            prefix += self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
-            obs2.append(prefix)
+        ## Add impossible observations to appease MADP
+        if impossible_obs_flag:
+            impossible_obs = self.get_impossible_action_next_states(transitions)
+            for elem in impossible_obs:
+                [h_action, m_action, next_state] = elem
+                prefix = "O: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : "
+                [human_obs, machine_obs] = self.get_observation(next_state, h_action,m_action)
+                prefix += self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
+                observations.append(prefix)
         ## Add generic sink states
-        observations.append("O: * * : sink : none sink : 1\n")
-        obs2.append("O: * * : sink : none sink : 1\n")
-        transitions += "T: * * : sink : sink : 1\n"
-        return [[transitions], observations, rewards, obs2]
+        if sink_flag:
+            observations.append("O: * * : sink : none sink : 1\n")
+            transitions += "T: * * : sink : sink : 1\n"
+        return [[transitions], observations, rewards]
 
     def make_decpomdp(self, start_state):
         [transitions, observations, rewards] = self.get_transitions()
@@ -613,7 +615,7 @@ class DPOMDPWriterACC:
         output = [output1 + '}', output2 + '}']
         return output
     
-    def write_to_file(self, filename, start_state):
+    def write_to_file(self, filename, start_state, sink, imp_obs):
         file_data = []
         file_data.append("agents: 2" + "\n")
         file_data.append("discount: 1" + "\n")
@@ -627,7 +629,7 @@ class DPOMDPWriterACC:
         file_data.append("observations:\n")
         file_data.append(self.list_to_str(self.human_observations) + "\n")
         file_data.append(self.list_to_str(self.machine_observations) + "\n")
-        [transitions, observations, rewards, obs2] = self.get_transitions()
+        [transitions, observations, rewards] = self.get_transitions(sink, imp_obs)
         file_data += transitions
         file_data += observations
         file_data += rewards

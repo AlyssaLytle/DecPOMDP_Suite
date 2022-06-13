@@ -1,0 +1,43 @@
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 375257087
+Policy for agent 0 (index 11451):
+() --> decel-pushbutton
+(standby) --> none-pushbutton
+(auto) --> decel-pushbutton
+(hold) --> none-dontpushbutton
+(none) --> decel-dontpushbutton
+Policy for agent 1 (index 30719):
+() --> none-dontcommunicate
+(standby) --> decel-dontcommunicate
+(auto) --> none-dontcommunicate
+(hold) --> none-dontcommunicate
+(sink) --> none-dontcommunicate
+
+digraph policyAgent0 {
+edge [dir=none];
+node0 [ label="decel-pushbutton" ];
+node1 [ label="none-pushbutton" ];
+node2 [ label="decel-pushbutton" ];
+node3 [ label="none-dontpushbutton" ];
+node4 [ label="decel-dontpushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="auto"];
+node0 -> node3 [label="hold"];
+node0 -> node4 [label="none"];
+}
+
+digraph policyAgent1 {
+edge [dir=none];
+node0 [ label="none-dontcommunicate" ];
+node1 [ label="decel-dontcommunicate" ];
+node2 [ label="none-dontcommunicate" ];
+node3 [ label="none-dontcommunicate" ];
+node4 [ label="none-dontcommunicate" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="auto"];
+node0 -> node3 [label="hold"];
+node0 -> node4 [label="sink"];
+}
+
+Sampled value =  24 (nrSimRuns=10000)
+Computed value = 24

@@ -3,7 +3,7 @@ import csv
 from DPOMDP_Writer.Reader import *
 from DPOMDP_Writer.DPOMDPWriterMedium import *
 
-with open('dpomdp.csv', newline='') as csvfile:
+with open('dpomdp-min.csv', newline='') as csvfile:
     dreader = csv.reader(csvfile)
     data = list(dreader)
     machine_comm_actions = data[0]
@@ -78,13 +78,17 @@ def check_obs_sums(filename):
 #output = check_obs_sums("ACC/ACC-ss-standby-scen-1.dpomdp")
 
 ### Check output values ###
-[h_tree, m_tree] = get_trees("testpolicy", len(human_observations), len(machine_observations))
+[h_tree, m_tree] = get_trees("mintestpolicy", len(human_observations), len(machine_observations))
 value = test_dpomdp.get_value(h_tree, m_tree, "standby", 0, 0)
 print("Value of output: " + str(round(value,2)))  
-[comp_h_tree, comp_m_tree] = get_trees("optimalpolicy", len(human_observations), len(machine_observations))
+[comp_h_tree, comp_m_tree] = get_trees("minoptimalpolicy", len(human_observations), len(machine_observations))
 value2 = test_dpomdp.get_value(comp_h_tree, comp_m_tree, "standby", 0, 0)
 print("Value of believed optimal solution: " + str(round(value2,2)))
 if (value2 > value):
     print("NOT finding optimal solution.")
+    print(value)
+    print(value2)
 else:
     print("Finding optimal solution.")
+    print(value)
+    print(value2)

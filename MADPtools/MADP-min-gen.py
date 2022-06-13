@@ -28,10 +28,8 @@ error_prob = .01
 exit_hold_prob = .01
 
 states = modes.copy()
-states.append("sink")
 machine_observations = states
 human_observations = states + ["none"] 
-human_observations.remove("sink")
 
 prob_dict = {"exithold": exit_hold_prob, "error":error_prob}
 
@@ -71,4 +69,4 @@ for scenario in range(1,9):
         filename = "ACC-" + start_state + "-s" + str(scenario)
         rel_path = "ACC-min/" + filename + ".dpomdp"
         abs_file_path = os.path.join(script_dir, rel_path)
-        writer.write_to_file(abs_file_path, start_state)
+        writer.write_to_file(abs_file_path, start_state, True, False)
