@@ -36,7 +36,8 @@ def find_possible_action_next_state_combos(transition_list):
 
     
 
-mode_change_table = latex_to_table("DPOMDP_Writer/TransitionLatexClean.csv")
+#mode_change_table = latex_to_table("DPOMDP_Writer/TransitionLatexClean.csv")
+mode_change_table = latex_to_table("DPOMDP_Writer/MinExampleTransitions.csv")
 
 class DPOMDPWriterACC:
 
@@ -325,7 +326,7 @@ class DPOMDPWriterACC:
                 else:
                     remaining_prob = float((1 - prob_error))
             if state == "hold":
-                prob_hold = p_hold_exit/num_transitions
+                prob_hold = p_hold_exit
                 num_transitions = num_transitions - 1
                 if num_transitions > 0:
                     remaining_prob = float((1 - prob_hold - prob_error)/num_transitions)

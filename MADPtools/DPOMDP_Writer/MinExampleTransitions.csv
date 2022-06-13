@@ -1,0 +1,6 @@
+standby;auto,hold;human_pushbutton
+auto,hold;standby;human_pushbutton
+auto,hold;standby;human_decel
+auto;hold;machine_none
+hold;auto;random,exit
+hold;auto;human_pushbutton
