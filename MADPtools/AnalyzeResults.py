@@ -65,6 +65,6 @@ command = ""
 for fname in unsuccessful_solvers:
     command += "rm -r /afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/ACC-ss-standby-scen-1/" + fname + "\n"
 
-f = open("cleanresults.sh")
+f = open("cleanresults.sh", "w")
 f.writelines(command)
 f.close()   
