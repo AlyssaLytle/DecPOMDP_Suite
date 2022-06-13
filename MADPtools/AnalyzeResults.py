@@ -39,7 +39,7 @@ test_dpomdp = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_
 successful_solvers = []
 unsuccessful_solvers = []
 for filename in filepaths:
-    path = "~/.madp/results/GMAA/ACC-ss-standby-scen-1/" + filename
+    path = "/afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/ACC-ss-standby-scen-1/" + filename
     result = get_trees(path, len(human_observations), len(machine_observations))
     if len(result) > 0:
         [h_tree, m_tree] = result
@@ -59,7 +59,7 @@ f.close()
 
 command = ""
 for fname in unsuccessful_solvers:
-    command += "rm -r ~/.madp/results/GMAA/ACC-ss-standby-scen-1/" + fname + "\n"
+    command += "rm -r /afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/ACC-ss-standby-scen-1/" + fname + "\n"
 
 f = open("cleanresults.sh")
 f.writelines(command)
