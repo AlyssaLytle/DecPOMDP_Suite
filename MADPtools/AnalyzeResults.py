@@ -1,7 +1,8 @@
 import sys
 from DPOMDP_Writer.Reader import *
 from DPOMDP_Writer.DPOMDPWriterMedium import DPOMDPWriterACC
-from ..ArrayTree import *
+sys.path.append("..")
+from ArrayTree import ArrayTree
 import csv
 import os
 import json 
