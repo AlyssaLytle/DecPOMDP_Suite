@@ -27,12 +27,14 @@ def get_trees(filename, agent0_branch_size, agent1_branch_size):
     nodes = []
     while(flag):
         l = f.readline()
-        print("newline")
         print(l)
         if l:
-            [edge, node] = get_node_and_edge(l)
-            nodes.append(node)
-            edges.append(edge)
+            if l[0] == "(":
+                [edge, node] = get_node_and_edge(l)
+                nodes.append(node)
+                edges.append(edge)
+            else:
+                flag = False
         else:
             flag = False
     agent0_tree = ArrayTree(agent0_branch_size, nodes, edges)
