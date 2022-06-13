@@ -51,7 +51,16 @@ for filename in filepaths:
         
 
 
-#writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, modes,prob_dict,cost_dict,scenario_number, human_observations, machine_observations)
+f = open("results.txt", "w")
+f.writelines(successful_solvers)
+f.close()
 
+#write shell script to erase empty results
 
-    
+command = ""
+for fname in unsuccessful_solvers:
+    command += "rm -r ~/.madp/results/GMAA/ACC-ss-standby-scen-1/" + fname + "\n"
+
+f = open("cleanresults.sh")
+f.writelines(command)
+f.close()   
