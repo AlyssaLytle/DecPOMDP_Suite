@@ -1,5 +1,4 @@
 import sys
-from tracemalloc import start
 from DPOMDP_Writer.Reader import *
 from DPOMDP_Writer.DPOMDPWriterMedium import DPOMDPWriterACC
 import csv

@@ -1,6 +1,7 @@
 import sys
 from DPOMDP_Writer.Reader import *
 from DPOMDP_Writer.DPOMDPWriterMedium import DPOMDPWriterACC
+from ..ArrayTree import *
 import csv
 import os
 import json 
@@ -41,8 +42,10 @@ unsuccessful_solvers = []
 for filename in filepaths:
     path = "/afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/ACC-ss-standby-scen-1/" + filename
     result = get_trees(path, len(human_observations), len(machine_observations))
+    print(result)
     if len(result) > 0:
         [h_tree, m_tree] = result
+        h_tree.print()
         value = test_dpomdp.get_value(h_tree, m_tree, "standby", 0, 0)
         successful_solvers.append([filename,value])
     else:

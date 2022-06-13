@@ -27,7 +27,6 @@ def get_trees(filename, agent0_branch_size, agent1_branch_size):
     nodes = []
     while(flag):
         l = f.readline()
-        print(l)
         if l:
             if l[0] == "(":
                 [edge, node] = get_node_and_edge(l)
