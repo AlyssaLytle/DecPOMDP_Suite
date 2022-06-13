@@ -48,7 +48,7 @@ for filename in filepaths:
     if len(result) > 0:
         [h_tree, m_tree] = result
         value = test_dpomdp.get_value(h_tree, m_tree, "standby", 0, 0)
-        successful_solvers += filename + ": " + str(value) + "\n"
+        successful_solvers += filename[27:] + ": " + str(round(value,2)) + "\n"
     else:
         #no solution was returned by MADP
         unsuccessful_solvers.append(filename)
@@ -56,6 +56,7 @@ for filename in filepaths:
 
 
 f = open("results.txt", "w")
+f.writelines("Number of unsuccessful solvers: " + str(len(unsuccessful_solvers)) + "\n")
 f.writelines(successful_solvers)
 f.close()
 
