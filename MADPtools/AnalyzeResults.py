@@ -44,6 +44,7 @@ for filename in filepaths:
     path = "/afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/ACC-ss-standby-scen-1/" + filename
     result = get_trees(path, len(human_observations), len(machine_observations))
     print(result)
+    print(filename)
     if len(result) > 0:
         [h_tree, m_tree] = result
         h_tree.print()
