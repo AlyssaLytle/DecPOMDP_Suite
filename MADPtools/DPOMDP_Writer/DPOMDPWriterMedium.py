@@ -529,12 +529,14 @@ class DPOMDPWriterACC:
         observations = []
         obs2 = []
         rewards = []
+        action_state_combos = []
         for state in self.states:
             if state != "sink":
                 m_actions = self.get_allowed_machine_actions(state)
                 m_actions2 = self.get_unallowed_machine_actions(state)
                 for h_action in self.human_actions:
                     for m_action in m_actions:
+                        action_state_combos.append([h_action, m_action, state])
                         transitions += self.get_transition_strings(state,h_action,m_action)
                         nonsink_transitions += self.get_transition_strings(state,h_action,m_action)
                         #observations.append(self.get_observation_string(state,h_action,m_action))
@@ -546,11 +548,8 @@ class DPOMDPWriterACC:
                             rwd = "R: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : " + self.state_to_str(state) + " : * : * : -100000\n"
                             rewards.append(rwd)
         #from your transitions list, find every possible action set and next state
-        action_state_combos = find_possible_action_next_state_combos(nonsink_transitions)
         for elem in action_state_combos:
             [h_action, m_action, next_state] = elem
-            h_action = h_action.split("-")
-            m_action = m_action.split("-")
             prefix = "O: " + self.action_to_str(h_action) + " " + self.action_to_str(m_action) + " : "
             [human_obs, machine_obs] = self.get_observation(next_state, h_action,m_action)
             prefix += self.state_to_str(next_state) + " : " + human_obs + " " + machine_obs + " : 1\n"
