@@ -2,7 +2,7 @@ agents: 2
 discount: 1
 values: reward
 states: standby following speedcontrol error hold sink
-start include: standby
+start include: following
 actions:
 accel-pushbutton accel-dontpushbutton decel-pushbutton decel-dontpushbutton maintainspeed-pushbutton maintainspeed-dontpushbutton none-pushbutton none-dontpushbutton
 accel-communicate accel-dontcommunicate decel-communicate decel-dontcommunicate maintainspeed-communicate maintainspeed-dontcommunicate none-communicate none-dontcommunicate
