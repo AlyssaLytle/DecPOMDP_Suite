@@ -1,5 +1,5 @@
 date +%T
-../MADP/src/solvers/GMAA --verbose --verbose --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob MADPtools/ACC-min/ACC-standby-s1.dpomdp -h1 > min_pol.txt
+../MADP/src/solvers/GMAA --verbose --verbose --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob MADPtools/ACC-min/ACC-standby-s1.dpomdp -h2 > min_pol.txt
 date +%T
 ../MADP/src/solvers/GMAA --verbose --verbose --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2 > full_pol.txt
 date +%T
