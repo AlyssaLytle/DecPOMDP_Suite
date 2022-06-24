@@ -11,10 +11,10 @@ count = 0
 
 output = ""
 for solver in solver_types:
-    for gmaa_param in GMAA_param:
+    for gmaa_param in ["MAAstar"]:
         for q in q_heur:
             if gmaa_param == "MAAstar":
-                command = "timeout -k 5m 5m ../MADP/src/solvers/GMAA "
+                command = "../MADP/src/solvers/GMAA "
                 command += "-G " + gmaa_param 
             elif gmaa_param == "kGMAA":
                 command = "timeout -k 5m 5m ../MADP/src/solvers/GMAA "
@@ -25,11 +25,11 @@ for solver in solver_types:
                 command += "-G " + gmaa_param 
             command += " -B " + solver 
             command += " -Q " + q
-            command += " MADPtools/ACC/ACC-ss-standby-scen-1.dpomdp -h2"
+            command += " MADPtools/ACC-min/ACC-standby-s1.dpomdp -h2"
             output += command + "\n"
             count += 1
             
-for solver in solver_types:
+'''for solver in solver_types:
     for gmaa_param in GMAA_param:
         for q in q_heur:
             if gmaa_param == "MAAstar":
@@ -46,7 +46,7 @@ for solver in solver_types:
             command += " -Q " + q
             command += " MADPtools/ACC/ACC-ss-standby-scen-1-obs.dpomdp -h2"
             output += command + "\n"
-            count += 1
+            count += 1'''
 
 '''output = ""
 
@@ -84,13 +84,13 @@ for solver in solver_types:
         #output += "rm ~/.madp/results/GMAA/optimalValueDatabase\n"
         count += 1
 '''
-output = "cd ../MADP/src/utils\n"
+'''output = "cd ../MADP/src/utils\n"
 for q in q_heur:   
     output += "./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-standby-s1.dpomdp -h2 -Q " 
-    output += q + "\n"
+    output += q + "\n"'''
 
    
-f = open("QGen.sh", "w")
+f = open("ACCtest.sh", "w")
 f.writelines(output)
 f.close()
 
