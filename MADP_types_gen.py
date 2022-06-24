@@ -14,7 +14,7 @@ for solver in solver_types:
     for gmaa_param in ["MAAstar"]:
         for q in q_heur:
             if gmaa_param == "MAAstar":
-                command = "../MADP/src/solvers/GMAA --useQcache "
+                command = "../MADP/src/solvers/GMAA --useQcache --verbose "
                 command += "-G " + gmaa_param 
             elif gmaa_param == "kGMAA":
                 command = "timeout -k 5m 5m ../MADP/src/solvers/GMAA "
