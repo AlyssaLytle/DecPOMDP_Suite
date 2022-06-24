@@ -9,7 +9,7 @@ q_heur = ["QMDP", "QPOMDP", "QBG", "QMDPc", "QPOMDPav", "QBGav", "QHybrid", "QPO
 
 count = 0
 
-output = ""
+output = "date +%T \n"
 for solver in solver_types:
     for gmaa_param in ["MAAstar"]:
         for q in q_heur:
@@ -27,6 +27,7 @@ for solver in solver_types:
             command += " -Q " + q
             command += " MADPtools/ACC-min/ACC-standby-s1.dpomdp -h2"
             output += command + "\n"
+            output += "date +%T \n"
             count += 1
             
 '''for solver in solver_types:
