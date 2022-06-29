@@ -85,10 +85,7 @@ for solver in solver_types:
         #output += "rm ~/.madp/results/GMAA/optimalValueDatabase\n"
         count += 1
 '''
-'''output = "cd ../MADP/src/utils\n"
-for q in q_heur:   
-    output += "./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-standby-s1.dpomdp -h2 -Q " 
-    output += q + "\n"'''
+
 
    
 f = open("ACCtest.sh", "w")
@@ -111,3 +108,13 @@ f.writelines(command)
 f.close()
 
 
+output = "cd ../MADP/src/utils\n"
+for q in q_heur:  
+    output += "timeout -k 1h 1h " 
+    output += "./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-standby-s1.dpomdp -h2 -Q " 
+    output += q
+    output += " > " + q + ".log" + "\n"
+    
+f = open("QGen.sh", "w")
+f.writelines(output)
+f.close()
