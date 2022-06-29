@@ -315,26 +315,30 @@ class DPOMDPWriterACC:
         transition_table = []
         p_error = float(self.prob_dict["error"])
         p_hold_exit = float(self.prob_dict["exithold"])
-
+        p_switch = float(self.prob_dict["switch"])
         possible_transitions = self.get_possible_transitions(state, human_action, machine_action)
+        err_c = 0
+        hold_c = 0
+        switch_c = 0
         if len(possible_transitions)>0:
             num_transitions = len(possible_transitions)
             remaining_prob = float(1/num_transitions)
             if (state == "following")|(state == "speedcontrol")|(state=="hold"):
-                prob_error = float(p_error/num_transitions)
+                prob_error = float(p_error)
                 num_transitions = num_transitions - 1
-                if num_transitions > 0:
-                    remaining_prob = float((1 - prob_error)/num_transitions)
-                else:
-                    remaining_prob = float((1 - prob_error))
+                err_c = 1
             if state == "hold":
                 prob_hold = p_hold_exit
                 num_transitions = num_transitions - 1
-                if num_transitions > 0:
-                    remaining_prob = float((1 - prob_hold - prob_error)/num_transitions)
-                else: 
-                    remaining_prob = float((1 - prob_hold - prob_error))
-            if num_transitions == 0:
+                hold_c = 1
+            if (state == "speedcontrol") | (state == "following"):
+                num_transitions = num_transitions - 1
+                prob_switch = p_switch
+                switch_c = 1
+            remaining_prob = float(1 - err_c*p_error - hold_c*p_hold_exit - switch_c*p_switch)
+            if num_transitions > 0:
+                remaining_prob = float(remaining_prob/num_transitions)
+            else:
                 #state stays the same unless there's an event
                 trans_line = [[state, remaining_prob]]
                 transition_table += trans_line
@@ -344,6 +348,8 @@ class DPOMDPWriterACC:
                     trans_line = [[end_state, prob_error] ]
                 elif cause[1] == "exit": 
                     trans_line = [[end_state, prob_hold]]
+                elif cause[1] == "switch":
+                    trans_line = [[end_state, prob_switch]]
                 else:
                     trans_line = [[end_state, remaining_prob]]
                 transition_table += trans_line
@@ -384,6 +390,7 @@ class DPOMDPWriterACC:
         return_table += trans_table
         return return_table
     
+    '''
     def get_transition_table_with_form_and_event(self, state, human_action, machine_action):
         #Gets table of possible next states and their probability 
         # PLUS formula of probability AND cause of transition
@@ -435,7 +442,7 @@ class DPOMDPWriterACC:
             trans_line = [[state,float(1), str(1), "state never changes"]]
             transition_table += trans_line
         return self.combine_duplicate_transitions_with_strings(transition_table)
-                                            
+       '''                                     
 
     def get_observation_probabilities(self, state, human_action, machine_action):
         #given a start state and actions, what possible things could I observe with what likelihood

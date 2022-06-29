@@ -26,13 +26,14 @@ machine_actions = list(itertools.product(machine_mvmt_actions, machine_comm_acti
 scenario_change_prob = .01
 error_prob = .01
 exit_hold_prob = .01
+switch_prob = .01
 
 states = modes.copy()
 states.append("sink")
 machine_observations = states
 human_observations = states + ["none"] 
 human_observations.remove("sink")
-prob_dict = {"exithold": exit_hold_prob, "error":error_prob}
+prob_dict = {"exithold": exit_hold_prob, "error":error_prob, "switch":switch_prob}
 
 human_movement_cost = -5
 unsafe_cost = -10
