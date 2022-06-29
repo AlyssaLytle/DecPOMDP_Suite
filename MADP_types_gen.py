@@ -109,11 +109,14 @@ f.close()
 
 
 output = "cd ../MADP/src/utils\n"
+output += "date +%T\n"
 for q in q_heur:  
+    output += 'echo "Finding value for ' + q + '"\n'
     output += "timeout -k 1h 1h " 
     output += "./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-standby-s1.dpomdp -h2 -Q " 
     output += q
     output += " > " + q + ".log" + "\n"
+    output += "date +%T\n"
     
 f = open("QGen.sh", "w")
 f.writelines(output)
