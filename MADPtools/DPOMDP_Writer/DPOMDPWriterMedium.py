@@ -199,7 +199,7 @@ class DPOMDPWriterACC:
         [hum_mvmt, hum_comm] = human_action
         [mach_mvmt, mach_comm] = machine_action
         machine_obs = self.state_to_str(next_state)
-        if (mach_comm == "communicate"): # | (hum_comm == "pushbutton"):
+        if (mach_comm == "communicate") & (next_state != "sink"): # | (hum_comm == "pushbutton"):
             human_obs = self.state_to_str(next_state)
         else:
             human_obs = "none"
