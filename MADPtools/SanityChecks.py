@@ -74,8 +74,9 @@ def check_obs_sums(filename):
         obs_sums.append([elem, observations_list, observations_sum])
     return obs_sums    
         
-
-#output = check_obs_sums("ACC/ACC-ss-standby-scen-1.dpomdp")
+print("Checking that all possible action, next-state pairs have observations that sum to 1... \n")
+output = check_obs_sums("ACC-min/ACC-standby-s1.dpomdp")
+print("Done with observation checks... \n")
 
 ### Check output values ###
 [h_tree, m_tree] = get_trees("mintestpolicy", len(human_observations), len(machine_observations))
