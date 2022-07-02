@@ -7,6 +7,9 @@ solver_types = ["BFS", "AM", "CE", "MP", "BnB"]
 GMAA_param = ["MAAstar", "FSPC", "kGMAA"]
 q_heur = ["QMDP", "QPOMDP", "QBG", "QMDPc", "QPOMDPav", "QBGav", "QHybrid", "QPOMDPhybrid", "QBGhybrid", "QBGTreeIncPrune", "QBGTreeIncPruneBnB"]
 
+modes = ["standby", "following", "speedcontrol", "error", "hold"]
+scenarios = range(1,9)
+
 count = 0
 
 output = "date +%T \n"
@@ -110,13 +113,16 @@ f.close()
 
 output = "cd ../MADP/src/utils\n"
 output += "date +%T\n"
-for q in q_heur:  
-    output += 'echo "Finding value for ' + q + '"\n'
-    output += "timeout -k 1h 1h " 
-    output += "./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-standby-s1.dpomdp -h2 -Q " 
-    output += q
-    output += " > " + q + ".log" + "\n"
-    output += "date +%T\n"
+for mode in modes:
+    for scenario in scenarios:  
+        name = "ACC-" + mode + "-s" + str(scenario)
+        fullname = name + ".dpomdp"
+        output += 'echo "Finding q value for ' + name + '"\n'
+        output += "timeout -k 1h 1h " 
+        output += "./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/" + fullname + " -h2 -Q " 
+        output += "QMDP"
+        output += " > QMDP-" + name + ".log" + "\n"
+        output += "date +%T\n"
     
 f = open("QGen.sh", "w")
 f.writelines(output)
