@@ -89,9 +89,17 @@ for solver in solver_types:
         count += 1
 '''
 
-
+output = ""
+for mode in modes:
+    for scenario in scenarios:
+        output += "set NOW=`date '+%T'` \n" 
+        name = "ACC-" + mode + "-s" + str(scenario)
+        fullname = name + ".dpomdp"
+        output += "../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC-min/" + fullname + " -h2\n"
+        output += "set END=`date '+%T'` \n" 
+        output += 'echo "Start time: "$NOW " End Time: "$END\n'
    
-f = open("ACCtest.sh", "w")
+f = open("solvers.sh", "w")
 f.writelines(output)
 f.close()
 
