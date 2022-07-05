@@ -35,8 +35,8 @@ f.close()
 g = open("mtree.dot", "w")
 g.writelines(mgraph)
 g.close()
-h = open("tree_values.txt", "a")
-line = filename + " value: " + value + "\n"
+h = open("tree_values.csv", "a")
+line = filename + "," + value + "\n"
 h.write(line)
 h.close()
 

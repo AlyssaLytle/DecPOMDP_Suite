@@ -48,7 +48,6 @@ def get_trees(filename, agent0_branch_size, agent1_branch_size):
                     nodes.append(node)
                     edges.append(edge)
                 else:
-                    print(l)
                     if l[:6] == "Sample":
                         value = l[17:-19]
             else:
