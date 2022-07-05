@@ -48,7 +48,8 @@ def get_trees(filename, agent0_branch_size, agent1_branch_size):
                     edges.append(edge)
                 else:
                     print(l)
-                    print(l[:6])
+                    if l[:6] == "Sample":
+                        print(l[10:-1])
             else:
                 flag = False
         agent1_tree = ArrayTree(agent1_branch_size, nodes, edges) 
