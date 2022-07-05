@@ -7,7 +7,7 @@ import graphviz
 
 #Call should look like python3 GetResults.py filename start_state scenario_number
 [cmd, filename, start_state, scenario_number] = sys.argv
-result = "GMAA_" + filename + "_kGMAA_QMDP_h2_restarts1_k1_NoCache_BGIP-AM_AM_restarts10_JPol"
+result = "GMAA_" + filename + "_MAAstar_QMDP_h2_restarts1_NoCache_BGIP-BnB_ka0_JTODescendingProbability_CCI1_JPol"
 path_to_res = "/afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/" + filename + "/" + result
 
 with open('dpomdp-min.csv', newline='') as csvfile:
