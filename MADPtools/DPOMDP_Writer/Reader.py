@@ -46,9 +46,11 @@ def get_trees(filename, agent0_branch_size, agent1_branch_size):
                     [edge, node] = get_node_and_edge(l)
                     nodes.append(node)
                     edges.append(edge)
+                else:
+                    print(l)
             else:
                 flag = False
-        agent1_tree = ArrayTree(agent1_branch_size, nodes, edges)
+        agent1_tree = ArrayTree(agent1_branch_size, nodes, edges) 
         return [agent0_tree, agent1_tree]
     else:
         return []
