@@ -15,6 +15,7 @@ def get_node_and_edge(line):
     return [edge,node]
 
 def get_trees(filename, agent0_branch_size, agent1_branch_size):   
+    value = -1000
     f = open(filename, "r")
     #skip first 3 lines
     if f.readline():
@@ -49,11 +50,11 @@ def get_trees(filename, agent0_branch_size, agent1_branch_size):
                 else:
                     print(l)
                     if l[:6] == "Sample":
-                        print(l[17:-19])
+                        value = l[17:-19]
             else:
                 flag = False
         agent1_tree = ArrayTree(agent1_branch_size, nodes, edges) 
-        return [agent0_tree, agent1_tree]
+        return [agent0_tree, agent1_tree, value]
     else:
         return []
 

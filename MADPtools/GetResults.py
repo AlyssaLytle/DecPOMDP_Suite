@@ -27,7 +27,7 @@ with open('dpomdp-min.csv', newline='') as csvfile:
 
 writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, modes,prob_dict,cost_dict,scenario_number, human_observations, machine_observations)
 
-[h_tree, m_tree] = get_trees(path_to_res, len(human_observations), len(machine_observations))
+[h_tree, m_tree, value] = get_trees(path_to_res, len(human_observations), len(machine_observations))
 [hgraph, mgraph] = writer.get_graph_viz_limit_branches(h_tree,m_tree, start_state)
 f = open("htree.dot", "w")
 f.writelines(hgraph)
@@ -35,6 +35,10 @@ f.close()
 g = open("mtree.dot", "w")
 g.writelines(mgraph)
 g.close()
+h = open("tree_values.txt", "a")
+line = filename + " value: " + value + "\n"
+h.write(line)
+h.close()
 
 graph = graphviz.Source.from_file('htree.dot')
 graph.format = 'png'
