@@ -72,3 +72,16 @@ for scenario in range(1,9):
         rel_path = "ACC-min/" + filename + ".dpomdp"
         abs_file_path = os.path.join(script_dir, rel_path)
         writer.write_to_file(abs_file_path, start_state, True, False)
+        
+        
+### Generate shell file that outputs all the tree results ###
+shell_file = "GetResults.sh"
+file_data = ""
+for scenario in range(1,9):
+    for start_state in modes:
+        filename = "ACC-" + start_state + "-s" + str(scenario)
+        call = "python3 GetResults.py " + filename + " " + start_state + " " + str(scenario) + "\n"
+        file_data +=  call 
+f = open(shell_file, "w")
+f.writelines(file_data)
+f.close()

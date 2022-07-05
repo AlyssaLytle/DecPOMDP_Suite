@@ -10,7 +10,7 @@ import graphviz
 result = "GMAA_" + filename + "_kGMAA_QMDP_h2_restarts1_k1_NoCache_BGIP-AM_AM_restarts10_JPol"
 path_to_res = "/afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/" + filename + "/" + result
 
-with open('dpomdp.csv', newline='') as csvfile:
+with open('dpomdp-min.csv', newline='') as csvfile:
     dreader = csv.reader(csvfile)
     data = list(dreader)
     machine_comm_actions = data[0]

@@ -106,7 +106,7 @@ shell_file = "GetResults.sh"
 file_data = ""
 for scenario in range(1,9):
     for start_state in modes:
-        filename = "ACC-ss-" + start_state + "-scen-" + str(scenario)
+        filename = "ACC-" + start_state + "-s" + str(scenario)
         call = "python3 GetResults.py " + filename + " " + start_state + " " + str(scenario) + "\n"
         file_data +=  call 
 f = open(shell_file, "w")
