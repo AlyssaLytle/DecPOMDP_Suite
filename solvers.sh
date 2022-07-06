@@ -158,3 +158,35 @@ set NOW=`date '+%T'`
 ../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-hold-s8.dpomdp -h2
 set END=`date '+%T'` 
 echo "Start time: "$NOW " End Time: "$END
+set NOW=`date '+%T'` 
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-override-s1.dpomdp -h2
+set END=`date '+%T'` 
+echo "Start time: "$NOW " End Time: "$END
+set NOW=`date '+%T'` 
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-override-s2.dpomdp -h2
+set END=`date '+%T'` 
+echo "Start time: "$NOW " End Time: "$END
+set NOW=`date '+%T'` 
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-override-s3.dpomdp -h2
+set END=`date '+%T'` 
+echo "Start time: "$NOW " End Time: "$END
+set NOW=`date '+%T'` 
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-override-s4.dpomdp -h2
+set END=`date '+%T'` 
+echo "Start time: "$NOW " End Time: "$END
+set NOW=`date '+%T'` 
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-override-s5.dpomdp -h2
+set END=`date '+%T'` 
+echo "Start time: "$NOW " End Time: "$END
+set NOW=`date '+%T'` 
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-override-s6.dpomdp -h2
+set END=`date '+%T'` 
+echo "Start time: "$NOW " End Time: "$END
+set NOW=`date '+%T'` 
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-override-s7.dpomdp -h2
+set END=`date '+%T'` 
+echo "Start time: "$NOW " End Time: "$END
+set NOW=`date '+%T'` 
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-override-s8.dpomdp -h2
+set END=`date '+%T'` 
+echo "Start time: "$NOW " End Time: "$END
