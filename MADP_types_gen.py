@@ -95,7 +95,7 @@ for mode in modes:
         output += "set NOW=`date '+%T'` \n" 
         name = "ACC-" + mode + "-s" + str(scenario)
         fullname = name + ".dpomdp"
-        output += "../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC-min/" + fullname + " -h2\n"
+        output += "../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/" + fullname + " -h2\n"
         output += "set END=`date '+%T'` \n" 
         output += 'echo "Start time: "$NOW " End Time: "$END\n'
    

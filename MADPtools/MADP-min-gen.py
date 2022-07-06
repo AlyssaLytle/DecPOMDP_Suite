@@ -13,7 +13,7 @@ script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
 
 ### Initializing info for DecPOMDP ###
 
-modes = ["standby", "following", "speedcontrol", "error", "hold"]
+modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
 #automated_modes = ["following", "speedcontrol"]
 #non_automated_modes = ["canceled", "hold", "override","error"]
 human_mvmt_actions = ["accel", "decel", "maintainspeed", "none"]
@@ -69,7 +69,7 @@ for scenario in range(1,9):
     for start_state in modes:
         writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, states,prob_dict,cost_dict, scenario, human_observations, machine_observations)
         filename = "ACC-" + start_state + "-s" + str(scenario)
-        rel_path = "ACC-min/" + filename + ".dpomdp"
+        rel_path = "ACC/" + filename + ".dpomdp"
         abs_file_path = os.path.join(script_dir, rel_path)
         writer.write_to_file(abs_file_path, start_state, True, False)
         
