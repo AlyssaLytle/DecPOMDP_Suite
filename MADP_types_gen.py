@@ -127,7 +127,7 @@ for mode in modes:
         fullname = name + ".dpomdp"
         output += 'echo "Finding q value for ' + name + '"\n'
         output += "timeout -k 1h 1h " 
-        output += "./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/" + fullname + " -h2 -Q " 
+        output += "./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/" + fullname + " -h2 -Q " 
         output += "QMDP"
         output += " > QMDP-" + name + ".log" + "\n"
         output += "date +%T\n"
