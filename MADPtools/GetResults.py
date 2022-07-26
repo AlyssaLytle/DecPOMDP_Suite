@@ -37,8 +37,14 @@ f.close()
 g = open("mtree.dot", "w")
 g.writelines(mgraph)
 g.close()
-h = open("tree_values.csv", "a")
-line = filename + "," + str(value) + "\n"
+by_scen_value_file = "tree_values_s" + str(scenario_number) + ".csv"
+by_start_mode_value_file = "tree_values_" + start_state + ".csv"
+h = open(by_start_mode_value_file, "a")
+line = "scen " + str(scenario_number) + "," + str(value) + "\n"
+h.write(line)
+h.close()
+h = open(by_scen_value_file, "a")
+line = start_state + "," + str(value) + "\n"
 h.write(line)
 h.close()
 

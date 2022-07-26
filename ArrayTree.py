@@ -93,7 +93,6 @@ class ArrayTree:
         return int(level)
     
     def print(self):
-        #print root
         print(self.nodes[0])
         for i in range(1,len(self.nodes)):
             print("-" * self.get_level(i) + " Obs: " + str(self.edges[i]) + " -> Act: " + str(self.nodes[i]))
@@ -111,10 +110,6 @@ class ArrayTree:
             output += 'node' + str(i) + ' [label="' + str(self.edges[i]) + '"];\n'
         output += "}"
         return output
-    
-    
-    
-    
             
     def get_child_edge_idx_with_value(self, parent_idx, value):
         for child_idx in self.get_children_indexes(parent_idx):
@@ -122,3 +117,4 @@ class ArrayTree:
                 return child_idx
         print("ERROR. Observation not found")
         return " "
+    
