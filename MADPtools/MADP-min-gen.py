@@ -13,7 +13,8 @@ script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
 
 ### Initializing info for DecPOMDP ###
 
-modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
+#modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
+modes = ["standby", "following", "speedcontrol", "error", "hold"]
 #automated_modes = ["following", "speedcontrol"]
 #non_automated_modes = ["canceled", "hold", "override","error"]
 human_mvmt_actions = ["accel", "decel", "maintainspeed", "none"]

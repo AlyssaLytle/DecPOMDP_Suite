@@ -8,3 +8,5 @@ following;speedcontrol;random,switch
 speedcontrol;following;random,switch
 hold;following,speedcontrol;random,exit
 hold;following,speedcontrol;human_pushbutton
+override;following,speedcontrol,hold;human_none
+following,speedcontrol,hold;override;human_accel
