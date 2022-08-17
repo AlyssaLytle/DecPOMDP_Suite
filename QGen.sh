@@ -21,8 +21,8 @@ date +%T
 echo "Finding q value for ACC-standby-s7"
 timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-standby-s7.dpomdp -h2 -Q QMDP > QMDP-ACC-standby-s7.log
 date +%T
-echo "Finding q value for ACC-standby-s8"
-timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-standby-s8.dpomdp -h2 -Q QMDP > QMDP-ACC-standby-s8.log
+echo "Finding q value for ACC-standby-s0"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-standby-s0.dpomdp -h2 -Q QMDP > QMDP-ACC-standby-s0.log
 date +%T
 echo "Finding q value for ACC-following-s1"
 timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-following-s1.dpomdp -h2 -Q QMDP > QMDP-ACC-following-s1.log
@@ -45,8 +45,8 @@ date +%T
 echo "Finding q value for ACC-following-s7"
 timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-following-s7.dpomdp -h2 -Q QMDP > QMDP-ACC-following-s7.log
 date +%T
-echo "Finding q value for ACC-following-s8"
-timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-following-s8.dpomdp -h2 -Q QMDP > QMDP-ACC-following-s8.log
+echo "Finding q value for ACC-following-s0"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-following-s0.dpomdp -h2 -Q QMDP > QMDP-ACC-following-s0.log
 date +%T
 echo "Finding q value for ACC-speedcontrol-s1"
 timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-speedcontrol-s1.dpomdp -h2 -Q QMDP > QMDP-ACC-speedcontrol-s1.log
@@ -69,8 +69,8 @@ date +%T
 echo "Finding q value for ACC-speedcontrol-s7"
 timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-speedcontrol-s7.dpomdp -h2 -Q QMDP > QMDP-ACC-speedcontrol-s7.log
 date +%T
-echo "Finding q value for ACC-speedcontrol-s8"
-timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-speedcontrol-s8.dpomdp -h2 -Q QMDP > QMDP-ACC-speedcontrol-s8.log
+echo "Finding q value for ACC-speedcontrol-s0"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-speedcontrol-s0.dpomdp -h2 -Q QMDP > QMDP-ACC-speedcontrol-s0.log
 date +%T
 echo "Finding q value for ACC-error-s1"
 timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-error-s1.dpomdp -h2 -Q QMDP > QMDP-ACC-error-s1.log
@@ -93,8 +93,8 @@ date +%T
 echo "Finding q value for ACC-error-s7"
 timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-error-s7.dpomdp -h2 -Q QMDP > QMDP-ACC-error-s7.log
 date +%T
-echo "Finding q value for ACC-error-s8"
-timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-error-s8.dpomdp -h2 -Q QMDP > QMDP-ACC-error-s8.log
+echo "Finding q value for ACC-error-s0"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-error-s0.dpomdp -h2 -Q QMDP > QMDP-ACC-error-s0.log
 date +%T
 echo "Finding q value for ACC-hold-s1"
 timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-hold-s1.dpomdp -h2 -Q QMDP > QMDP-ACC-hold-s1.log
@@ -117,6 +117,6 @@ date +%T
 echo "Finding q value for ACC-hold-s7"
 timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-hold-s7.dpomdp -h2 -Q QMDP > QMDP-ACC-hold-s7.log
 date +%T
-echo "Finding q value for ACC-hold-s8"
-timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-hold-s8.dpomdp -h2 -Q QMDP > QMDP-ACC-hold-s8.log
+echo "Finding q value for ACC-hold-s0"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-hold-s0.dpomdp -h2 -Q QMDP > QMDP-ACC-hold-s0.log
 date +%T
