@@ -120,3 +120,27 @@ date +%T
 echo "Finding q value for ACC-hold-s7"
 timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-hold-s7.dpomdp -h2 -Q QMDP > QMDP-ACC-hold-s7.log
 date +%T
+echo "Finding q value for ACC-override-s0"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-override-s0.dpomdp -h2 -Q QMDP > QMDP-ACC-override-s0.log
+date +%T
+echo "Finding q value for ACC-override-s1"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-override-s1.dpomdp -h2 -Q QMDP > QMDP-ACC-override-s1.log
+date +%T
+echo "Finding q value for ACC-override-s2"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-override-s2.dpomdp -h2 -Q QMDP > QMDP-ACC-override-s2.log
+date +%T
+echo "Finding q value for ACC-override-s3"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-override-s3.dpomdp -h2 -Q QMDP > QMDP-ACC-override-s3.log
+date +%T
+echo "Finding q value for ACC-override-s4"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-override-s4.dpomdp -h2 -Q QMDP > QMDP-ACC-override-s4.log
+date +%T
+echo "Finding q value for ACC-override-s5"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-override-s5.dpomdp -h2 -Q QMDP > QMDP-ACC-override-s5.log
+date +%T
+echo "Finding q value for ACC-override-s6"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-override-s6.dpomdp -h2 -Q QMDP > QMDP-ACC-override-s6.log
+date +%T
+echo "Finding q value for ACC-override-s7"
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-override-s7.dpomdp -h2 -Q QMDP > QMDP-ACC-override-s7.log
+date +%T

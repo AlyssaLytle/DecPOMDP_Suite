@@ -7,8 +7,8 @@ solver_types = ["BFS", "AM", "CE", "MP", "BnB"]
 GMAA_param = ["MAAstar", "FSPC", "kGMAA"]
 q_heur = ["QMDP", "QPOMDP", "QBG", "QMDPc", "QPOMDPav", "QBGav", "QHybrid", "QPOMDPhybrid", "QBGhybrid", "QBGTreeIncPrune", "QBGTreeIncPruneBnB"]
 
-#modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
-modes = ["standby", "following", "speedcontrol", "error", "hold"]
+modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
+#modes = ["standby", "following", "speedcontrol", "error", "hold"]
 scenarios = range(8)
 
 count = 0
