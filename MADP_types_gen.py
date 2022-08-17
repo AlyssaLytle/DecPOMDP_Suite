@@ -9,7 +9,7 @@ q_heur = ["QMDP", "QPOMDP", "QBG", "QMDPc", "QPOMDPav", "QBGav", "QHybrid", "QPO
 
 #modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
 modes = ["standby", "following", "speedcontrol", "error", "hold"]
-scenarios = range(1,9)
+scenarios = range(8)
 
 count = 0
 

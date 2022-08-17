@@ -1,4 +1,8 @@
 set NOW=`date '+%T'` 
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-standby-s0.dpomdp -h2
+set END=`date '+%T'` 
+echo "Start time: "$NOW " End Time: "$END
+set NOW=`date '+%T'` 
 ../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-standby-s1.dpomdp -h2
 set END=`date '+%T'` 
 echo "Start time: "$NOW " End Time: "$END
@@ -27,7 +31,7 @@ set NOW=`date '+%T'`
 set END=`date '+%T'` 
 echo "Start time: "$NOW " End Time: "$END
 set NOW=`date '+%T'` 
-../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-standby-s8.dpomdp -h2
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-following-s0.dpomdp -h2
 set END=`date '+%T'` 
 echo "Start time: "$NOW " End Time: "$END
 set NOW=`date '+%T'` 
@@ -59,7 +63,7 @@ set NOW=`date '+%T'`
 set END=`date '+%T'` 
 echo "Start time: "$NOW " End Time: "$END
 set NOW=`date '+%T'` 
-../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-following-s8.dpomdp -h2
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-speedcontrol-s0.dpomdp -h2
 set END=`date '+%T'` 
 echo "Start time: "$NOW " End Time: "$END
 set NOW=`date '+%T'` 
@@ -91,7 +95,7 @@ set NOW=`date '+%T'`
 set END=`date '+%T'` 
 echo "Start time: "$NOW " End Time: "$END
 set NOW=`date '+%T'` 
-../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-speedcontrol-s8.dpomdp -h2
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-error-s0.dpomdp -h2
 set END=`date '+%T'` 
 echo "Start time: "$NOW " End Time: "$END
 set NOW=`date '+%T'` 
@@ -123,7 +127,7 @@ set NOW=`date '+%T'`
 set END=`date '+%T'` 
 echo "Start time: "$NOW " End Time: "$END
 set NOW=`date '+%T'` 
-../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-error-s8.dpomdp -h2
+../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-hold-s0.dpomdp -h2
 set END=`date '+%T'` 
 echo "Start time: "$NOW " End Time: "$END
 set NOW=`date '+%T'` 
@@ -152,9 +156,5 @@ set END=`date '+%T'`
 echo "Start time: "$NOW " End Time: "$END
 set NOW=`date '+%T'` 
 ../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-hold-s7.dpomdp -h2
-set END=`date '+%T'` 
-echo "Start time: "$NOW " End Time: "$END
-set NOW=`date '+%T'` 
-../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/ACC-hold-s8.dpomdp -h2
 set END=`date '+%T'` 
 echo "Start time: "$NOW " End Time: "$END
