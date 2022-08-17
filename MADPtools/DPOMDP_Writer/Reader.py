@@ -19,7 +19,6 @@ def get_trees(filename, agent0_branch_size, agent1_branch_size):
     f = open(filename, "r")
     #skip first 3 lines
     if f.readline():
-        print("line read")
         f.readline()
         f.readline()
         flag = True

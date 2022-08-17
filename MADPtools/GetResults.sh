@@ -1,3 +1,8 @@
+python3 GetResults.py ACC-standby-s0 standby 0
+python3 GetResults.py ACC-following-s0 following 0
+python3 GetResults.py ACC-speedcontrol-s0 speedcontrol 0
+python3 GetResults.py ACC-error-s0 error 0
+python3 GetResults.py ACC-hold-s0 hold 0
 python3 GetResults.py ACC-standby-s1 standby 1
 python3 GetResults.py ACC-following-s1 following 1
 python3 GetResults.py ACC-speedcontrol-s1 speedcontrol 1
@@ -33,8 +38,3 @@ python3 GetResults.py ACC-following-s7 following 7
 python3 GetResults.py ACC-speedcontrol-s7 speedcontrol 7
 python3 GetResults.py ACC-error-s7 error 7
 python3 GetResults.py ACC-hold-s7 hold 7
-python3 GetResults.py ACC-standby-s8 standby 8
-python3 GetResults.py ACC-following-s8 following 8
-python3 GetResults.py ACC-speedcontrol-s8 speedcontrol 8
-python3 GetResults.py ACC-error-s8 error 8
-python3 GetResults.py ACC-hold-s8 hold 8

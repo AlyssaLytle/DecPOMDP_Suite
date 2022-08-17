@@ -1,3 +1,5 @@
+#searches through files to find the policies that were computed. Erases files with empty policies.
+
 import sys
 from DPOMDP_Writer.Reader import *
 from DPOMDP_Writer.DPOMDPWriterMedium import DPOMDPWriterACC

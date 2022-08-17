@@ -8,6 +8,47 @@ import sys
 sys.path.append("..")
 from ArrayTree import ArrayTree
 
+def generate_safety_scenarios():
+    actions = ["accel", "decel", "maintain speed"]
+    scenarios = []
+    for k in range(0,4):
+        c = list(itertools.combinations(actions, k))
+        scenarios.extend(c)
+    return scenarios
+
+def print_scenarios():
+    scenarios = generate_safety_scenarios()
+    for idx in range(len(scenarios)):
+        print("Scenario " + str(idx) + " Safe Actions: " + str(scenarios[idx]))
+
+def get_safety_by_scenario(h_action, m_action, scenario_num):
+    scenarios = generate_safety_scenarios()
+    safe_actions = scenarios[scenario_num]
+    anti_accel = ["decel", "maintain speed"]
+    anti_decel = ["accel", "maintain speed"]
+    anti_maintain = ["decel", "accel"]
+    maintain_h = (h_action == "maintain speed")
+    maintain_m = (m_action == "maintain speed")
+    accel_h = (h_action == "accel")
+    accel_m = (m_action == "accel")
+    decel_h = (h_action == "decel")
+    decel_m = (m_action == "decel")
+    if "maintain speed" in safe_actions:
+        if maintain_h & ~(m_action in anti_maintain):
+            return True
+        if maintain_m & ~(h_action in anti_maintain):
+            return True
+    if "accel" in safe_actions:
+        if accel_h & ~(m_action in anti_accel):
+            return True
+        if accel_m & ~(h_action in anti_accel):
+            return True
+    if "decel" in safe_actions:
+        if decel_h & ~(m_action in anti_decel):
+            return True
+        if decel_m & ~(h_action in anti_decel):
+            return True
+    return False
 
 def triple_in_list(inp_list, pair):
     #checks if a list of size 3 is in inp_list
@@ -121,34 +162,7 @@ class DPOMDPWriterACC:
 
     def get_safety(self,human_action, machine_action):
         #input PHYSICAL MOVEMENT actions as human_action and machine_action
-        scenario = self.scenario
-        anti_decel = ["accel", "maintainspeed"]
-        anti_accel = ["decel"]
-        if (scenario == 1) | (scenario == 2) | (scenario == 5):
-            if (human_action == "decel") & ~(machine_action in anti_decel):
-                return True
-            elif (machine_action == "decel") & ~(human_action in anti_decel):
-                return True
-            else:
-                return False
-        elif (scenario == 3) | (scenario == 7):
-            if (human_action == "decel") & ~(machine_action in anti_decel):
-                return False
-            elif (machine_action == "decel") & ~(human_action in anti_decel):
-                return False
-            else:
-                return True
-        elif (scenario == 4) | (scenario == 8):
-            if (human_action == "accel") & ~(machine_action in anti_accel):
-                return True
-            elif (machine_action == "accel") & ~(human_action in anti_accel):
-                return True
-            else:
-                return False
-        elif (scenario == 6):
-            return False
-        else:
-            print("ERROR! Unrecognized scenario!")
+        return get_safety_by_scenario(human_action, machine_action, self.scenario)
 
     def get_cost(self, human_action, machine_action, start_state):
         [hum_mvmt, hum_comm] = human_action
@@ -624,6 +638,9 @@ class DPOMDPWriterACC:
         output2 += nodes_m + edges_m
         output = [output1 + '}', output2 + '}']
         return output
+    
+
+        
     
     def write_to_file(self, filename, start_state, sink, imp_obs):
         file_data = []

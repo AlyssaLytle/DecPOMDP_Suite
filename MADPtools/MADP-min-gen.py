@@ -66,7 +66,7 @@ with open('dpomdp-min.csv', 'w', newline='') as csvfile:
 
 
 ### Generate .dpomdp files ###
-for scenario in range(1,9):
+for scenario in range(8):
     for start_state in modes:
         writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, states,prob_dict,cost_dict, scenario, human_observations, machine_observations)
         filename = "ACC-" + start_state + "-s" + str(scenario)
@@ -78,7 +78,7 @@ for scenario in range(1,9):
 ### Generate shell file that outputs all the tree results ###
 shell_file = "GetResults.sh"
 file_data = ""
-for scenario in range(1,9):
+for scenario in range(8):
     for start_state in modes:
         filename = "ACC-" + start_state + "-s" + str(scenario)
         call = "python3 GetResults.py " + filename + " " + start_state + " " + str(scenario) + "\n"
