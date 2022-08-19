@@ -175,9 +175,9 @@ class DPOMDPWriterACC:
         #if (hum_mvmt != "none"): #& (is_non_auto == False):
         #    cost += self.costs["human movement"]
         # cost for unsafe state
-        #if (hum_mvmt == "none"):
-        #    no_mvmt_rew = -1 * self.costs["human movement"]
-        #    cost += no_mvmt_rew
+        if (hum_mvmt == "none"):
+            no_mvmt_rew = -1 * self.costs["human movement"]
+            cost += no_mvmt_rew
         #if safety == False:
         #    cost += self.costs["unsafe"]
         #reward for not crashing
