@@ -178,18 +178,18 @@ class DPOMDPWriterACC:
         if (hum_mvmt == "none"):
             no_mvmt_rew = -1 * self.costs["human movement"]
             cost += no_mvmt_rew
-        #if safety == False:
-        #    cost += self.costs["unsafe"]
+        if safety == False:
+            cost += self.costs["unsafe"]
         #reward for not crashing
-        if safety:
-            safe_rew = self.costs["unsafe"] * -1
-            cost += safe_rew
+        #if safety:
+        #    safe_rew = self.costs["unsafe"] * -1
+        #    cost += safe_rew
         # cost of machine updating the interface
-        #if mach_comm == "communicate":
-        #    cost += self.costs["machine communication"]
-        if mach_comm == "dontcommunicate":
-            no_comm_rew = self.costs["machine communication"] * -1
-            cost += no_comm_rew
+        if mach_comm == "communicate":
+            cost += self.costs["machine communication"]
+        #if mach_comm == "dontcommunicate":
+        #    no_comm_rew = self.costs["machine communication"] * -1
+        #    cost += no_comm_rew
         #reward for the human trying to switch to autonomous state from non-auto one
         if (is_non_auto) & (hum_comm == "pushbutton") :
             cost += self.costs["automation reward"]

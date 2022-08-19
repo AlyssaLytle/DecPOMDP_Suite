@@ -93,18 +93,18 @@ for solver in solver_types:
 output = ""
 for mode in modes:
     for scenario in scenarios:
-        output += "set NOW=`date '+%T'` \n" 
+        #output += "set NOW=`date '+%T'` \n" 
         name = "ACC-" + mode + "-s" + str(scenario)
         fullname = name + ".dpomdp"
-        output += "../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/" + fullname + " -h2\n"
-        output += "set END=`date '+%T'` \n" 
-        output += 'echo "Start time: "$NOW " End Time: "$END\n'
+        output += "timeout -k 1h 1h ../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/" + fullname + " -h2\n"
+        #output += "set END=`date '+%T'` \n" 
+        #output += 'echo "Start time: "$NOW " End Time: "$END\n'
    
 f = open("solvers.sh", "w")
 f.writelines(output)
 f.close()
 
-### Write evaluator for results
+'''### Write evaluator for results
 
 # Get list of all results
 #command = "cd ~/.madp/results/GMAA/ACC-ss-standby-scen-1/\n"
@@ -117,9 +117,9 @@ command += "python3 AnalyzeResults.py\n"
 
 f = open("listresults.sh", "w")
 f.writelines(command)
-f.close()
+f.close()'''
 
-
+#Generate Q Values
 output = "cd ../MADP/src/utils\n"
 output += "date +%T\n"
 for mode in modes:
