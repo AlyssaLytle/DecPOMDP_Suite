@@ -2,5 +2,5 @@ digraph machine_tree {
 edge [dir=none];
 node0 [ label = "none-dontcommunicate" ];
 node1 [ label = "none-dontcommunicate" ];
-node0 -> node1 [label="error"];
+node0 -> node1 [label="standby"];
 }

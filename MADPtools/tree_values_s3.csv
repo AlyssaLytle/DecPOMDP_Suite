@@ -12,3 +12,15 @@ speedcontrol,3.9917
 error,2
 hold,3.9911
 override,2
+standby,13
+following,13.9899
+speedcontrol,13.9912
+error,12
+hold,13.9887
+override,12
+standby,13
+following,13.9899
+speedcontrol,13.9912
+error,12
+hold,13.9887
+override,12

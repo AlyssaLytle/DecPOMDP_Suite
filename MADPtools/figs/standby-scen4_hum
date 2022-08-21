@@ -1,6 +1,0 @@
-digraph human_tree {
-edge [dir=none];
-node0 [ label = "accel-pushbutton" ];
-node1 [ label = "accel-dontpushbutton" ];
-node0 -> node1 [label="none"];
-}
