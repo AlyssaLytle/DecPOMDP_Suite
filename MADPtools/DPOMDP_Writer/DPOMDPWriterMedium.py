@@ -9,7 +9,7 @@ sys.path.append("..")
 from ArrayTree import ArrayTree
 
 def generate_safety_scenarios():
-    actions = ["accel", "decel", "maintain speed"]
+    actions = ["accel", "decel", "maintainspeed"]
     scenarios = []
     for k in range(0,4):
         c = list(itertools.combinations(actions, k))
@@ -24,16 +24,16 @@ def print_scenarios():
 def get_safety_by_scenario(h_action, m_action, scenario_num):
     scenarios = generate_safety_scenarios()
     safe_actions = scenarios[scenario_num]
-    anti_accel = ["decel", "maintain speed"]
-    anti_decel = ["accel", "maintain speed"]
+    anti_accel = ["decel", "maintainspeed"]
+    anti_decel = ["accel", "maintainspeed"]
     anti_maintain = ["decel", "accel"]
-    maintain_h = (h_action == "maintain speed")
-    maintain_m = (m_action == "maintain speed")
+    maintain_h = (h_action == "maintainspeed")
+    maintain_m = (m_action == "maintainspeed")
     accel_h = (h_action == "accel")
     accel_m = (m_action == "accel")
     decel_h = (h_action == "decel")
     decel_m = (m_action == "decel")
-    if "maintain speed" in safe_actions:
+    if "maintainspeed" in safe_actions:
         if maintain_h & ~(m_action in anti_maintain):
             return True
         if maintain_m & ~(h_action in anti_maintain):
