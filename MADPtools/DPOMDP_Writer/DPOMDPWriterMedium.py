@@ -167,7 +167,7 @@ class DPOMDPWriterACC:
     def get_cost(self, human_action, machine_action, start_state):
         [hum_mvmt, hum_comm] = human_action
         [mach_mvmt, mach_comm] = machine_action
-        non_auto_states = ["standby", "override","error"]
+        non_auto_states = ["standby", "override","error","hold"]
         is_non_auto = start_state in non_auto_states
         safety = self.get_safety(hum_mvmt, mach_mvmt)
         cost = 0

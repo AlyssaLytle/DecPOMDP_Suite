@@ -1231,8 +1231,8 @@ R: accel-pushbutton decel-communicate : hold : * : * : -100000
 R: accel-pushbutton decel-dontcommunicate : hold : * : * : -100000
 R: accel-pushbutton maintainspeed-communicate : hold : * : * : -100000
 R: accel-pushbutton maintainspeed-dontcommunicate : hold : * : * : -100000
-R: accel-dontpushbutton none-communicate : hold : * : * : 11
-R: accel-dontpushbutton none-dontcommunicate : hold : * : * : 12
+R: accel-dontpushbutton none-communicate : hold : * : * : 10
+R: accel-dontpushbutton none-dontcommunicate : hold : * : * : 11
 R: accel-dontpushbutton accel-communicate : hold : * : * : -100000
 R: accel-dontpushbutton accel-dontcommunicate : hold : * : * : -100000
 R: accel-dontpushbutton decel-communicate : hold : * : * : -100000
@@ -1247,8 +1247,8 @@ R: decel-pushbutton decel-communicate : hold : * : * : -100000
 R: decel-pushbutton decel-dontcommunicate : hold : * : * : -100000
 R: decel-pushbutton maintainspeed-communicate : hold : * : * : -100000
 R: decel-pushbutton maintainspeed-dontcommunicate : hold : * : * : -100000
-R: decel-dontpushbutton none-communicate : hold : * : * : 11
-R: decel-dontpushbutton none-dontcommunicate : hold : * : * : 12
+R: decel-dontpushbutton none-communicate : hold : * : * : 10
+R: decel-dontpushbutton none-dontcommunicate : hold : * : * : 11
 R: decel-dontpushbutton accel-communicate : hold : * : * : -100000
 R: decel-dontpushbutton accel-dontcommunicate : hold : * : * : -100000
 R: decel-dontpushbutton decel-communicate : hold : * : * : -100000
@@ -1263,8 +1263,8 @@ R: maintainspeed-pushbutton decel-communicate : hold : * : * : -100000
 R: maintainspeed-pushbutton decel-dontcommunicate : hold : * : * : -100000
 R: maintainspeed-pushbutton maintainspeed-communicate : hold : * : * : -100000
 R: maintainspeed-pushbutton maintainspeed-dontcommunicate : hold : * : * : -100000
-R: maintainspeed-dontpushbutton none-communicate : hold : * : * : 1
-R: maintainspeed-dontpushbutton none-dontcommunicate : hold : * : * : 2
+R: maintainspeed-dontpushbutton none-communicate : hold : * : * : 0
+R: maintainspeed-dontpushbutton none-dontcommunicate : hold : * : * : 1
 R: maintainspeed-dontpushbutton accel-communicate : hold : * : * : -100000
 R: maintainspeed-dontpushbutton accel-dontcommunicate : hold : * : * : -100000
 R: maintainspeed-dontpushbutton decel-communicate : hold : * : * : -100000
@@ -1279,8 +1279,8 @@ R: none-pushbutton decel-communicate : hold : * : * : -100000
 R: none-pushbutton decel-dontcommunicate : hold : * : * : -100000
 R: none-pushbutton maintainspeed-communicate : hold : * : * : -100000
 R: none-pushbutton maintainspeed-dontcommunicate : hold : * : * : -100000
-R: none-dontpushbutton none-communicate : hold : * : * : 6
-R: none-dontpushbutton none-dontcommunicate : hold : * : * : 7
+R: none-dontpushbutton none-communicate : hold : * : * : 5
+R: none-dontpushbutton none-dontcommunicate : hold : * : * : 6
 R: none-dontpushbutton accel-communicate : hold : * : * : -100000
 R: none-dontpushbutton accel-dontcommunicate : hold : * : * : -100000
 R: none-dontpushbutton decel-communicate : hold : * : * : -100000
