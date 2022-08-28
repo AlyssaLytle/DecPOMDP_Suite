@@ -77,7 +77,7 @@ def find_possible_action_next_state_combos(transition_list):
 
     
 
-mode_change_table = latex_to_table("DPOMDP_Writer/TransitionLatexClean.csv")
+mode_change_table = latex_to_table("DPOMDP_Writer/Transitions.csv")
 #mode_change_table = latex_to_table("DPOMDP_Writer/MinExampleTransitions.csv")
 
 class DPOMDPWriterACC:
