@@ -8,7 +8,7 @@ GMAA_param = ["MAAstar", "FSPC", "kGMAA"]
 q_heur = ["QMDP", "QPOMDP", "QBG", "QMDPc", "QPOMDPav", "QBGav", "QHybrid", "QPOMDPhybrid", "QBGhybrid", "QBGTreeIncPrune", "QBGTreeIncPruneBnB"]
 
 modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
-#modes = ["standby", "following", "speedcontrol", "error", "hold"]
+modes_wo_override = ["standby", "following", "speedcontrol", "error", "hold"]
 scenarios = range(8)
 
 count = 0
@@ -90,19 +90,21 @@ for solver in solver_types:
         count += 1
 '''
 
-output = ""
-for mode in modes:
-    for scenario in scenarios:
-        #output += "set NOW=`date '+%T'` \n" 
-        name = "ACC-" + mode + "-s" + str(scenario)
-        fullname = name + ".dpomdp"
-        output += "timeout -k 1h 1h ../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/ACC/" + fullname + " -h2\n"
-        #output += "set END=`date '+%T'` \n" 
-        #output += 'echo "Start time: "$NOW " End Time: "$END\n'
-   
-f = open("solvers.sh", "w")
-f.writelines(output)
-f.close()
+def GenerateSolvers(prefix, inp_modes):
+    output = ""
+    for mode in inp_modes:
+        for scenario in scenarios:
+            #output += "set NOW=`date '+%T'` \n" 
+            name = prefix + "-" + mode + "-s" + str(scenario)
+            fullname = name + ".dpomdp"
+            output += "timeout -k 1h 1h ../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/" + prefix + "/" + fullname + " -h2\n"
+            #output += "set END=`date '+%T'` \n" 
+            #output += 'echo "Start time: "$NOW " End Time: "$END\n'
+    
+    fname = "solvers" + prefix + ".sh"
+    f = open(fname, "w")
+    f.writelines(output)
+    f.close()
 
 '''### Write evaluator for results
 
@@ -120,19 +122,26 @@ f.writelines(command)
 f.close()'''
 
 #Generate Q Values
-output = "cd ../MADP/src/utils\n"
-output += "date +%T\n"
-for mode in modes:
-    for scenario in scenarios:  
-        name = "ACC-" + mode + "-s" + str(scenario)
-        fullname = name + ".dpomdp"
-        output += 'echo "Finding q value for ' + name + '"\n'
-        output += "timeout -k 1h 1h " 
-        output += "./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/" + fullname + " -h2 -Q " 
-        output += "QMDP"
-        output += " > QMDP-" + name + ".log" + "\n"
-        output += "date +%T\n"
+def GenerateQ(prefix, inp_modes):
+    output = "cd ../MADP/src/utils\n"
+    output += "date +%T\n"
+    for mode in inp_modes:
+        for scenario in scenarios:  
+            name = prefix + "-" + mode + "-s" + str(scenario)
+            fullname = name + ".dpomdp"
+            output += 'echo "Finding q value for ' + name + '"\n'
+            output += "timeout -k 1h 1h " 
+            output += "./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/" + prefix + "/" + fullname + " -h2 -Q " 
+            output += "QMDP"
+            output += " > QMDP-" + name + ".log" + "\n"
+            output += "date +%T\n"
     
-f = open("QGen.sh", "w")
-f.writelines(output)
-f.close()
+    fname =  "QGen" + prefix + ".sh"   
+    f = open(fname, "w")
+    f.writelines(output)
+    f.close()
+
+GenerateSolvers("ACC", modes)   
+GenerateQ("ACC", modes)
+GenerateSolvers("ACCmin", modes_wo_override)   
+GenerateQ("ACCmin", modes_wo_override)
