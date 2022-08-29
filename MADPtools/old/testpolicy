@@ -1,0 +1,21 @@
+JointPolicyPureVector: 
+JPolComponent_VectorImplementation index 70368809303552
+Policy for agent 0 (index 4194307):
+() --> decel-pushbutton
+(standby) --> accel-pushbutton
+(following) --> accel-pushbutton
+(speedcontrol) --> accel-pushbutton
+(hold) --> accel-pushbutton
+(override) --> accel-pushbutton
+(error) --> accel-pushbutton
+(none) --> decel-dontpushbutton
+Policy for agent 1 (index 14794240):
+() --> none-dontcommunicate
+(standby) --> accel-communicate
+(following) --> decel-dontcommunicate
+(speedcontrol) --> decel-dontcommunicate
+(hold) --> none-dontcommunicate
+(override) --> accel-communicate
+(error) --> accel-communicate
+(sink) --> accel-communicate
+
