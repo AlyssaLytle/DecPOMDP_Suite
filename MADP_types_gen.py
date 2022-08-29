@@ -143,5 +143,5 @@ def GenerateQ(prefix, inp_modes):
 
 GenerateSolvers("ACC", modes)   
 GenerateQ("ACC", modes)
-GenerateSolvers("ACCmin", modes_wo_override)   
-GenerateQ("ACCmin", modes_wo_override)
+GenerateSolvers("ACC-min", modes_wo_override)   
+GenerateQ("ACC-min", modes_wo_override)
