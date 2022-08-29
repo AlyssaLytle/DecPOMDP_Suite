@@ -5,14 +5,15 @@ import csv
 import json
 import graphviz
 
-#Call should look like python3 GetResults.py filename start_state scenario_number
-[cmd, filename, start_state, scenario_number] = sys.argv
+#Call should look like python3 GetResults.py filename start_state scenario_number prefix
+[cmd, filename, start_state, scenario_number, prefix] = sys.argv
 result = "GMAA_" + filename + "_MAAstar_QMDP_h2_restarts1_NoCache_BGIP-BnB_ka0_JTODescendingProbability_CCI1_JPol"
 path_to_res = "/afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/" + filename + "/" + result
 
 print(filename)
 
-with open('dpomdp-min.csv', newline='') as csvfile:
+csv_name = prefix +  "dpomdp.csv"
+with open(csv_name, newline='') as csvfile:
     dreader = csv.reader(csvfile)
     data = list(dreader)
     machine_comm_actions = data[0]

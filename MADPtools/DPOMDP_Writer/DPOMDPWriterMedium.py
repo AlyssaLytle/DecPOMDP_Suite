@@ -77,12 +77,12 @@ def find_possible_action_next_state_combos(transition_list):
 
     
 
-mode_change_table = latex_to_table("DPOMDP_Writer/Transitions.csv")
+#mode_change_table = latex_to_table("DPOMDP_Writer/Transitions.csv")
 #mode_change_table = latex_to_table("DPOMDP_Writer/MinExampleTransitions.csv")
 
 class DPOMDPWriterACC:
 
-    def __init__(self,mach_comm_acts, mach_move_acts,hum_comm_acts,hum_move_acts,modes,prob_dict,cost_dict, scenario_number, human_observations, machine_observations):
+    def __init__(self,mach_comm_acts, mach_move_acts,hum_comm_acts,hum_move_acts,modes,prob_dict,cost_dict, scenario_number, human_observations, machine_observations, mode_change_table_path):
         #since this is medium, there is only 1 scenario
         self.states = modes
         self.human_actions = list(itertools.product(hum_move_acts, hum_comm_acts))
@@ -95,6 +95,7 @@ class DPOMDPWriterACC:
         self.scenario_number = scenario_number
         self.human_observations = human_observations
         self.machine_observations = machine_observations
+        self.mode_change_table = latex_to_table(mode_change_table_path)
 
     def get_value(self,h_tree,m_tree,state,h_idx, m_idx):
         #a state probability mapping should look like [[state1, prob1], [state2,prob2], etc...]
@@ -274,7 +275,7 @@ class DPOMDPWriterACC:
         transitions = []
         [hum_phys, hum_comm] = hum_action
         [mach_phys, mach_comm] = mach_action
-        for row in mode_change_table:
+        for row in self.mode_change_table:
             [starts, ends, cause] = row
             if start_state in starts:
                 if cause[0] == "event":
