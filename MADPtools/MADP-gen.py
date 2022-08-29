@@ -20,7 +20,7 @@ mode_change_table_wo_override = "DPOMDP_Writer/MinExampleTransitions.csv"
 contaning_folder = "ACC/"
 contaning_folder_wo_override = "ACC-min/"
 prefix = "ACC"
-prefix_wo_override = "ACCmin"
+prefix_wo_override = "ACC-min"
 
 
 def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix):
