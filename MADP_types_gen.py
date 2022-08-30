@@ -91,19 +91,25 @@ for solver in solver_types:
 '''
 
 def GenerateSolvers(prefix, inp_modes):
-    output = ""
+    wrap_output = "cd ..\n"
     for mode in inp_modes:
+        output = "cd ..\n"
         for scenario in scenarios:
             #output += "set NOW=`date '+%T'` \n" 
             name = prefix + "-" + mode + "-s" + str(scenario)
             fullname = name + ".dpomdp"
-            output += "timeout -k 1h 1h ../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/" + prefix + "/" + fullname + " -h2\n"
+            output += "timeout -k 1h 1h "
+            output += "../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/" + prefix + "/" + fullname + " -h2\n"
             #output += "set END=`date '+%T'` \n" 
             #output += 'echo "Start time: "$NOW " End Time: "$END\n'
-    
-    fname = "solvers" + prefix + ".sh"
+        fname0 = "scripts/solvers" + prefix + "-" + mode + ".sh"
+        g = open(fname0, "w")
+        g.writelines(output)
+        g.close()
+        wrap_output += "sh " + fname0 + "\n"
+    fname = "scripts/solvers" + prefix + ".sh"
     f = open(fname, "w")
-    f.writelines(output)
+    f.writelines(wrap_output)
     f.close()
 
 '''### Write evaluator for results
@@ -123,7 +129,8 @@ f.close()'''
 
 #Generate Q Values
 def GenerateQ(prefix, inp_modes):
-    output = "cd ../MADP/src/utils\n"
+    output = "cd ..\n"
+    output += "cd ../MADP/src/utils\n"
     output += "date +%T\n"
     for mode in inp_modes:
         for scenario in scenarios:  
@@ -136,7 +143,7 @@ def GenerateQ(prefix, inp_modes):
             output += " > QMDP-" + name + ".log" + "\n"
             output += "date +%T\n"
     
-    fname =  "QGen" + prefix + ".sh"   
+    fname =  "scripts/QGen" + prefix + ".sh"   
     f = open(fname, "w")
     f.writelines(output)
     f.close()

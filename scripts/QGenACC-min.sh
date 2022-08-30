@@ -1,3 +1,4 @@
+cd ..
 cd ../MADP/src/utils
 date +%T
 echo "Finding q value for ACC-min-standby-s0"
