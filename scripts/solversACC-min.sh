@@ -1,6 +1,5 @@
-cd ..
-sh scripts/solversACC-min-standby.sh
-sh scripts/solversACC-min-following.sh
-sh scripts/solversACC-min-speedcontrol.sh
-sh scripts/solversACC-min-error.sh
-sh scripts/solversACC-min-hold.sh
+sh solversACC-min-standby.sh
+sh solversACC-min-following.sh
+sh solversACC-min-speedcontrol.sh
+sh solversACC-min-error.sh
+sh solversACC-min-hold.sh

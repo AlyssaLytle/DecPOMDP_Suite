@@ -91,7 +91,7 @@ for solver in solver_types:
 '''
 
 def GenerateSolvers(prefix, inp_modes):
-    wrap_output = "cd ..\n"
+    wrap_output = ""
     for mode in inp_modes:
         output = "cd ..\n"
         for scenario in scenarios:
@@ -102,8 +102,9 @@ def GenerateSolvers(prefix, inp_modes):
             output += "../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/" + prefix + "/" + fullname + " -h2\n"
             #output += "set END=`date '+%T'` \n" 
             #output += 'echo "Start time: "$NOW " End Time: "$END\n'
-        fname0 = "scripts/solvers" + prefix + "-" + mode + ".sh"
-        g = open(fname0, "w")
+        fname0 = "solvers" + prefix + "-" + mode + ".sh"
+        fpath = "scripts/"+ fname0
+        g = open(fpath, "w")
         g.writelines(output)
         g.close()
         wrap_output += "sh " + fname0 + "\n"
