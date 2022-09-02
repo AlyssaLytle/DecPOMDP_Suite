@@ -1,9 +1,0 @@
-communicate,dontcommunicate
-accel,decel,maintainspeed,none
-pushbutton,dontpushbutton
-accel,decel,maintainspeed,none
-standby,following,speedcontrol,hold,override,error,sink
-"{""exithold"": 0.01, ""error"": 0.01}"
-"{""human movement"": -2, ""unsafe"": -100, ""machine communication"": -1, ""automation reward"": 1, ""safety reward"": 5}"
-standby,following,speedcontrol,hold,override,error,none
-standby,following,speedcontrol,hold,override,error,sink

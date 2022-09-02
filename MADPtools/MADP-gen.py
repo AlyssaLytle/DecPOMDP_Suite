@@ -13,14 +13,7 @@ script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
 
 ### Initializing info for DecPOMDP ###
 
-modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
-modes_wo_override = ["standby", "following", "speedcontrol", "error", "hold"]
-mode_change_table = "DPOMDP_Writer/Transitions.csv"
-mode_change_table_wo_override = "DPOMDP_Writer/MinExampleTransitions.csv"
-contaning_folder = "ACC/"
-contaning_folder_wo_override = "ACC-min/"
-prefix = "ACC"
-prefix_wo_override = "ACC-min"
+
 
 
 def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix):
@@ -53,7 +46,7 @@ def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix):
 
     ### Write DPOMDP info to a csv file
     csv_name = file_prefix +  "dpomdp.csv"
-    with open('dpomdp-min.csv', 'w', newline='') as csvfile:
+    with open(csv_name, 'w', newline='') as csvfile:
         dwriter = csv.writer(csvfile)
         dwriter.writerow(machine_comm_actions)
         dwriter.writerow(machine_mvmt_actions)
@@ -95,6 +88,15 @@ def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix):
     f = open(shell_file, "w")
     f.writelines(file_data)
     f.close()
+
+modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
+modes_wo_override = ["standby", "following", "speedcontrol", "error", "hold"]
+mode_change_table = "DPOMDP_Writer/Transitions.csv"
+mode_change_table_wo_override = "DPOMDP_Writer/MinExampleTransitions.csv"
+contaning_folder = "ACC/"
+contaning_folder_wo_override = "ACC-min/"
+prefix = "ACC"
+prefix_wo_override = "ACC-min"
 
 generate_dpomdp(modes,mode_change_table,contaning_folder,prefix)
 generate_dpomdp(modes_wo_override, mode_change_table_wo_override, contaning_folder_wo_override, prefix_wo_override)
