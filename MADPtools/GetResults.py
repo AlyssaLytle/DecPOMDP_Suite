@@ -57,12 +57,12 @@ h.close()
 graph = graphviz.Source.from_file('htree.dot')
 graph.format = 'png'
 #graph.view()
-tree_name = "figs/" + start_state + "-scen" + str(scenario_number) + "_hum"
+tree_name = "figs/" + prefix + start_state + "-scen" + str(scenario_number) + "_hum"
 filename = graph.render(filename=tree_name)
 
 graph = graphviz.Source.from_file('mtree.dot')
 graph.format = 'png'
 #graph.view()
-tree_name = "figs/" + start_state + "-scen" + str(scenario_number) + "_mach"
+tree_name = "figs/" + prefix + start_state + "-scen" + str(scenario_number) + "_mach"
 filename = graph.render(filename=tree_name)
 
