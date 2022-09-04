@@ -1,11 +1,5 @@
 *.log
 .DS_Store
 __pycache__/
-MADPtools/testpolicy
-MADPtools/transtable.txt
-MADPtools/gvscratch.py
 PersonalSolver/
-MADPtools/optimalpolicy
-MADPtools/minoptimalpolicy
-MADPtools/mintestpolicy
-heuristics.txt
+MADPtools/old/
