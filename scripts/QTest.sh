@@ -1,0 +1,35 @@
+cd ..
+cd ../MADP/src/utils
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-standby-s7.dpomdp -h2 -Q QMDP
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-standby-s7.dpomdp -h2 -Q QPOMDP
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-standby-s7.dpomdp -h2 -Q QBG
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-standby-s7.dpomdp -h2 -Q QMDPc
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-standby-s7.dpomdp -h2 -Q QPOMDPav
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-standby-s7.dpomdp -h2 -Q QBGav
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-standby-s7.dpomdp -h2 -Q QHybrid
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-standby-s7.dpomdp -h2 -Q QPOMDPhybrid
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-standby-s7.dpomdp -h2 -Q QBGhybrid
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-standby-s7.dpomdp -h2 -Q QBGTreeIncPrune
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-standby-s7.dpomdp -h2 -Q QBGTreeIncPruneBnB
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-following-s7.dpomdp -h2 -Q QMDP
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-following-s7.dpomdp -h2 -Q QPOMDP
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-following-s7.dpomdp -h2 -Q QBG
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-following-s7.dpomdp -h2 -Q QMDPc
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-following-s7.dpomdp -h2 -Q QPOMDPav
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-following-s7.dpomdp -h2 -Q QBGav
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-following-s7.dpomdp -h2 -Q QHybrid
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-following-s7.dpomdp -h2 -Q QPOMDPhybrid
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-following-s7.dpomdp -h2 -Q QBGhybrid
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-following-s7.dpomdp -h2 -Q QBGTreeIncPrune
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-following-s7.dpomdp -h2 -Q QBGTreeIncPruneBnB
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-speedcontrol-s7.dpomdp -h2 -Q QMDP
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-speedcontrol-s7.dpomdp -h2 -Q QPOMDP
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-speedcontrol-s7.dpomdp -h2 -Q QBG
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-speedcontrol-s7.dpomdp -h2 -Q QMDPc
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-speedcontrol-s7.dpomdp -h2 -Q QPOMDPav
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-speedcontrol-s7.dpomdp -h2 -Q QBGav
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-speedcontrol-s7.dpomdp -h2 -Q QHybrid
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-speedcontrol-s7.dpomdp -h2 -Q QPOMDPhybrid
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-speedcontrol-s7.dpomdp -h2 -Q QBGhybrid
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-speedcontrol-s7.dpomdp -h2 -Q QBGTreeIncPrune
+timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-speedcontrol-s7.dpomdp -h2 -Q QBGTreeIncPruneBnB
