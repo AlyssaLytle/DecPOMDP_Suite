@@ -15,7 +15,7 @@ def gen_figs_tex(prefix, modes, scenarios):
     space = "\n"
     for scenario in scenarios:
         for mode in modes:
-            name = "result-figs/" + prefix 
+            name = "ACC-result-figs/" + prefix 
             name += mode + "-" 
             name += "scen" + str(scenario)
             mname = name + "_mach.png"

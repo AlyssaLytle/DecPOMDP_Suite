@@ -3,3 +3,5 @@
 __pycache__/
 PersonalSolver/
 MADPtools/old/
+MADPtools/scratch.py
+demo_csv.csv

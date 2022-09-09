@@ -56,3 +56,18 @@ def get_trees(filename, agent0_branch_size, agent1_branch_size):
     else:
         return []
 
+def trees_equal(tree1, tree2):
+    """Returns true if two array trees are equal"""
+    same_edges = (tree1.edges == tree2.edges)
+    same_nodes = (tree1.nodes == tree2.nodes)
+    return (same_edges & same_nodes)
+
+def read_tree(tree):
+    """Reads an array and creates a new tree from it"""
+    [nb, nodes, edges] = tree
+    new_tree = ArrayTree(nb,nodes,edges)
+    return new_tree
+
+def write_tree(tree):
+    """Returns a list that describes the tree"""
+    return [tree.num_branches, tree.nodes, tree.edges]

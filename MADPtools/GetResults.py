@@ -5,12 +5,59 @@ import csv
 import json
 import graphviz
 
+def arr_to_str(inp_arr):
+    """ Just a shortcut mthod """
+    return (',').join(inp_arr)
+
+def equal_trees(htree, mtree, comp_dict):
+    """ Returns TRUE if htree and mtree already exist in this dictionary """
+    h_nodes = (arr_to_str(htree.nodes) == comp_dict["htree-nodes"])
+    m_nodes = (arr_to_str(mtree.nodes) == comp_dict["mtree-nodes"])
+    h_edges = (arr_to_str(htree.edges) == comp_dict["htree-edges"])
+    m_edges = (arr_to_str(mtree.edges) == comp_dict["mtree-edges"])
+    return (h_nodes & m_nodes & h_edges & m_edges)
+
+def new_dict(name, h_tree, m_tree, instance):
+    """ Makes a new dictionary of a tree entry """
+    new_entry = {"name": name} 
+    new_entry["htree-nodes"] = arr_to_str(h_tree.nodes)
+    new_entry["mtree-nodes"] = arr_to_str(m_tree.nodes) 
+    new_entry["htree-edges"] = arr_to_str(h_tree.edges) 
+    new_entry["mtree-edges"] = arr_to_str(m_tree.edges)
+    new_entry["instance"] = instance
+    return new_entry
+
+def make_tree_image(tree_name, h_tree, m_tree, start_state):
+    [hgraph, mgraph] = writer.get_graph_viz_limit_branches(h_tree,m_tree, start_state)
+
+    f = open("htree.dot", "w")
+    f.writelines(hgraph)
+    f.close()
+    g = open("mtree.dot", "w")
+    g.writelines(mgraph)
+    g.close()
+
+    graph = graphviz.Source.from_file('htree.dot')
+    graph.format = 'png'
+    #graph.view()
+    tree_name = "figs/" + tree_name + "_hum"
+    filename = graph.render(filename=tree_name)
+
+    graph = graphviz.Source.from_file('mtree.dot')
+    graph.format = 'png'
+    #graph.view()
+    tree_name = "figs/" + tree_name + "_mach"
+    filename = graph.render(filename=tree_name)
+
 #Call should look like python3 GetResults.py filename start_state scenario_number prefix
 [cmd, filename, start_state, scenario_number, prefix] = sys.argv
 result = "GMAA_" + filename + "_MAAstar_QMDP_h2_restarts1_NoCache_BGIP-BnB_ka0_JTODescendingProbability_CCI1_JPol"
 path_to_res = "/afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/" + filename + "/" + result
 
+instance_name = start_state + "-" + str(scenario_number)
+
 print(filename)
+
 
 csv_name = prefix +  "dpomdp.csv"
 with open(csv_name, newline='') as csvfile:
@@ -35,14 +82,58 @@ else:
 
 writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, modes,prob_dict,cost_dict,scenario_number, human_observations, machine_observations, mc_path)
 
+""" Get trees """
 [h_tree, m_tree, value] = get_trees(path_to_res, len(human_observations), len(machine_observations))
-[hgraph, mgraph] = writer.get_graph_viz_limit_branches(h_tree,m_tree, start_state)
-f = open("htree.dot", "w")
-f.writelines(hgraph)
-f.close()
-g = open("mtree.dot", "w")
-g.writelines(mgraph)
-g.close()
+
+""" then scan a file to see if a tree has been seen before
+if not, assign the tree a new name """
+
+
+
+field_names = ["name", "htree-nodes", "mtree-nodes", "htree-edges", "mtree-edges","instance"]
+
+
+
+tfile = "tree_list.csv"
+
+num_trees = 0
+output_dicts = []
+
+""" Read through to see if tree exists in file """
+exists = False
+with open(tfile, "r") as csvfile:
+    reader = csv.DictReader(csvfile, fieldnames=field_names)
+    for elem in reader:
+        num_trees += 1
+        if equal_trees(h_tree, m_tree, elem):
+            # just add this scenario + start mode instance to this entry
+            name = elem["name"]
+            new_entry = elem
+            new_instance = elem["instance"] + ", " + instance_name
+            new_entry["instance"] = new_instance
+            output_dicts += new_entry
+            exists = True
+        else:
+            output_dicts += elem
+    if exists == False:
+        # tree not in file yet
+        # make new dict entry
+        name = "tree" + str(num_trees)
+        new_entry = new_dict(name, h_tree, m_tree, instance_name)
+        output_dicts += new_entry
+        # make graph image
+        make_tree_image(name,h_tree,m_tree,start_state)
+        
+        
+""" Write new tree list to file """          
+with open(tfile, "w") as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames=field_names) 
+    for elem in output_dicts:
+        writer.writerow(elem)      
+
+
+
+""" Write values to results """
 by_scen_value_file = "results/tree_values_s" + str(scenario_number) + "-" + prefix + ".csv"
 by_start_mode_value_file = "results/tree_values_" + start_state + "-" + prefix + ".csv"
 h = open(by_start_mode_value_file, "a")
@@ -53,16 +144,3 @@ h = open(by_scen_value_file, "a")
 line = start_state + "," + str(value) + "\n"
 h.write(line)
 h.close()
-
-graph = graphviz.Source.from_file('htree.dot')
-graph.format = 'png'
-#graph.view()
-tree_name = "figs/" + prefix + start_state + "-scen" + str(scenario_number) + "_hum"
-filename = graph.render(filename=tree_name)
-
-graph = graphviz.Source.from_file('mtree.dot')
-graph.format = 'png'
-#graph.view()
-tree_name = "figs/" + prefix + start_state + "-scen" + str(scenario_number) + "_mach"
-filename = graph.render(filename=tree_name)
-

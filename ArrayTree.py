@@ -1,6 +1,9 @@
 import copy
 
 
+    
+    
+
 class ArrayTree:
 
     #child_idx = given a node p, which index child is c?
@@ -118,3 +121,14 @@ class ArrayTree:
         print("ERROR. Observation not found")
         return " "
     
+    def write_tree(self):
+        """Returns a list that describes the tree"""
+        return [self.num_branches, self.nodes, self.edges]
+    
+    def set_nodes(self, node_list):
+        self.nodes = node_list
+    
+    def set_edges(self, edge_list):
+        self.nodes = edge_list
+    
+

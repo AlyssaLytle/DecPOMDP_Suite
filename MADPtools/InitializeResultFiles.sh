@@ -1,6 +1,6 @@
 rm -r figs/*
 rm -r results/*
-cd results
+
 touch tree_values_standby-ACC.csv
 touch tree_values_following-ACC.csv
 touch tree_values_speedcontrol-ACC.csv
