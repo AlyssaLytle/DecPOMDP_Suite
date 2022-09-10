@@ -79,7 +79,7 @@ def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix):
         
     ### Generate shell file that outputs all the tree results ###
     shell_file = file_prefix + "-" + "GetResults.sh"
-    file_data = ""
+    file_data = "sh InitializeResultFiles.sh\n"
     for scenario in range(8):
         for start_state in inp_modes:
             filename = file_prefix + "-" + start_state + "-s" + str(scenario)

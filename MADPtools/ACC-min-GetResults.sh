@@ -1,3 +1,4 @@
+sh InitializeResultFiles.sh
 python3 GetResults.py ACC-min-standby-s0 standby 0 ACC-min
 python3 GetResults.py ACC-min-following-s0 following 0 ACC-min
 python3 GetResults.py ACC-min-speedcontrol-s0 speedcontrol 0 ACC-min
