@@ -4,7 +4,7 @@ scenario = str(7)
 
 output = "cd ..\n"
 output += "cd ../MADP/src/utils\n"
-command = "timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-"
+command = "timeout -k 30m 30m ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC-min/ACC-min-"
 
 for mode in modes:
     for q in q_heur:

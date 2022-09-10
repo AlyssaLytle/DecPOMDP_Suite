@@ -69,5 +69,34 @@ def read_tree(tree):
     return new_tree
 
 def write_tree(tree):
-    """Returns a list that describes the tree"""
+    """ Returns a list that describes the tree """
     return [tree.num_branches, tree.nodes, tree.edges]
+
+def read_unbalanced_tree(filename):
+    """ Reads a tree in Graphviz format 
+    and outputs it in a more readable format"""
+    edge_str = ""
+    node_str = ""
+    f = open(filename, "r")
+    lines = f.readlines()
+    for line in lines:
+        if "->" in line:
+            edges = line.split("->")
+            start_node = edges[0][:-1]
+            edges = edges[1].split(" ")
+            end_node = edges[1]
+            label = edges[2][8:-4]
+            entry = [start_node, end_node, label]
+            edge_str += start_node + "," + end_node + "," + label + "-"
+        else:
+            elem = line.split(" ")
+            if(elem):
+                if (elem[0][:-1] == "node"):
+                    node = elem[0]
+                    name = elem[4]
+                    entry = [node, name]
+                    node_str += node + "," + name + "-"
+    return (node_str + ";" + edge_str + "\n")
+                
+    
+
