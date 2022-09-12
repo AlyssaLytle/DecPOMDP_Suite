@@ -126,9 +126,10 @@ with open(tfile, "r") as csvfile:
         output_dicts += new_entry
         # make graph image
         make_tree_image(name,h_tree,m_tree,start_state)
+ """       
         
-        
-""" Write new tree list to file """          
+""" Write new tree list to file """
+"""          
 with open(tfile, "w") as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=field_names) 
     for elem in output_dicts:
