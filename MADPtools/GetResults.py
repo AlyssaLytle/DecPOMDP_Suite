@@ -84,12 +84,14 @@ writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_
 
 """ Get trees """
 [h_tree, m_tree, value] = get_trees(path_to_res, len(human_observations), len(machine_observations))
+name = prefix + start_state + "-scen" + str(scenario_number)
+make_tree_image(name,h_tree,m_tree,start_state)
 
 """ then scan a file to see if a tree has been seen before
 if not, assign the tree a new name """
 
 
-
+"""
 field_names = ["name", "htree-nodes", "mtree-nodes", "htree-edges", "mtree-edges","instance"]
 
 
@@ -97,9 +99,10 @@ field_names = ["name", "htree-nodes", "mtree-nodes", "htree-edges", "mtree-edges
 tfile = "tree_list.csv"
 
 num_trees = 0
-output_dicts = []
+output_dicts = [] """
 
 """ Read through to see if tree exists in file """
+"""
 exists = False
 with open(tfile, "r") as csvfile:
     reader = csv.DictReader(csvfile, fieldnames=field_names)
@@ -130,7 +133,7 @@ with open(tfile, "w") as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=field_names) 
     for elem in output_dicts:
         writer.writerow(elem)      
-
+"""
 
 
 """ Write values to results """
