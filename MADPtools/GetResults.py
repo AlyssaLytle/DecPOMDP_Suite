@@ -40,14 +40,14 @@ def make_tree_image(tree_name, h_tree, m_tree, start_state):
     graph = graphviz.Source.from_file('htree.dot')
     graph.format = 'png'
     #graph.view()
-    tree_name = "figs/" + tree_name + "_hum"
-    filename = graph.render(filename=tree_name)
+    tree_name0 = "figs/" + tree_name + "_hum"
+    filename = graph.render(filename=tree_name0)
 
     graph = graphviz.Source.from_file('mtree.dot')
     graph.format = 'png'
     #graph.view()
-    tree_name = "figs/" + tree_name + "_mach"
-    filename = graph.render(filename=tree_name)
+    tree_name0 = "figs/" + tree_name + "_mach"
+    filename = graph.render(filename=tree_name0)
 
 #Call should look like python3 GetResults.py filename start_state scenario_number prefix
 [cmd, filename, start_state, scenario_number, prefix] = sys.argv
