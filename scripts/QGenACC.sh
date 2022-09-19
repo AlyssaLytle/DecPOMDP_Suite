@@ -1,5 +1,5 @@
 cd ..
-cd ../MADP/src/utils
+cd ../MADP2/src/utils
 date +%T
 echo "Finding q value for ACC-standby-s0"
 timeout -k 1h 1h ./calculateQheuristic ~/public/alyssadpomdp/DecPOMDP_Suite/MADPtools/ACC/ACC-standby-s0.dpomdp -h2 -Q QMDP

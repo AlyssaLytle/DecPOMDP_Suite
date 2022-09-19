@@ -1,5 +1,13 @@
 # File Descriptions
 - ArrayTree.py: Class that implements tree structures as arrays
+- MADP_types_gen.py: Generates scripts to solve dpomdps and generate Q values
+- ClearResults.sh: !!DANGER!! clears result files
+
+## TexOutputs - Generates Tex Outputs from Results
+
+## scripts - Shell scripts to run many solvers at once
+
+## MADPtools - Code to generate, run, and analyze examples on MADP toolbox
 - ACCtest.sh: Shell script that tests many different solvers on MADP toolbox
 - dpomdp.csv: Stores information of Decpomdp to be read later, updated when MADP_types_gen.py is run
 - listresults.sh: prints results and stores them in "lsOutput.log"

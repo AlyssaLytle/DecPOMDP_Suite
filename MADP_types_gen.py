@@ -99,7 +99,7 @@ def GenerateSolvers(prefix, inp_modes):
             name = prefix + "-" + mode + "-s" + str(scenario)
             fullname = name + ".dpomdp"
             output += "timeout -k 1h 1h "
-            output += "../MADP/src/solvers/GMAA --sparse --GMAA=MAAstar --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/" + prefix + "/" + fullname + " -h2\n"
+            output += "../MADP2/src/solvers/GMAA --sparse --GMAA=MAAstar  --useBGclustering --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/" + prefix + "/" + fullname + " -h2\n"
             #output += "set END=`date '+%T'` \n" 
             #output += 'echo "Start time: "$NOW " End Time: "$END\n'
         fname0 = "solvers" + prefix + "-" + mode + ".sh"
@@ -131,7 +131,7 @@ f.close()'''
 #Generate Q Values
 def GenerateQ(prefix, inp_modes):
     output = "cd ..\n"
-    output += "cd ../MADP/src/utils\n"
+    output += "cd ../MADP2/src/utils\n"
     output += "date +%T\n"
     for mode in inp_modes:
         for scenario in scenarios:  
