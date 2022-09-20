@@ -1,0 +1,12 @@
+digraph human_tree {
+edge [dir=none];
+node0 [ label = "maintainspeed-pushbutton" ];
+node1 [ label = "maintainspeed-pushbutton" ];
+node2 [ label = "none-dontpushbutton" ];
+node3 [ label = "none-dontpushbutton" ];
+node4 [ label = "decel-pushbutton" ];
+node0 -> node1 [label="standby"];
+node0 -> node2 [label="following"];
+node0 -> node3 [label="speedcontrol"];
+node0 -> node4 [label="error"];
+}
