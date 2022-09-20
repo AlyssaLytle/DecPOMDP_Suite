@@ -51,7 +51,8 @@ def make_tree_image(tree_name, h_tree, m_tree, start_state):
 
 #Call should look like python3 GetResults.py filename start_state scenario_number prefix
 [cmd, filename, start_state, scenario_number, prefix] = sys.argv
-result = "GMAA_" + filename + "_MAAstar_QMDP_h2_restarts1_NoCache_BGIP-BnB_ka0_JTODescendingProbability_CCI1_JPol"
+#result = "GMAA_" + filename + "_MAAstar_QMDP_h2_restarts1_NoCache_BGIP-BnB_ka0_JTODescendingProbability_CCI1_JPol"
+result = "GMAA_" + filename + "_MAAstar_QMDP_h2_restarts1_ClusterLossless_NoCache_BGIP-BnB_ka0_JTODescendingProbability_CCI1_JPol"
 path_to_res = "/afs/cs.unc.edu/home/abyrnes1/.madp/results/GMAA/" + filename + "/" + result
 
 instance_name = start_state + "-" + str(scenario_number)
