@@ -1,0 +1,10 @@
+standby0 + hold0 + override0:node0,"none-pushbutton">node1,"none-dontpushbutton">;node0,node1,none-:
+standby1 + standby2 + standby3 + standby4 + standby5 + standby6 + standby7:node0,"safest-pushbutton">node1,"none-dontpushbutton">node2,"none-dontpushbutton">node3,"safest-pushbutton">;node0,node1,following-node0,node2,speedcontrol-node0,node3,hold-:
+following0 + following1 + following2 + following3 + following4 + following5 + following6 + following7 + speedcontrol0 + speedcontrol1 + speedcontrol2 + speedcontrol3 + speedcontrol4 + speedcontrol5 + speedcontrol6 + speedcontrol7:node0,"none-dontpushbutton">node1,"none-dontpushbutton">;node0,node1,none-:
+error0:node0,"none-pushbutton">node1,"none-pushbutton">;node0,node1,none-:
+error1 + error2 + error3 + error5 + error6 + override1 + override2 + override3 + override5 + override6:node0,"safest-pushbutton">node1,"safest-pushbutton">;node0,node1,none-:
+error4 + error7 + override4 + override7:node0,"safest-dontpushbutton">node1,"safest-pushbutton">;node0,node1,none-:
+hold1:node0,"safest-pushbutton">node1,"safest-pushbutton">node2,"none-dontpushbutton">node3,"none-dontpushbutton">node4,"safest-pushbutton">node5,"safest-pushbutton">;node0,node1,standby-node0,node2,following-node0,node3,speedcontrol-node0,node4,error-node0,node5,override-:
+hold2 + hold3 + hold5 + hold6:node0,"safest-pushbutton">node1,"safest-pushbutton">node2,"none-dontpushbutton">node3,"none-dontpushbutton">node4,"safest-pushbutton">;node0,node1,standby-node0,node2,following-node0,node3,speedcontrol-node0,node4,error-:
+hold4:node0,"safest-pushbutton">node1,"safest-pushbutton">node2,"none-dontpushbutton">node3,"none-dontpushbutton">node4,"safest-dontpushbutton">node5,"safest-pushbutton">;node0,node1,standby-node0,node2,following-node0,node3,speedcontrol-node0,node4,error-node0,node5,override-:
+hold7:node0,"safest-pushbutton">node1,"safest-pushbutton">node2,"none-dontpushbutton">node3,"none-dontpushbutton">node4,"safest-dontpushbutton">;node0,node1,standby-node0,node2,following-node0,node3,speedcontrol-node0,node4,error-:

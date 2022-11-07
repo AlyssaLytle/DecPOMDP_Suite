@@ -1,0 +1,65 @@
+\begin{table}[]
+\centering
+\begin{tabular}{c c c}
+\toprule
+Tree & Applicable Scenarios & Policy  \\ 
+\toprule
+\multirow{3}{*}{0} & \standby{} 0  + & dont comm\\
+ & \override{} 0  & \Foll: accel + dont comm; \SC: decel + dont comm\\
+\midrule\\
+\multirow{3}{*}{1} & \multirow{3}{*}{\standby{} 1-7 } & comm\\
+& & \Foll+\SC: safest + dont comm; \hold: dont comm\\
+& & \\
+\midrule\\
+\multirow{3}{*}{2} & \multirow{3}{*}{\following{} 0 } & decel + dont comm\\
+& & \Foll: accel + dont comm; \SC: decel + dont comm\\
+& & \Err: dont comm\\
+\midrule\\
+\multirow{3}{*}{3} & \following{} 1-7  + & safest + dont comm\\
+ & \speedcontrol{} 1-7  & \Foll+\SC: safest + dont comm; \Err: dont comm\\
+\midrule\\
+\multirow{3}{*}{4} & \multirow{3}{*}{\speedcontrol{} 0 } & decel + dont comm\\
+& & \Foll: decel + dont comm; \SC: accel + dont comm\\
+& & \Err: dont comm\\
+\midrule\\
+\multirow{3}{*}{5} & \multirow{3}{*}{\error{} 0-3,5-6 } & dont comm\\
+& & \Stby: dont comm\\
+& & \\
+\midrule\\
+\multirow{3}{*}{6} & \multirow{3}{*}{\error{} 4,7 } & dont comm\\
+& & \Err: dont comm\\
+& & \\
+\midrule\\
+\multirow{3}{*}{7} & \multirow{3}{*}{\hold{} 0 } & dont comm\\
+& & \Foll+\SC: accel + dont comm; \Stby+\Err: dont comm\\
+& & \\
+\midrule\\
+\multirow{3}{*}{8} & \multirow{3}{*}{\hold{} 1,4 } & comm\\
+& & \Foll+\SC: safest + dont comm; \Stby+\Err+\OVR: dont comm\\
+& & \\
+\midrule\\
+\multirow{3}{*}{9} & \multirow{3}{*}{\hold{} 2-3,5-7 } & comm\\
+& & \Foll+\SC: safest + dont comm; \Stby+\Err: dont comm\\
+& & \\
+\midrule\\
+\multirow{3}{*}{10} & \multirow{3}{*}{\override{} 1-7 } & dont comm\\
+& & \OVR: dont comm\\
+& & \\
+\bottomrule\end{tabular}
+\caption{Human Policies}
+\label{tab:my_label}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\begin{tabular}{c c c}
+\toprule
+Tree & Applicable Scenarios & Policy  \\ 
+\toprule
+\bottomrule\end{tabular}
+\caption{Human Policies}
+\label{tab:my_label}
+\end{table}
+
+

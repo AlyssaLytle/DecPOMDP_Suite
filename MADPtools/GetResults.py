@@ -78,8 +78,8 @@ with open(csv_name, newline='') as csvfile:
 
 if (prefix== "ACC"):
     mc_path = "DPOMDP_Writer/Transitions.csv"
-else:
-    mc_path = "DPOMDP_Writer/MinExampleTransitions.csv"
+#else:
+    #mc_path = "DPOMDP_Writer/MinExampleTransitions.csv"
 
 writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_actions, human_mvmt_actions, modes,prob_dict,cost_dict,scenario_number, human_observations, machine_observations, mc_path)
 

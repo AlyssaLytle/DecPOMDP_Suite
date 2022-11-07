@@ -72,7 +72,7 @@ def write_tree(tree):
     """ Returns a list that describes the tree """
     return [tree.num_branches, tree.nodes, tree.edges]
 
-def read_unbalanced_tree(filename):
+def read_unbalanced_tree(filename, safety_scens):
     """ Reads a tree in Graphviz format 
     and outputs it in a more readable format"""
     edge_str = ""
@@ -81,6 +81,7 @@ def read_unbalanced_tree(filename):
     lines = f.readlines()
     for line in lines:
         if "->" in line:
+            # this means it's an edge
             edges = line.split("->")
             start_node = edges[0][:-1]
             edges = edges[1].split(" ")
@@ -94,9 +95,13 @@ def read_unbalanced_tree(filename):
                 if (elem[0][:-1] == "node"):
                     node = elem[0]
                     name = elem[4]
+                    [phys,comm] = name.split("-")
+                    if phys[1:] in safety_scens:
+                        name = '"safest-' + comm
                     entry = [node, name]
-                    node_str += node + "," + name + "-"
-    return (node_str + ";" + edge_str + "\n")
+                    node_str += node + "," + name + ">"
+                    #print(node_str)
+    return (node_str + ";" + edge_str)
                 
     
 

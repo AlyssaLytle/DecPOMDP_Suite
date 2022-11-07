@@ -2,14 +2,14 @@
 def gen_fig(name, scale, label, caption):
     space = "    "
     output = "\\begin{figure}[h]\n"
-    #output += space + "\centering\n"
+    output += space + "\centering\n"
     output += space + "\includegraphics[width=" + str(scale)
     output += "\\textwidth]{" + name + "}\n"
     output += space + "\caption{" + caption + "}\n"
     output += space + "\label{fig:" + label + "}\n"
     output += "\end{figure}\n"
     return output
-
+'''
 def gen_figs_tex(prefix, modes, scenarios):
     output = ""
     space = "\n"
@@ -33,6 +33,7 @@ def gen_figs_tex(prefix, modes, scenarios):
             output += hfig + space
             output += mfig + space
     return output
+'''
 
 def gen_figs_tex_from_file(fname,prefix):
     output = ""
@@ -62,12 +63,11 @@ def gen_figs_tex_from_file(fname,prefix):
         output += mfig + space
     return output
             
-modes = ["standby", "following", "speedcontrol", "error", "hold"]
+modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
 scenarios = range(8)
 #scenarios = range(4,8)
 
 filename = "results.tex"
 f = open(filename, "w")
-#f.writelines(gen_figs_tex("ACC-min", modes, scenarios))
-f.writelines(gen_figs_tex_from_file("../MADPtools/merge.csv", "ACC-min"))
+f.writelines(gen_figs_tex_from_file("../MADPtools/merge.csv", "ACC"))
 f.close()

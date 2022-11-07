@@ -14,7 +14,7 @@ def generate_safety_scenarios():
     for k in range(0,4):
         c = list(itertools.combinations(actions, k))
         scenarios.extend(c)
-    print(scenarios)
+    #print(scenarios)
     return scenarios
 
 def print_scenarios():
