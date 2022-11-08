@@ -1,6 +1,6 @@
-standby,2.00001e+06
-following,2.00001e+06
-speedcontrol,2.00001e+06
-error,2e+06
-hold,2e+06
-override,2e+06
+standby,2000010.0
+following,2000010.0
+speedcontrol,2000010.0
+error,2000000.0
+hold,2000000.0
+override,2000000.0
