@@ -16,13 +16,13 @@ script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
 
 
 
-def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix):
+def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix, machine_comm_actions):
     ### initialize variables
     human_mvmt_actions = ["accel", "decel", "maintainspeed", "none"]
     human_comm_actions = ["pushbutton","dontpushbutton"]
     human_actions = list(itertools.product(human_mvmt_actions, human_comm_actions))
     machine_mvmt_actions = ["accel", "decel", "maintainspeed", "none"]
-    machine_comm_actions = ["communicate","dontcommunicate"]
+    #machine_comm_actions = ["communicate","dontcommunicate"]
     machine_actions = list(itertools.product(machine_mvmt_actions, machine_comm_actions))
 
     scenario_change_prob = .01
@@ -98,5 +98,8 @@ contaning_folder_wo_override = "ACC-min/"
 prefix = "ACC"
 prefix_wo_override = "ACC-min"
 
-generate_dpomdp(modes,mode_change_table,contaning_folder,prefix)
-generate_dpomdp(modes_wo_override, mode_change_table_wo_override, contaning_folder_wo_override, prefix_wo_override)
+machine_comm_actions = ["communicate","dontcommunicate"]
+
+#generate_dpomdp(modes,mode_change_table,contaning_folder,prefix,machine_comm_actions)
+#generate_dpomdp(modes_wo_override, mode_change_table_wo_override, contaning_folder_wo_override, prefix_wo_override, machine_comm_actions)
+generate_dpomdp(modes, mode_change_table, "ACC-nocomm/","ACC-nocomm",["dontcommunicate"])
