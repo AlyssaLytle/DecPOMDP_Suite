@@ -7,9 +7,8 @@ Tree & Applicable Scenarios & Policy  \\
 \multirow{3}{*}{0} & \standby{} 0  + & dont comm\\
  & \override{} 0  & \Foll: accel + dont comm; \SC: decel + dont comm\\
 \midrule\\
-\multirow{3}{*}{1} & \multirow{3}{*}{\standby{} 1-7 } & comm\\
-& & \Foll+\SC: safest + dont comm; \hold: dont comm\\
-& & \\
+\multirow{3}{*}{1} & \standby{} 1-7  + & comm\\
+ & \override{} 2,4,6-7  & \Foll+\SC: safest + dont comm; \hold: dont comm\\
 \midrule\\
 \multirow{3}{*}{2} & \multirow{3}{*}{\following{} 0 } & decel + dont comm\\
 & & \Foll: accel + dont comm; \SC: decel + dont comm\\
@@ -42,7 +41,7 @@ Tree & Applicable Scenarios & Policy  \\
 & & \Foll+\SC: safest + dont comm; \Stby+\Err: dont comm\\
 & & \\
 \midrule\\
-\multirow{3}{*}{10} & \multirow{3}{*}{\override{} 1-7 } & dont comm\\
+\multirow{3}{*}{10} & \multirow{3}{*}{\override{} 1,3,5 } & dont comm\\
 & & \OVR: dont comm\\
 & & \\
 \bottomrule\end{tabular}
