@@ -141,6 +141,7 @@ with open(tfile, "w") as csvfile:
 """ Write values to results """
 by_scen_value_file = "results/tree_values_s" + str(scenario_number) + "-" + prefix + ".csv"
 by_start_mode_value_file = "results/tree_values_" + start_state + "-" + prefix + ".csv"
+value = round(value,4)
 h = open(by_start_mode_value_file, "a")
 line = "scen " + str(scenario_number) + "," + str(value) + "\n"
 h.write(line)
