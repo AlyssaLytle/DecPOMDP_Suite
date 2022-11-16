@@ -120,8 +120,10 @@ class DPOMDPWriterACC:
         sc = (mode == "speedcontrol")
         follow = (mode == "following")
         auto = (mode == "auto")
-        if sc | follow | auto:
+        if follow | auto:
             allowed_mvmts = ["accel", "decel", "maintainspeed"]
+        elif sc:
+            allowed_mvmts = ["maintainspeed"]
         else:
             allowed_mvmts = ["none"]
         return list(itertools.product(allowed_mvmts,self.machine_comm_actions))
@@ -130,8 +132,10 @@ class DPOMDPWriterACC:
         sc = (mode == "speedcontrol")
         follow = (mode == "following")
         auto = (mode == "auto")
-        if sc | follow | auto :
+        if follow | auto :
             unallowed_mvmts = ["none"]
+        elif sc:
+            unallowed_mvmts = ["accel", "decel"]
         else:
             unallowed_mvmts = ["accel", "decel", "maintainspeed"]
         return list(itertools.product(unallowed_mvmts,self.machine_comm_actions))

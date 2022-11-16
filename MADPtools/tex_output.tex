@@ -1,0 +1,43 @@
+\begin{table}[]
+\centering
+\begin{tabular}{c c}
+\toprule
+Scenario & Start Mode & End Mode(s)\\
+\toprule
+1 & standby & ['following', 'speedcontrol', 'hold']\\
+2 & standby & ['following', 'speedcontrol', 'hold']\\
+3 & standby & ['following', 'speedcontrol', 'hold']\\
+4 & standby & ['following', 'speedcontrol', 'hold']\\
+5 & standby & ['following', 'speedcontrol', 'hold']\\
+6 & standby & ['following', 'speedcontrol', 'hold']\\
+7 & standby & ['following', 'speedcontrol', 'hold']\\
+1 & following & ['following', 'speedcontrol', 'error']\\
+2 & following & ['following', 'speedcontrol', 'error']\\
+3 & following & ['following', 'speedcontrol', 'error']\\
+4 & following & ['following', 'speedcontrol', 'error']\\
+5 & following & ['following', 'speedcontrol', 'error']\\
+6 & following & ['following', 'speedcontrol', 'error']\\
+7 & following & ['following', 'speedcontrol', 'error']\\
+1 & speedcontrol & ['following', 'speedcontrol', 'error']\\
+2 & speedcontrol & ['following', 'speedcontrol', 'error']\\
+3 & speedcontrol & ['following', 'speedcontrol', 'error']\\
+4 & speedcontrol & ['following', 'speedcontrol', 'error']\\
+5 & speedcontrol & ['following', 'speedcontrol', 'error']\\
+6 & speedcontrol & ['following', 'speedcontrol', 'error']\\
+7 & speedcontrol & ['following', 'speedcontrol', 'error']\\
+1 & hold & ['standby', 'following', 'speedcontrol', 'error', 'override']\\
+2 & hold & ['standby', 'following', 'speedcontrol', 'error']\\
+3 & hold & ['standby', 'following', 'speedcontrol', 'error']\\
+4 & hold & ['standby', 'following', 'speedcontrol', 'error', 'override']\\
+5 & hold & ['standby', 'following', 'speedcontrol', 'error']\\
+6 & hold & ['standby', 'following', 'speedcontrol', 'error']\\
+7 & hold & ['standby', 'following', 'speedcontrol', 'error']\\
+2 & override & ['following', 'speedcontrol', 'hold']\\
+4 & override & ['following', 'speedcontrol', 'hold']\\
+6 & override & ['following', 'speedcontrol', 'hold']\\
+7 & override & ['following', 'speedcontrol', 'hold']\\
+\bottomrule
+\end{tabular}
+\caption{Transitions where the machine communicates}
+\label{tab:comm_trans}
+\end{table}

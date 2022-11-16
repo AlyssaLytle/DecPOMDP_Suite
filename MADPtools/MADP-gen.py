@@ -100,6 +100,6 @@ prefix_wo_override = "ACC-min"
 
 machine_comm_actions = ["communicate","dontcommunicate"]
 
-#generate_dpomdp(modes,mode_change_table,contaning_folder,prefix,machine_comm_actions)
+generate_dpomdp(modes,mode_change_table,contaning_folder,prefix,machine_comm_actions)
 #generate_dpomdp(modes_wo_override, mode_change_table_wo_override, contaning_folder_wo_override, prefix_wo_override, machine_comm_actions)
-generate_dpomdp(modes, mode_change_table, "ACC-nocomm/","ACC-nocomm",["dontcommunicate"])
+#generate_dpomdp(modes, mode_change_table, "ACC-nocomm/","ACC-nocomm",["dontcommunicate"])
