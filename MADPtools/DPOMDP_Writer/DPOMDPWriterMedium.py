@@ -123,7 +123,8 @@ class DPOMDPWriterACC:
         if follow | auto:
             allowed_mvmts = ["accel", "decel", "maintainspeed"]
         elif sc:
-            allowed_mvmts = ["maintainspeed"]
+            allowed_mvmts = ["accel", "decel", "maintainspeed"]
+            #allowed_mvmts = ["maintainspeed"]
         else:
             allowed_mvmts = ["none"]
         return list(itertools.product(allowed_mvmts,self.machine_comm_actions))
@@ -135,7 +136,8 @@ class DPOMDPWriterACC:
         if follow | auto :
             unallowed_mvmts = ["none"]
         elif sc:
-            unallowed_mvmts = ["accel", "decel"]
+            unallowed_mvmts = ["none"]
+            #unallowed_mvmts = ["accel", "decel"]
         else:
             unallowed_mvmts = ["accel", "decel", "maintainspeed"]
         return list(itertools.product(unallowed_mvmts,self.machine_comm_actions))
