@@ -1,6 +1,4 @@
 sh InitializeResultFiles.sh
-cd ..
-cd MADPtools
 python3 GetResults.py ACC-standby-s0 standby 0 ACC
 python3 GetResults.py ACC-following-s0 following 0 ACC
 python3 GetResults.py ACC-speedcontrol-s0 speedcontrol 0 ACC

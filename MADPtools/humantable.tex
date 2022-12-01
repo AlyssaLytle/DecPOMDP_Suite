@@ -39,8 +39,8 @@ Tree & Applicable Scenarios & Policy  \\
 & & \\
 \midrule\\
 \multirow{3}{*}{9} & \multirow{3}{*}{\hold{} 0 } & dont comm\\
-& & \Foll: accel + dont comm; \SC: maintainspeed + dont comm\\
-& & \Stby+\Err: dont comm\\
+& & \Foll: decel + dont comm; \SC: maintainspeed + dont comm\\
+& & \Stby+\Err+\OVR: dont comm\\
 \midrule\\
 \multirow{3}{*}{10} & \multirow{3}{*}{\hold{} 1,4 } & dont comm\\
 & & \Foll: safest + dont comm; \Err+\OVR: dont comm\\
@@ -62,7 +62,7 @@ Tree & Applicable Scenarios & Policy  \\
 & & \\
 \midrule\\
 \multirow{3}{*}{12} & \multirow{3}{*}{\hold{} 3,5-7 } & comm\\
-& & \Foll+\SC: safest + dont comm; \Stby+\Err: dont comm\\
+& & \Foll+\SC: safest + dont comm; \Stby+\Err+\OVR: dont comm\\
 & & \\
 \midrule\\
 \multirow{3}{*}{13} & \multirow{3}{*}{\override{} 0 } & dont comm\\

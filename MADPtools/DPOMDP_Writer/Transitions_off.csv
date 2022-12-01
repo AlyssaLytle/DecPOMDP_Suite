@@ -12,4 +12,4 @@ override;following,speedcontrol,hold;human_none
 override;following,speedcontrol,hold;human_decel
 following,speedcontrol,hold;override;human_accel
 off;standby;human_pushbutton
-following,speedcontrol,hold,error
+standby;off;human_pushbutton
