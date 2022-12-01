@@ -4,14 +4,16 @@
 \toprule
 Tree & Applicable Scenarios & Policy  \\ 
 \toprule
-\multirow{3}{*}{0} & \standby{} 0  + & dont comm\\
- & \override{} 0  & \Foll: decel + dont comm; \SC: maintainspeed + dont comm\\
+\multirow{3}{*}{0} & \multirow{3}{*}{\standby{} 0 } & dont comm\\
+& & \Foll: decel + dont comm; \SC: maintainspeed + dont comm\\
+& & \hold: dont comm\\
 \midrule\\
 \multirow{3}{*}{1} & \standby{} 1-2,4  + & dont comm\\
  & \error{} 0-3,5-6  & \Stby: dont comm\\
 \midrule\\
-\multirow{3}{*}{2} & \standby{} 3,5-7  + & comm\\
- & \override{} 6-7  & \Foll+\SC: safest + dont comm; \hold: dont comm\\
+\multirow{3}{*}{2} & \multirow{3}{*}{\standby{} 3,5-7 } & comm\\
+& & \Foll+\SC: safest + dont comm; \hold: dont comm\\
+& & \\
 \midrule\\
 \multirow{3}{*}{3} & \multirow{3}{*}{\following{} 0 } & decel + dont comm\\
 & & \Foll: decel + dont comm; \SC: maintainspeed + dont comm\\
@@ -63,13 +65,21 @@ Tree & Applicable Scenarios & Policy  \\
 & & \Foll+\SC: safest + dont comm; \Stby+\Err: dont comm\\
 & & \\
 \midrule\\
-\multirow{3}{*}{13} & \multirow{3}{*}{\override{} 1,3-5 } & dont comm\\
-& & \OVR: dont comm\\
+\multirow{3}{*}{13} & \multirow{3}{*}{\override{} 0 } & dont comm\\
+& & \Foll: decel + dont comm; \SC: maintainspeed + dont comm\\
+& & \Err+\hold: dont comm\\
+\midrule\\
+\multirow{3}{*}{14} & \multirow{3}{*}{\override{} 1,3-5 } & dont comm\\
+& & \Err+\OVR: dont comm\\
 & & \\
 \midrule\\
-\multirow{3}{*}{14} & \multirow{3}{*}{\override{} 2 } & comm\\
+\multirow{3}{*}{15} & \multirow{3}{*}{\override{} 2 } & comm\\
 & & \Foll: safest + dont comm; \SC: maintainspeed + dont comm\\
-& & \hold: dont comm\\
+& & \Err+\hold: dont comm\\
+\midrule\\
+\multirow{3}{*}{16} & \multirow{3}{*}{\override{} 6-7 } & comm\\
+& & \Foll+\SC: safest + dont comm; \Err+\hold: dont comm\\
+& & \\
 \midrule\\
 \bottomrule\end{tabular}
 \caption{Human Policies}

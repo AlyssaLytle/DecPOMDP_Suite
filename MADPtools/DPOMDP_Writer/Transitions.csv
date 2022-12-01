@@ -6,8 +6,8 @@ error;standby;human_pushbutton
 following;hold;machine_none
 following;speedcontrol;random,switch
 speedcontrol;following;random,switch
-hold;following,speedcontrol;random,exit
-hold;following,speedcontrol;human_pushbutton
+hold;following,speedcontrol,override;random,exit
+hold;following,speedcontrol,override;human_pushbutton
 override;following,speedcontrol,hold;human_none
 override;following,speedcontrol,hold;human_decel
 following,speedcontrol,hold;override;human_accel
