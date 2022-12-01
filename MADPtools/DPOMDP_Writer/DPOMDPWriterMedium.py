@@ -123,8 +123,8 @@ class DPOMDPWriterACC:
         if follow | auto:
             allowed_mvmts = ["accel", "decel", "maintainspeed"]
         elif sc:
-            allowed_mvmts = ["accel", "decel", "maintainspeed"]
-            #allowed_mvmts = ["maintainspeed"]
+            #allowed_mvmts = ["accel", "decel", "maintainspeed"]
+            allowed_mvmts = ["maintainspeed"]
         else:
             allowed_mvmts = ["none"]
         return list(itertools.product(allowed_mvmts,self.machine_comm_actions))
@@ -136,8 +136,8 @@ class DPOMDPWriterACC:
         if follow | auto :
             unallowed_mvmts = ["none"]
         elif sc:
-            unallowed_mvmts = ["none"]
-            #unallowed_mvmts = ["accel", "decel"]
+            #unallowed_mvmts = ["none"]
+            unallowed_mvmts = ["accel", "decel","none"]
         else:
             unallowed_mvmts = ["accel", "decel", "maintainspeed"]
         return list(itertools.product(unallowed_mvmts,self.machine_comm_actions))
@@ -412,59 +412,59 @@ class DPOMDPWriterACC:
         return_table += trans_table
         return return_table
     
-    '''
-    def get_transition_table_with_form_and_event(self, state, human_action, machine_action):
-        #Gets table of possible next states and their probability 
-        # PLUS formula of probability AND cause of transition
-        #[[state1,p1,f1,cause], [state2,p2,f2,cause],...]
-        transition_table = []
-        p_error = float(self.prob_dict["error"])
-        p_hold_exit = float(self.prob_dict["exithold"])
 
-        possible_transitions = self.get_possible_transitions(state, human_action, machine_action)
-        if len(possible_transitions)>0:
-            num_transitions = len(possible_transitions)
-            remaining_prob = float(1/num_transitions)
-            remaining_prob_str = "1/" + str(num_transitions) 
-            if (state == "following")|(state == "speedcontrol")|(state=="hold")|(state=="auto"):
-                prob_error = float(p_error/num_transitions)
-                prob_error_str = str(p_error)+ "/" + str(num_transitions)
-                num_transitions = num_transitions - 1
-                if num_transitions > 0:
-                    remaining_prob = float((1 - prob_error)/num_transitions)
-                    remaining_prob_str = "(1 - " + prob_error_str + ")/" + str(num_transitions)
-                else:
-                    remaining_prob = float((1 - prob_error))
-                    remaining_prob_str = "1 - " + prob_error_str
-            if state == "hold":
-                prob_hold = p_hold_exit/num_transitions
-                prob_hold_str = "p_hold_exit/" + str(num_transitions)
-                num_transitions = num_transitions - 1
-                if num_transitions > 0:
-                    remaining_prob = float((1 - prob_hold - prob_error)/num_transitions)
-                    remaining_prob_str = "(1 - " + prob_hold_str + " - " + prob_error_str + ")/" + str(num_transitions)
-                else: 
-                    remaining_prob = float((1 - prob_hold - prob_error))
-                    remaining_prob_str = "1 - "  + prob_hold_str + " - " + prob_error_str
-            if num_transitions == 0:
-                #state stays the same unless there's an event
-                trans_line = [[state, remaining_prob, remaining_prob_str, "no events occur"]]
-                transition_table += trans_line
-            for transition in possible_transitions:
-                [cause, end_state] = transition
-                if cause[1] == "error":
-                    trans_line = [[end_state, prob_error, prob_error_str, "error event"] ]
-                elif cause[1] == "exit": 
-                    trans_line = [[end_state, prob_hold, prob_hold_str, "exit hold event"]]
-                else:
-                    trans_line = [[end_state, remaining_prob, remaining_prob_str, cause[0] + ": " + cause[1] + cause[2]]]
-                transition_table += trans_line
-        else:
-            #state stays the same
-            trans_line = [[state,float(1), str(1), "state never changes"]]
-            transition_table += trans_line
-        return self.combine_duplicate_transitions_with_strings(transition_table)
-       '''                                     
+    # def get_transition_table_with_form_and_event(self, state, human_action, machine_action):
+    #     #Gets table of possible next states and their probability 
+    #     # PLUS formula of probability AND cause of transition
+    #     #[[state1,p1,f1,cause], [state2,p2,f2,cause],...]
+    #     transition_table = []
+    #     p_error = float(self.prob_dict["error"])
+    #     p_hold_exit = float(self.prob_dict["exithold"])
+
+    #     possible_transitions = self.get_possible_transitions(state, human_action, machine_action)
+    #     if len(possible_transitions)>0:
+    #         num_transitions = len(possible_transitions)
+    #         remaining_prob = float(1/num_transitions)
+    #         remaining_prob_str = "1/" + str(num_transitions) 
+    #         if (state == "following")|(state == "speedcontrol")|(state=="hold")|(state=="auto"):
+    #             prob_error = float(p_error/num_transitions)
+    #             prob_error_str = str(p_error)+ "/" + str(num_transitions)
+    #             num_transitions = num_transitions - 1
+    #             if num_transitions > 0:
+    #                 remaining_prob = float((1 - prob_error)/num_transitions)
+    #                 remaining_prob_str = "(1 - " + prob_error_str + ")/" + str(num_transitions)
+    #             else:
+    #                 remaining_prob = float((1 - prob_error))
+    #                 remaining_prob_str = "1 - " + prob_error_str
+    #         if state == "hold":
+    #             prob_hold = p_hold_exit/num_transitions
+    #             prob_hold_str = "p_hold_exit/" + str(num_transitions)
+    #             num_transitions = num_transitions - 1
+    #             if num_transitions > 0:
+    #                 remaining_prob = float((1 - prob_hold - prob_error)/num_transitions)
+    #                 remaining_prob_str = "(1 - " + prob_hold_str + " - " + prob_error_str + ")/" + str(num_transitions)
+    #             else: 
+    #                 remaining_prob = float((1 - prob_hold - prob_error))
+    #                 remaining_prob_str = "1 - "  + prob_hold_str + " - " + prob_error_str
+    #         if num_transitions == 0:
+    #             #state stays the same unless there's an event
+    #             trans_line = [[state, remaining_prob, remaining_prob_str, "no events occur"]]
+    #             transition_table += trans_line
+    #         for transition in possible_transitions:
+    #             [cause, end_state] = transition
+    #             if cause[1] == "error":
+    #                 trans_line = [[end_state, prob_error, prob_error_str, "error event"] ]
+    #             elif cause[1] == "exit": 
+    #                 trans_line = [[end_state, prob_hold, prob_hold_str, "exit hold event"]]
+    #             else:
+    #                 trans_line = [[end_state, remaining_prob, remaining_prob_str, cause[0] + ": " + cause[1] + cause[2]]]
+    #             transition_table += trans_line
+    #     else:
+    #         #state stays the same
+    #         trans_line = [[state,float(1), str(1), "state never changes"]]
+    #         transition_table += trans_line
+    #     return self.combine_duplicate_transitions_with_strings(transition_table)
+                                   
 
     def get_observation_probabilities(self, state, human_action, machine_action):
         #given a start state and actions, what possible things could I observe with what likelihood
@@ -600,17 +600,17 @@ class DPOMDPWriterACC:
             transitions += "T: * * : sink : sink : 1\n"
         return [[transitions], observations, rewards]
 
-    def make_decpomdp(self, start_state):
-        [transitions, observations, rewards] = self.get_transitions()
-        t_string = ''.join(transitions) 
-        #t_string = t_string.replace(' ', '')
-        t_string = t_string.split("\n")
-        for elem in t_string:
-            t_list = elem.split(':')
-            if len(t_list) >= 6:
-                actions = t_list[1].split(' ')
-                entry = [actions[1].split("-"), actions[2].split("-"), t_list[2].replace(' ',''), t_list[4].replace(' ',''), float(t_list[5])]
-                #print(entry)
+    # def make_decpomdp(self, start_state):
+    #     [transitions, observations, rewards] = self.get_transitions()
+    #     t_string = ''.join(transitions) 
+    #     #t_string = t_string.replace(' ', '')
+    #     t_string = t_string.split("\n")
+    #     for elem in t_string:
+    #         t_list = elem.split(':')
+    #         if len(t_list) >= 6:
+    #             actions = t_list[1].split(' ')
+    #             entry = [actions[1].split("-"), actions[2].split("-"), t_list[2].replace(' ',''), t_list[4].replace(' ',''), float(t_list[5])]
+    #             #print(entry)
 
     
     def get_graph_viz_limit_branches(self, human_tree, machine_tree, start_state):

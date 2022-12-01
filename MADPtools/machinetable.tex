@@ -5,43 +5,44 @@
 Tree & Applicable Scenarios & Policy  \\ 
 \toprule
 \multirow{3}{*}{0} & \standby{} 0  + & dont comm\\
- & \override{} 0  & \Foll: decel + dont comm; \SC: maintainspeed + dont comm\\
+ & \override{} 0  & \Foll: accel + dont comm; \SC: decel + dont comm\\
 \midrule\\
-\multirow{3}{*}{1} & \standby{} 1-2,4  + & dont comm\\
- & \error{} 0-3,5-6  & \Stby: dont comm\\
+\multirow{3}{*}{1} & \standby{} 1-7  + & comm\\
+ & \override{} 2,4,6-7  & \Foll+\SC: safest + dont comm; \hold: dont comm\\
 \midrule\\
-\multirow{3}{*}{2} & \standby{} 3,5-7  + & comm\\
- & \override{} 6-7  & \Foll+\SC: safest + dont comm; \hold: dont comm\\
-\midrule\\
-\multirow{3}{*}{3} & \multirow{3}{*}{\following{} 0 } & decel + dont comm\\
-& & \Foll: decel + dont comm; \SC: maintainspeed + dont comm\\
+\multirow{3}{*}{2} & \multirow{3}{*}{\following{} 0 } & decel + dont comm\\
+& & \Foll: accel + dont comm; \SC: decel + dont comm\\
 & & \Err: dont comm\\
 \midrule\\
-\multirow{3}{*}{4} & \multirow{3}{*}{\following{} 1-2,4 } & safest + comm\\
-& & \Foll: safest + dont comm; \SC: maintainspeed + dont comm\\
+\multirow{3}{*}{3} & \following{} 1-7  + & safest + comm\\
+ & \speedcontrol{} 1-7  & \Foll+\SC: safest + dont comm; \Err: dont comm\\
+\midrule\\
+\multirow{3}{*}{4} & \multirow{3}{*}{\speedcontrol{} 0 } & decel + dont comm\\
+& & \Foll: decel + dont comm; \SC: accel + dont comm\\
 & & \Err: dont comm\\
 \midrule\\
-\multirow{3}{*}{5} & \following{} 3,5-7  + & safest + comm\\
- & \speedcontrol{} 3,5-7  & \Foll+\SC: safest + dont comm; \Err: dont comm\\
-\midrule\\
-\multirow{3}{*}{6} & \multirow{3}{*}{\speedcontrol{} 0 } & maintainspeed + dont comm\\
-& & \Foll: accel + dont comm; \SC: maintainspeed + dont comm\\
-& & \Err: dont comm\\
-\midrule\\
-\multirow{3}{*}{7} & \multirow{3}{*}{\speedcontrol{} 1-2,4 } & maintainspeed + dont comm\\
-& & \Foll: safest + dont comm; \Stby+\Err: dont comm\\
+\multirow{3}{*}{5} & \multirow{3}{*}{\error{} 0-3,5-6 } & dont comm\\
+& & \Stby: dont comm\\
 & & \\
 \midrule\\
-\multirow{3}{*}{8} & \multirow{3}{*}{\error{} 4,7 } & dont comm\\
+\multirow{3}{*}{6} & \multirow{3}{*}{\error{} 4,7 } & dont comm\\
 & & \Err: dont comm\\
 & & \\
 \midrule\\
-\multirow{3}{*}{9} & \multirow{3}{*}{\hold{} 0 } & dont comm\\
-& & \Foll: accel + dont comm; \SC: maintainspeed + dont comm\\
-& & \Stby+\Err: dont comm\\
+\multirow{3}{*}{7} & \multirow{3}{*}{\hold{} 0 } & dont comm\\
+& & \Foll+\SC: accel + dont comm; \Stby+\Err: dont comm\\
+& & \\
 \midrule\\
-\multirow{3}{*}{10} & \multirow{3}{*}{\hold{} 1,4 } & dont comm\\
-& & \Foll: safest + dont comm; \Err+\OVR: dont comm\\
+\multirow{3}{*}{8} & \multirow{3}{*}{\hold{} 1,4 } & comm\\
+& & \Foll+\SC: safest + dont comm; \Stby+\Err+\OVR: dont comm\\
+& & \\
+\midrule\\
+\multirow{3}{*}{9} & \multirow{3}{*}{\hold{} 2-3,5-7 } & comm\\
+& & \Foll+\SC: safest + dont comm; \Stby+\Err: dont comm\\
+& & \\
+\midrule\\
+\multirow{3}{*}{10} & \multirow{3}{*}{\override{} 1,3,5 } & dont comm\\
+& & \OVR: dont comm\\
 & & \\
 \bottomrule\end{tabular}
 \caption{Machine Policies}
@@ -55,22 +56,6 @@ Tree & Applicable Scenarios & Policy  \\
 \toprule
 Tree & Applicable Scenarios & Policy  \\ 
 \toprule
-\multirow{3}{*}{11} & \multirow{3}{*}{\hold{} 2 } & dont comm\\
-& & \Foll: safest + dont comm; \Stby+\Err: dont comm\\
-& & \\
-\midrule\\
-\multirow{3}{*}{12} & \multirow{3}{*}{\hold{} 3,5-7 } & comm\\
-& & \Foll+\SC: safest + dont comm; \Stby+\Err: dont comm\\
-& & \\
-\midrule\\
-\multirow{3}{*}{13} & \multirow{3}{*}{\override{} 1,3-5 } & dont comm\\
-& & \OVR: dont comm\\
-& & \\
-\midrule\\
-\multirow{3}{*}{14} & \multirow{3}{*}{\override{} 2 } & comm\\
-& & \Foll: safest + dont comm; \SC: maintainspeed + dont comm\\
-& & \hold: dont comm\\
-\midrule\\
 \bottomrule\end{tabular}
 \caption{Machine Policies}
 \label{tab:my_label}

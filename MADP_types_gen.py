@@ -1,3 +1,4 @@
+""" Makes the solving scripts """
 import os
 
 script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in

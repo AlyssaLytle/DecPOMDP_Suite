@@ -1,0 +1,15 @@
+standby;following,speedcontrol,hold;human_pushbutton
+following,speedcontrol,hold;error;random,error
+following,speedcontrol,hold;standby;human_pushbutton
+following,speedcontrol,hold;standby;human_decel
+error;standby;human_pushbutton
+following;hold;machine_none
+following;speedcontrol;random,switch
+speedcontrol;following;random,switch
+hold;following,speedcontrol;random,exit
+hold;following,speedcontrol;human_pushbutton
+override;following,speedcontrol,hold;human_none
+override;following,speedcontrol,hold;human_decel
+following,speedcontrol,hold;override;human_accel
+off;standby;human_pushbutton
+following,speedcontrol,hold,error

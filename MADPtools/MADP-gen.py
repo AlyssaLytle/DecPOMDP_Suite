@@ -16,16 +16,16 @@ script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
 
 
 
-def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix, machine_comm_actions):
+def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix):
     ### initialize variables
     human_mvmt_actions = ["accel", "decel", "maintainspeed", "none"]
     human_comm_actions = ["pushbutton","dontpushbutton"]
-    human_actions = list(itertools.product(human_mvmt_actions, human_comm_actions))
+    #human_actions = list(itertools.product(human_mvmt_actions, human_comm_actions))
     machine_mvmt_actions = ["accel", "decel", "maintainspeed", "none"]
-    #machine_comm_actions = ["communicate","dontcommunicate"]
-    machine_actions = list(itertools.product(machine_mvmt_actions, machine_comm_actions))
+    machine_comm_actions = ["communicate","dontcommunicate"]
+    #machine_actions = list(itertools.product(machine_mvmt_actions, machine_comm_actions))
 
-    scenario_change_prob = .01
+    #scenario_change_prob = .01
     error_prob = .01
     exit_hold_prob = .01
     switch_prob = .01
@@ -90,16 +90,16 @@ def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix, mac
     f.close()
 
 modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
-modes_wo_override = ["standby", "following", "speedcontrol", "error", "hold"]
+#modes_wo_override = ["standby", "following", "speedcontrol", "error", "hold"]
 mode_change_table = "DPOMDP_Writer/Transitions.csv"
-mode_change_table_wo_override = "DPOMDP_Writer/MinExampleTransitions.csv"
+#mode_change_table_wo_override = "DPOMDP_Writer/MinExampleTransitions.csv"
 contaning_folder = "ACC/"
-contaning_folder_wo_override = "ACC-min/"
+#contaning_folder_wo_override = "ACC-min/"
 prefix = "ACC"
-prefix_wo_override = "ACC-min"
+#prefix_wo_override = "ACC-min"
 
-machine_comm_actions = ["communicate","dontcommunicate"]
+#machine_comm_actions = ["communicate","dontcommunicate"]
 
-generate_dpomdp(modes,mode_change_table,contaning_folder,prefix,machine_comm_actions)
+generate_dpomdp(modes,mode_change_table,contaning_folder,prefix)
 #generate_dpomdp(modes_wo_override, mode_change_table_wo_override, contaning_folder_wo_override, prefix_wo_override, machine_comm_actions)
 #generate_dpomdp(modes, mode_change_table, "ACC-nocomm/","ACC-nocomm",["dontcommunicate"])
