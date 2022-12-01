@@ -4,7 +4,9 @@ node0 [ label = "decel-pushbutton" ];
 node1 [ label = "none-dontpushbutton" ];
 node2 [ label = "none-dontpushbutton" ];
 node3 [ label = "accel-pushbutton" ];
+node4 [ label = "accel-pushbutton" ];
 node0 -> node1 [label="following"];
 node0 -> node2 [label="speedcontrol"];
-node0 -> node3 [label="hold"];
+node0 -> node3 [label="error"];
+node0 -> node4 [label="hold"];
 }
