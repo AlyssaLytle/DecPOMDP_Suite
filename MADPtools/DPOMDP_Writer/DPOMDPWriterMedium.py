@@ -345,7 +345,7 @@ class DPOMDPWriterACC:
         if len(possible_transitions)>0:
             num_transitions = len(possible_transitions)
             remaining_prob = float(1/num_transitions)
-            if (state == "following")|(state == "speedcontrol")|(state=="hold"):
+            if (state == "following")|(state == "speedcontrol")|(state=="hold")|(state == "override"):
                 prob_error = float(p_error)
                 num_transitions = num_transitions - 1
                 err_c = 1
