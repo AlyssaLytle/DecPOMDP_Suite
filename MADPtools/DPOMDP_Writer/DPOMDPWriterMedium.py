@@ -358,8 +358,10 @@ class DPOMDPWriterACC:
                 prob_switch = p_switch
                 switch_c = 1
             remaining_prob = float(1 - err_c*p_error - hold_c*p_hold_exit - switch_c*p_switch)
-            if num_transitions > 0:
+            if (num_transitions > 0):
                 remaining_prob = float(remaining_prob/num_transitions)
+            elif (state == "override"):
+                remaining_prob = float(remaining_prob/2)
             else:
                 #state stays the same unless there's an event
                 trans_line = [[state, remaining_prob]]
@@ -371,7 +373,7 @@ class DPOMDPWriterACC:
                 elif cause[1] == "exit": 
                     trans_line = [[end_state, prob_hold]]
                 elif cause[1] == "switch":
-                    trans_line = [[end_state, p_switch]]
+                    trans_line = [[end_state, prob_switch]]
                 else:
                     trans_line = [[end_state, remaining_prob]]
                 transition_table += trans_line
