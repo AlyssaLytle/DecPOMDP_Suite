@@ -205,7 +205,7 @@ class DPOMDPWriterACC:
         # if (is_non_auto == False) & (hum_comm == "dontpushbutton"):
         #     cost += self.costs["automation reward"]            
         return cost
-    
+
 
     
 
@@ -353,10 +353,10 @@ class DPOMDPWriterACC:
                 prob_hold = p_hold_exit
                 num_transitions = num_transitions - 1
                 hold_c = 1
-            if (state == "speedcontrol") | (state == "following"):
-                num_transitions = num_transitions - 1
-                prob_switch = p_switch
-                switch_c = 1
+            # if (state == "speedcontrol") | (state == "following"):
+            #     num_transitions = num_transitions - 1
+            #     prob_switch = p_switch
+            #     switch_c = 1
             remaining_prob = float(1 - err_c*p_error - hold_c*p_hold_exit - switch_c*p_switch)
             if num_transitions > 0:
                 remaining_prob = float(remaining_prob/num_transitions)
