@@ -6,9 +6,11 @@ node2 [ label = "accel-dontcommunicate" ];
 node3 [ label = "maintainspeed-dontcommunicate" ];
 node4 [ label = "none-dontcommunicate" ];
 node5 [ label = "none-dontcommunicate" ];
+node6 [ label = "none-dontcommunicate" ];
 node0 -> node1 [label="standby"];
 node0 -> node2 [label="following"];
 node0 -> node3 [label="speedcontrol"];
 node0 -> node4 [label="error"];
 node0 -> node5 [label="override"];
+node0 -> node6 [label="off"];
 }

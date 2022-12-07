@@ -1,0 +1,10 @@
+digraph human_tree {
+edge [dir=none];
+node0 [ label = "accel-dontpushbutton" ];
+node1 [ label = "none-pushbutton" ];
+node2 [ label = "accel-pushbutton" ];
+node3 [ label = "accel-pushbutton" ];
+node0 -> node1 [label="following"];
+node0 -> node2 [label="error"];
+node0 -> node3 [label="override"];
+}
