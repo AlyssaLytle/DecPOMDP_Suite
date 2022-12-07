@@ -1,10 +1,8 @@
 digraph machine_tree {
 edge [dir=none];
 node0 [ label = "accel-communicate" ];
-node1 [ label = "accel-dontcommunicate" ];
-node2 [ label = "maintainspeed-dontcommunicate" ];
-node3 [ label = "none-dontcommunicate" ];
-node0 -> node1 [label="following"];
-node0 -> node2 [label="speedcontrol"];
-node0 -> node3 [label="error"];
+node1 [ label = "accel-communicate" ];
+node2 [ label = "none-dontcommunicate" ];
+node0 -> node1 [label="speedcontrol"];
+node0 -> node2 [label="error"];
 }
