@@ -360,8 +360,6 @@ class DPOMDPWriterACC:
             remaining_prob = float(1 - err_c*p_error - hold_c*p_hold_exit - switch_c*p_switch)
             if (num_transitions > 0):
                 remaining_prob = float(remaining_prob/num_transitions)
-            elif (state == "override"):
-                remaining_prob = float(remaining_prob/2)
             else:
                 #state stays the same unless there's an event
                 trans_line = [[state, remaining_prob]]
