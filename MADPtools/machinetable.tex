@@ -5,8 +5,8 @@
 Tree & Applicable Scenarios & Policy  \\ 
 \toprule
 \multirow{3}{*}{0} & \multirow{3}{*}{\standby{} 0 } & dont comm\\
-& & \Foll+\SC: maintainspeed + dont comm; \hold: dont comm\\
-& & \\
+& & \Foll: decel + dont comm; \SC: maintainspeed + dont comm\\
+& & \hold: dont comm\\
 \midrule\\
 \multirow{3}{*}{1} & \multirow{3}{*}{\standby{} 1-2,4 } & dont comm\\
 & & \Stby: dont comm\\
@@ -16,8 +16,8 @@ Tree & Applicable Scenarios & Policy  \\
 & & \Foll+\SC: safest + dont comm; \hold: dont comm\\
 & & \\
 \midrule\\
-\multirow{3}{*}{3} & \multirow{3}{*}{\following{} 0 } & decel + dont comm\\
-& & \SC: maintainspeed + dont comm; \Err: dont comm\\
+\multirow{3}{*}{3} & \multirow{3}{*}{\following{} 0 } & accel + dont comm\\
+& & \SC: maintainspeed + dont comm; \Stby+\Err: dont comm\\
 & & \\
 \midrule\\
 \multirow{3}{*}{4} & \multirow{3}{*}{\following{} 1,4 } & safest + comm\\
@@ -63,8 +63,8 @@ Tree & Applicable Scenarios & Policy  \\
 & & \\
 \midrule\\
 \multirow{3}{*}{12} & \multirow{3}{*}{\hold{} 0 } & dont comm\\
-& & \Foll+\SC: maintainspeed + dont comm; \Stby+\Err+\OVR: dont comm\\
-& & \\
+& & \Foll: decel + dont comm; \SC: maintainspeed + dont comm\\
+& & \Stby+\Err+\OVR: dont comm\\
 \midrule\\
 \multirow{3}{*}{13} & \multirow{3}{*}{\hold{} 1 } & comm\\
 & & \Foll: safest + dont comm; \Err+\OVR: dont comm\\
@@ -79,7 +79,7 @@ Tree & Applicable Scenarios & Policy  \\
 & & \\
 \midrule\\
 \multirow{3}{*}{16} & \multirow{3}{*}{\override{} 0 } & dont comm\\
-& & \Foll: accel + dont comm; \SC: maintainspeed + dont comm\\
+& & \Foll: decel + dont comm; \SC: maintainspeed + dont comm\\
 & & \Err+\hold: dont comm\\
 \midrule\\
 \multirow{3}{*}{17} & \multirow{3}{*}{\override{} 1,4-5 } & dont comm\\

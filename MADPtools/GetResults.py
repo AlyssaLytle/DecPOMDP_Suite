@@ -27,6 +27,29 @@ def new_dict(name, h_tree, m_tree, instance):
     new_entry["instance"] = instance
     return new_entry
 
+def make_full_tree_image(tree_name, h_tree, m_tree, start_state):
+    [hgraph, mgraph] = writer.get_graph_viz_limit_branches(h_tree,m_tree, start_state)
+
+    f = open("htree.dot", "w")
+    f.writelines(hgraph)
+    f.close()
+    g = open("mtree.dot", "w")
+    g.writelines(mgraph)
+    g.close()
+
+    graph = graphviz.Source.from_file('htree.dot')
+    graph.format = 'png'
+    #graph.view()
+    tree_name0 = "figs/" + tree_name + "_humfull"
+    filename = graph.render(filename=tree_name0)
+
+    graph = graphviz.Source.from_file('mtree.dot')
+    graph.format = 'png'
+    #graph.view()
+    tree_name0 = "figs/" + tree_name + "_machfull"
+    filename = graph.render(filename=tree_name0)
+
+
 def make_tree_image(tree_name, h_tree, m_tree, start_state):
     [hgraph, mgraph] = writer.get_graph_viz_limit_branches(h_tree,m_tree, start_state)
 
@@ -77,7 +100,7 @@ with open(csv_name, newline='') as csvfile:
     machine_observations = data[8]
 
 if (prefix== "ACC"):
-    mc_path = "DPOMDP_Writer/Transitions.csv"
+    mc_path = "DPOMDP_Writer/Transitions_off.csv"
 #else:
     #mc_path = "DPOMDP_Writer/MinExampleTransitions.csv"
 
@@ -87,6 +110,7 @@ writer = DPOMDPWriterACC(machine_comm_actions, machine_mvmt_actions, human_comm_
 [h_tree, m_tree, value] = get_trees(path_to_res, len(human_observations), len(machine_observations))
 name = prefix + start_state + "-scen" + str(scenario_number)
 make_tree_image(name,h_tree,m_tree,start_state)
+make_full_tree_image(name,h_tree,m_tree,start_state)
 
 """ then scan a file to see if a tree has been seen before
 if not, assign the tree a new name """

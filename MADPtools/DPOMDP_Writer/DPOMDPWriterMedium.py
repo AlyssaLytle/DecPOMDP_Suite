@@ -612,6 +612,38 @@ class DPOMDPWriterACC:
     #             entry = [actions[1].split("-"), actions[2].split("-"), t_list[2].replace(' ',''), t_list[4].replace(' ',''), float(t_list[5])]
     #             #print(entry)
 
+
+    def get_graph_viz(self, human_tree, machine_tree, start_state):
+        #returns trees in graph_viz format with all branches
+        #ONLY WRITTEN FOR TREES OF HEIGHT 1 FOR NOW
+        output1 = 'digraph human_tree {\n'
+        output2 = 'digraph machine_tree {\n'
+        output1 += 'edge [dir=none];\n'
+        output2 += 'edge [dir=none];\n'
+        nodes_h = ""
+        edges_h = ""
+        nodes_m = ""
+        edges_m = ""
+        output1 += 'node0 [ label = "' + self.action_to_str(human_tree.nodes[0]) + '" ];\n'
+        output2 += 'node0 [ label = "' + self.action_to_str(machine_tree.nodes[0]) + '" ];\n'
+        [human_obs, mach_obs] = self.get_possible_observations(start_state, human_tree.nodes[0], machine_tree.nodes[0])
+        num_hum_nodes = 1
+        num_mach_nodes = 1
+        for i in range(1,len(human_tree.nodes)):
+            human_edge = human_tree.edges[i]
+            machine_edge = machine_tree.edges[i]
+            nodes_h += 'node' + str(num_hum_nodes) + ' [ label = "' + self.action_to_str(human_tree.nodes[i]) + '" ];\n'
+            edges_h += 'node0 -> ' 
+            edges_h += 'node' + str(num_hum_nodes) + ' [label="' + str(human_tree.edges[i]) + '"];\n'
+            num_hum_nodes += 1
+            nodes_m += 'node' + str(num_mach_nodes) + ' [ label = "' + self.action_to_str(machine_tree.nodes[i]) + '" ];\n'
+            edges_m += 'node0 -> ' 
+            edges_m += 'node' + str(num_mach_nodes) + ' [label="' + str(machine_tree.edges[i]) + '"];\n'
+            num_mach_nodes += 1
+        output1 += nodes_h + edges_h
+        output2 += nodes_m + edges_m
+        output = [output1 + '}', output2 + '}']
+        return output
     
     def get_graph_viz_limit_branches(self, human_tree, machine_tree, start_state):
         #returns trees in graph_viz format including only relevant branches
