@@ -199,8 +199,8 @@ class DPOMDPWriterACC:
             no_comm_rew = self.costs["machine communication"] * -1
             cost += no_comm_rew
         #reward for the human trying to switch to autonomous state from non-auto one
-        #if (is_non_auto) & (hum_comm == "pushbutton") :
-        #    cost += self.costs["automation reward"]
+        if (is_non_auto) & (hum_comm == "pushbutton") :
+            cost += self.costs["automation reward"]
         #reward for STAYING in autonomous state
         # if (is_non_auto == False) & (hum_comm == "dontpushbutton"):
         #     cost += self.costs["automation reward"]            
