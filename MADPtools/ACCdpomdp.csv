@@ -4,6 +4,6 @@ pushbutton,dontpushbutton
 accel,decel,maintainspeed,none
 standby,following,speedcontrol,error,hold,override,off,sink
 "{""exithold"": 0.01, ""error"": 0.01, ""switch"": 0.01}"
-"{""human movement"": -5, ""unsafe"": -1000000, ""machine communication"": -1, ""automation reward"": 1}"
+"{""human movement"": -10, ""unsafe"": -1000000, ""machine communication"": -1, ""automation reward"": 1}"
 standby,following,speedcontrol,error,hold,override,off,none
 standby,following,speedcontrol,error,hold,override,off,sink

@@ -37,7 +37,7 @@ def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix):
     human_observations.remove("sink")
     prob_dict = {"exithold": exit_hold_prob, "error":error_prob, "switch":switch_prob}
 
-    human_movement_cost = -5
+    human_movement_cost = -10
     unsafe_cost = -1000000
     comm_cost = -1
     automation_reward = 1
