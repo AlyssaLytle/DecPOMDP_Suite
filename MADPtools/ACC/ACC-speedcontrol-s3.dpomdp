@@ -1,20 +1,22 @@
 agents: 2
 discount: 1
 values: reward
-states: standby following speedcontrol error hold override sink
+states: standby following speedcontrol error hold override off sink
 start include: speedcontrol
 actions:
 accel-pushbutton accel-dontpushbutton decel-pushbutton decel-dontpushbutton maintainspeed-pushbutton maintainspeed-dontpushbutton none-pushbutton none-dontpushbutton
 accel-communicate accel-dontcommunicate decel-communicate decel-dontcommunicate maintainspeed-communicate maintainspeed-dontcommunicate none-communicate none-dontcommunicate
 observations:
-standby following speedcontrol error hold override none
-standby following speedcontrol error hold override sink
-T: accel-pushbutton none-communicate : standby : following : 0.3333333333333333
-T: accel-pushbutton none-communicate : standby : speedcontrol : 0.3333333333333333
-T: accel-pushbutton none-communicate : standby : hold : 0.3333333333333333
-T: accel-pushbutton none-dontcommunicate : standby : following : 0.3333333333333333
-T: accel-pushbutton none-dontcommunicate : standby : speedcontrol : 0.3333333333333333
-T: accel-pushbutton none-dontcommunicate : standby : hold : 0.3333333333333333
+standby following speedcontrol error hold override off none
+standby following speedcontrol error hold override off sink
+T: accel-pushbutton none-communicate : standby : following : 0.25
+T: accel-pushbutton none-communicate : standby : speedcontrol : 0.25
+T: accel-pushbutton none-communicate : standby : hold : 0.25
+T: accel-pushbutton none-communicate : standby : off : 0.25
+T: accel-pushbutton none-dontcommunicate : standby : following : 0.25
+T: accel-pushbutton none-dontcommunicate : standby : speedcontrol : 0.25
+T: accel-pushbutton none-dontcommunicate : standby : hold : 0.25
+T: accel-pushbutton none-dontcommunicate : standby : off : 0.25
 T: accel-pushbutton accel-communicate : standby : sink : 1
 T: accel-pushbutton accel-dontcommunicate : standby : sink : 1
 T: accel-pushbutton decel-communicate : standby : sink : 1
@@ -29,12 +31,14 @@ T: accel-dontpushbutton decel-communicate : standby : sink : 1
 T: accel-dontpushbutton decel-dontcommunicate : standby : sink : 1
 T: accel-dontpushbutton maintainspeed-communicate : standby : sink : 1
 T: accel-dontpushbutton maintainspeed-dontcommunicate : standby : sink : 1
-T: decel-pushbutton none-communicate : standby : following : 0.3333333333333333
-T: decel-pushbutton none-communicate : standby : speedcontrol : 0.3333333333333333
-T: decel-pushbutton none-communicate : standby : hold : 0.3333333333333333
-T: decel-pushbutton none-dontcommunicate : standby : following : 0.3333333333333333
-T: decel-pushbutton none-dontcommunicate : standby : speedcontrol : 0.3333333333333333
-T: decel-pushbutton none-dontcommunicate : standby : hold : 0.3333333333333333
+T: decel-pushbutton none-communicate : standby : following : 0.25
+T: decel-pushbutton none-communicate : standby : speedcontrol : 0.25
+T: decel-pushbutton none-communicate : standby : hold : 0.25
+T: decel-pushbutton none-communicate : standby : off : 0.25
+T: decel-pushbutton none-dontcommunicate : standby : following : 0.25
+T: decel-pushbutton none-dontcommunicate : standby : speedcontrol : 0.25
+T: decel-pushbutton none-dontcommunicate : standby : hold : 0.25
+T: decel-pushbutton none-dontcommunicate : standby : off : 0.25
 T: decel-pushbutton accel-communicate : standby : sink : 1
 T: decel-pushbutton accel-dontcommunicate : standby : sink : 1
 T: decel-pushbutton decel-communicate : standby : sink : 1
@@ -49,12 +53,14 @@ T: decel-dontpushbutton decel-communicate : standby : sink : 1
 T: decel-dontpushbutton decel-dontcommunicate : standby : sink : 1
 T: decel-dontpushbutton maintainspeed-communicate : standby : sink : 1
 T: decel-dontpushbutton maintainspeed-dontcommunicate : standby : sink : 1
-T: maintainspeed-pushbutton none-communicate : standby : following : 0.3333333333333333
-T: maintainspeed-pushbutton none-communicate : standby : speedcontrol : 0.3333333333333333
-T: maintainspeed-pushbutton none-communicate : standby : hold : 0.3333333333333333
-T: maintainspeed-pushbutton none-dontcommunicate : standby : following : 0.3333333333333333
-T: maintainspeed-pushbutton none-dontcommunicate : standby : speedcontrol : 0.3333333333333333
-T: maintainspeed-pushbutton none-dontcommunicate : standby : hold : 0.3333333333333333
+T: maintainspeed-pushbutton none-communicate : standby : following : 0.25
+T: maintainspeed-pushbutton none-communicate : standby : speedcontrol : 0.25
+T: maintainspeed-pushbutton none-communicate : standby : hold : 0.25
+T: maintainspeed-pushbutton none-communicate : standby : off : 0.25
+T: maintainspeed-pushbutton none-dontcommunicate : standby : following : 0.25
+T: maintainspeed-pushbutton none-dontcommunicate : standby : speedcontrol : 0.25
+T: maintainspeed-pushbutton none-dontcommunicate : standby : hold : 0.25
+T: maintainspeed-pushbutton none-dontcommunicate : standby : off : 0.25
 T: maintainspeed-pushbutton accel-communicate : standby : sink : 1
 T: maintainspeed-pushbutton accel-dontcommunicate : standby : sink : 1
 T: maintainspeed-pushbutton decel-communicate : standby : sink : 1
@@ -69,12 +75,14 @@ T: maintainspeed-dontpushbutton decel-communicate : standby : sink : 1
 T: maintainspeed-dontpushbutton decel-dontcommunicate : standby : sink : 1
 T: maintainspeed-dontpushbutton maintainspeed-communicate : standby : sink : 1
 T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : standby : sink : 1
-T: none-pushbutton none-communicate : standby : following : 0.3333333333333333
-T: none-pushbutton none-communicate : standby : speedcontrol : 0.3333333333333333
-T: none-pushbutton none-communicate : standby : hold : 0.3333333333333333
-T: none-pushbutton none-dontcommunicate : standby : following : 0.3333333333333333
-T: none-pushbutton none-dontcommunicate : standby : speedcontrol : 0.3333333333333333
-T: none-pushbutton none-dontcommunicate : standby : hold : 0.3333333333333333
+T: none-pushbutton none-communicate : standby : following : 0.25
+T: none-pushbutton none-communicate : standby : speedcontrol : 0.25
+T: none-pushbutton none-communicate : standby : hold : 0.25
+T: none-pushbutton none-communicate : standby : off : 0.25
+T: none-pushbutton none-dontcommunicate : standby : following : 0.25
+T: none-pushbutton none-dontcommunicate : standby : speedcontrol : 0.25
+T: none-pushbutton none-dontcommunicate : standby : hold : 0.25
+T: none-pushbutton none-dontcommunicate : standby : off : 0.25
 T: none-pushbutton accel-communicate : standby : sink : 1
 T: none-pushbutton accel-dontcommunicate : standby : sink : 1
 T: none-pushbutton decel-communicate : standby : sink : 1
@@ -90,129 +98,205 @@ T: none-dontpushbutton decel-dontcommunicate : standby : sink : 1
 T: none-dontpushbutton maintainspeed-communicate : standby : sink : 1
 T: none-dontpushbutton maintainspeed-dontcommunicate : standby : sink : 1
 T: accel-pushbutton accel-communicate : following : error : 0.01
-T: accel-pushbutton accel-communicate : following : standby : 0.495
-T: accel-pushbutton accel-communicate : following : override : 0.495
+T: accel-pushbutton accel-communicate : following : standby : 0.32666666666666666
+T: accel-pushbutton accel-communicate : following : speedcontrol : 0.01
+T: accel-pushbutton accel-communicate : following : override : 0.32666666666666666
+T: accel-pushbutton accel-communicate : following : off : 0.32666666666666666
 T: accel-pushbutton accel-dontcommunicate : following : error : 0.01
-T: accel-pushbutton accel-dontcommunicate : following : standby : 0.495
-T: accel-pushbutton accel-dontcommunicate : following : override : 0.495
+T: accel-pushbutton accel-dontcommunicate : following : standby : 0.32666666666666666
+T: accel-pushbutton accel-dontcommunicate : following : speedcontrol : 0.01
+T: accel-pushbutton accel-dontcommunicate : following : override : 0.32666666666666666
+T: accel-pushbutton accel-dontcommunicate : following : off : 0.32666666666666666
 T: accel-pushbutton decel-communicate : following : error : 0.01
-T: accel-pushbutton decel-communicate : following : standby : 0.495
-T: accel-pushbutton decel-communicate : following : override : 0.495
+T: accel-pushbutton decel-communicate : following : standby : 0.32666666666666666
+T: accel-pushbutton decel-communicate : following : speedcontrol : 0.01
+T: accel-pushbutton decel-communicate : following : override : 0.32666666666666666
+T: accel-pushbutton decel-communicate : following : off : 0.32666666666666666
 T: accel-pushbutton decel-dontcommunicate : following : error : 0.01
-T: accel-pushbutton decel-dontcommunicate : following : standby : 0.495
-T: accel-pushbutton decel-dontcommunicate : following : override : 0.495
+T: accel-pushbutton decel-dontcommunicate : following : standby : 0.32666666666666666
+T: accel-pushbutton decel-dontcommunicate : following : speedcontrol : 0.01
+T: accel-pushbutton decel-dontcommunicate : following : override : 0.32666666666666666
+T: accel-pushbutton decel-dontcommunicate : following : off : 0.32666666666666666
 T: accel-pushbutton maintainspeed-communicate : following : error : 0.01
-T: accel-pushbutton maintainspeed-communicate : following : standby : 0.495
-T: accel-pushbutton maintainspeed-communicate : following : override : 0.495
+T: accel-pushbutton maintainspeed-communicate : following : standby : 0.32666666666666666
+T: accel-pushbutton maintainspeed-communicate : following : speedcontrol : 0.01
+T: accel-pushbutton maintainspeed-communicate : following : override : 0.32666666666666666
+T: accel-pushbutton maintainspeed-communicate : following : off : 0.32666666666666666
 T: accel-pushbutton maintainspeed-dontcommunicate : following : error : 0.01
-T: accel-pushbutton maintainspeed-dontcommunicate : following : standby : 0.495
-T: accel-pushbutton maintainspeed-dontcommunicate : following : override : 0.495
+T: accel-pushbutton maintainspeed-dontcommunicate : following : standby : 0.32666666666666666
+T: accel-pushbutton maintainspeed-dontcommunicate : following : speedcontrol : 0.01
+T: accel-pushbutton maintainspeed-dontcommunicate : following : override : 0.32666666666666666
+T: accel-pushbutton maintainspeed-dontcommunicate : following : off : 0.32666666666666666
 T: accel-pushbutton none-communicate : following : sink : 1
 T: accel-pushbutton none-dontcommunicate : following : sink : 1
 T: accel-dontpushbutton accel-communicate : following : error : 0.01
-T: accel-dontpushbutton accel-communicate : following : override : 0.99
+T: accel-dontpushbutton accel-communicate : following : speedcontrol : 0.01
+T: accel-dontpushbutton accel-communicate : following : override : 0.98
 T: accel-dontpushbutton accel-dontcommunicate : following : error : 0.01
-T: accel-dontpushbutton accel-dontcommunicate : following : override : 0.99
+T: accel-dontpushbutton accel-dontcommunicate : following : speedcontrol : 0.01
+T: accel-dontpushbutton accel-dontcommunicate : following : override : 0.98
 T: accel-dontpushbutton decel-communicate : following : error : 0.01
-T: accel-dontpushbutton decel-communicate : following : override : 0.99
+T: accel-dontpushbutton decel-communicate : following : speedcontrol : 0.01
+T: accel-dontpushbutton decel-communicate : following : override : 0.98
 T: accel-dontpushbutton decel-dontcommunicate : following : error : 0.01
-T: accel-dontpushbutton decel-dontcommunicate : following : override : 0.99
+T: accel-dontpushbutton decel-dontcommunicate : following : speedcontrol : 0.01
+T: accel-dontpushbutton decel-dontcommunicate : following : override : 0.98
 T: accel-dontpushbutton maintainspeed-communicate : following : error : 0.01
-T: accel-dontpushbutton maintainspeed-communicate : following : override : 0.99
+T: accel-dontpushbutton maintainspeed-communicate : following : speedcontrol : 0.01
+T: accel-dontpushbutton maintainspeed-communicate : following : override : 0.98
 T: accel-dontpushbutton maintainspeed-dontcommunicate : following : error : 0.01
-T: accel-dontpushbutton maintainspeed-dontcommunicate : following : override : 0.99
+T: accel-dontpushbutton maintainspeed-dontcommunicate : following : speedcontrol : 0.01
+T: accel-dontpushbutton maintainspeed-dontcommunicate : following : override : 0.98
 T: accel-dontpushbutton none-communicate : following : sink : 1
 T: accel-dontpushbutton none-dontcommunicate : following : sink : 1
 T: decel-pushbutton accel-communicate : following : error : 0.01
-T: decel-pushbutton accel-communicate : following : standby : 0.99
+T: decel-pushbutton accel-communicate : following : standby : 0.6533333333333333
+T: decel-pushbutton accel-communicate : following : speedcontrol : 0.01
+T: decel-pushbutton accel-communicate : following : off : 0.32666666666666666
 T: decel-pushbutton accel-dontcommunicate : following : error : 0.01
-T: decel-pushbutton accel-dontcommunicate : following : standby : 0.99
+T: decel-pushbutton accel-dontcommunicate : following : standby : 0.6533333333333333
+T: decel-pushbutton accel-dontcommunicate : following : speedcontrol : 0.01
+T: decel-pushbutton accel-dontcommunicate : following : off : 0.32666666666666666
 T: decel-pushbutton decel-communicate : following : error : 0.01
-T: decel-pushbutton decel-communicate : following : standby : 0.99
+T: decel-pushbutton decel-communicate : following : standby : 0.6533333333333333
+T: decel-pushbutton decel-communicate : following : speedcontrol : 0.01
+T: decel-pushbutton decel-communicate : following : off : 0.32666666666666666
 T: decel-pushbutton decel-dontcommunicate : following : error : 0.01
-T: decel-pushbutton decel-dontcommunicate : following : standby : 0.99
+T: decel-pushbutton decel-dontcommunicate : following : standby : 0.6533333333333333
+T: decel-pushbutton decel-dontcommunicate : following : speedcontrol : 0.01
+T: decel-pushbutton decel-dontcommunicate : following : off : 0.32666666666666666
 T: decel-pushbutton maintainspeed-communicate : following : error : 0.01
-T: decel-pushbutton maintainspeed-communicate : following : standby : 0.99
+T: decel-pushbutton maintainspeed-communicate : following : standby : 0.6533333333333333
+T: decel-pushbutton maintainspeed-communicate : following : speedcontrol : 0.01
+T: decel-pushbutton maintainspeed-communicate : following : off : 0.32666666666666666
 T: decel-pushbutton maintainspeed-dontcommunicate : following : error : 0.01
-T: decel-pushbutton maintainspeed-dontcommunicate : following : standby : 0.99
+T: decel-pushbutton maintainspeed-dontcommunicate : following : standby : 0.6533333333333333
+T: decel-pushbutton maintainspeed-dontcommunicate : following : speedcontrol : 0.01
+T: decel-pushbutton maintainspeed-dontcommunicate : following : off : 0.32666666666666666
 T: decel-pushbutton none-communicate : following : sink : 1
 T: decel-pushbutton none-dontcommunicate : following : sink : 1
 T: decel-dontpushbutton accel-communicate : following : error : 0.01
-T: decel-dontpushbutton accel-communicate : following : standby : 0.99
+T: decel-dontpushbutton accel-communicate : following : standby : 0.98
+T: decel-dontpushbutton accel-communicate : following : speedcontrol : 0.01
 T: decel-dontpushbutton accel-dontcommunicate : following : error : 0.01
-T: decel-dontpushbutton accel-dontcommunicate : following : standby : 0.99
+T: decel-dontpushbutton accel-dontcommunicate : following : standby : 0.98
+T: decel-dontpushbutton accel-dontcommunicate : following : speedcontrol : 0.01
 T: decel-dontpushbutton decel-communicate : following : error : 0.01
-T: decel-dontpushbutton decel-communicate : following : standby : 0.99
+T: decel-dontpushbutton decel-communicate : following : standby : 0.98
+T: decel-dontpushbutton decel-communicate : following : speedcontrol : 0.01
 T: decel-dontpushbutton decel-dontcommunicate : following : error : 0.01
-T: decel-dontpushbutton decel-dontcommunicate : following : standby : 0.99
+T: decel-dontpushbutton decel-dontcommunicate : following : standby : 0.98
+T: decel-dontpushbutton decel-dontcommunicate : following : speedcontrol : 0.01
 T: decel-dontpushbutton maintainspeed-communicate : following : error : 0.01
-T: decel-dontpushbutton maintainspeed-communicate : following : standby : 0.99
+T: decel-dontpushbutton maintainspeed-communicate : following : standby : 0.98
+T: decel-dontpushbutton maintainspeed-communicate : following : speedcontrol : 0.01
 T: decel-dontpushbutton maintainspeed-dontcommunicate : following : error : 0.01
-T: decel-dontpushbutton maintainspeed-dontcommunicate : following : standby : 0.99
+T: decel-dontpushbutton maintainspeed-dontcommunicate : following : standby : 0.98
+T: decel-dontpushbutton maintainspeed-dontcommunicate : following : speedcontrol : 0.01
 T: decel-dontpushbutton none-communicate : following : sink : 1
 T: decel-dontpushbutton none-dontcommunicate : following : sink : 1
 T: maintainspeed-pushbutton accel-communicate : following : error : 0.01
-T: maintainspeed-pushbutton accel-communicate : following : standby : 0.99
+T: maintainspeed-pushbutton accel-communicate : following : standby : 0.49
+T: maintainspeed-pushbutton accel-communicate : following : speedcontrol : 0.01
+T: maintainspeed-pushbutton accel-communicate : following : off : 0.49
 T: maintainspeed-pushbutton accel-dontcommunicate : following : error : 0.01
-T: maintainspeed-pushbutton accel-dontcommunicate : following : standby : 0.99
+T: maintainspeed-pushbutton accel-dontcommunicate : following : standby : 0.49
+T: maintainspeed-pushbutton accel-dontcommunicate : following : speedcontrol : 0.01
+T: maintainspeed-pushbutton accel-dontcommunicate : following : off : 0.49
 T: maintainspeed-pushbutton decel-communicate : following : error : 0.01
-T: maintainspeed-pushbutton decel-communicate : following : standby : 0.99
+T: maintainspeed-pushbutton decel-communicate : following : standby : 0.49
+T: maintainspeed-pushbutton decel-communicate : following : speedcontrol : 0.01
+T: maintainspeed-pushbutton decel-communicate : following : off : 0.49
 T: maintainspeed-pushbutton decel-dontcommunicate : following : error : 0.01
-T: maintainspeed-pushbutton decel-dontcommunicate : following : standby : 0.99
+T: maintainspeed-pushbutton decel-dontcommunicate : following : standby : 0.49
+T: maintainspeed-pushbutton decel-dontcommunicate : following : speedcontrol : 0.01
+T: maintainspeed-pushbutton decel-dontcommunicate : following : off : 0.49
 T: maintainspeed-pushbutton maintainspeed-communicate : following : error : 0.01
-T: maintainspeed-pushbutton maintainspeed-communicate : following : standby : 0.99
+T: maintainspeed-pushbutton maintainspeed-communicate : following : standby : 0.49
+T: maintainspeed-pushbutton maintainspeed-communicate : following : speedcontrol : 0.01
+T: maintainspeed-pushbutton maintainspeed-communicate : following : off : 0.49
 T: maintainspeed-pushbutton maintainspeed-dontcommunicate : following : error : 0.01
-T: maintainspeed-pushbutton maintainspeed-dontcommunicate : following : standby : 0.99
+T: maintainspeed-pushbutton maintainspeed-dontcommunicate : following : standby : 0.49
+T: maintainspeed-pushbutton maintainspeed-dontcommunicate : following : speedcontrol : 0.01
+T: maintainspeed-pushbutton maintainspeed-dontcommunicate : following : off : 0.49
 T: maintainspeed-pushbutton none-communicate : following : sink : 1
 T: maintainspeed-pushbutton none-dontcommunicate : following : sink : 1
-T: maintainspeed-dontpushbutton accel-communicate : following : following : 0.99
+T: maintainspeed-dontpushbutton accel-communicate : following : following : 0.98
 T: maintainspeed-dontpushbutton accel-communicate : following : error : 0.01
-T: maintainspeed-dontpushbutton accel-dontcommunicate : following : following : 0.99
+T: maintainspeed-dontpushbutton accel-communicate : following : speedcontrol : 0.01
+T: maintainspeed-dontpushbutton accel-dontcommunicate : following : following : 0.98
 T: maintainspeed-dontpushbutton accel-dontcommunicate : following : error : 0.01
-T: maintainspeed-dontpushbutton decel-communicate : following : following : 0.99
+T: maintainspeed-dontpushbutton accel-dontcommunicate : following : speedcontrol : 0.01
+T: maintainspeed-dontpushbutton decel-communicate : following : following : 0.98
 T: maintainspeed-dontpushbutton decel-communicate : following : error : 0.01
-T: maintainspeed-dontpushbutton decel-dontcommunicate : following : following : 0.99
+T: maintainspeed-dontpushbutton decel-communicate : following : speedcontrol : 0.01
+T: maintainspeed-dontpushbutton decel-dontcommunicate : following : following : 0.98
 T: maintainspeed-dontpushbutton decel-dontcommunicate : following : error : 0.01
-T: maintainspeed-dontpushbutton maintainspeed-communicate : following : following : 0.99
+T: maintainspeed-dontpushbutton decel-dontcommunicate : following : speedcontrol : 0.01
+T: maintainspeed-dontpushbutton maintainspeed-communicate : following : following : 0.98
 T: maintainspeed-dontpushbutton maintainspeed-communicate : following : error : 0.01
-T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : following : following : 0.99
+T: maintainspeed-dontpushbutton maintainspeed-communicate : following : speedcontrol : 0.01
+T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : following : following : 0.98
 T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : following : error : 0.01
+T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : following : speedcontrol : 0.01
 T: maintainspeed-dontpushbutton none-communicate : following : sink : 1
 T: maintainspeed-dontpushbutton none-dontcommunicate : following : sink : 1
 T: none-pushbutton accel-communicate : following : error : 0.01
-T: none-pushbutton accel-communicate : following : standby : 0.99
+T: none-pushbutton accel-communicate : following : standby : 0.49
+T: none-pushbutton accel-communicate : following : speedcontrol : 0.01
+T: none-pushbutton accel-communicate : following : off : 0.49
 T: none-pushbutton accel-dontcommunicate : following : error : 0.01
-T: none-pushbutton accel-dontcommunicate : following : standby : 0.99
+T: none-pushbutton accel-dontcommunicate : following : standby : 0.49
+T: none-pushbutton accel-dontcommunicate : following : speedcontrol : 0.01
+T: none-pushbutton accel-dontcommunicate : following : off : 0.49
 T: none-pushbutton decel-communicate : following : error : 0.01
-T: none-pushbutton decel-communicate : following : standby : 0.99
+T: none-pushbutton decel-communicate : following : standby : 0.49
+T: none-pushbutton decel-communicate : following : speedcontrol : 0.01
+T: none-pushbutton decel-communicate : following : off : 0.49
 T: none-pushbutton decel-dontcommunicate : following : error : 0.01
-T: none-pushbutton decel-dontcommunicate : following : standby : 0.99
+T: none-pushbutton decel-dontcommunicate : following : standby : 0.49
+T: none-pushbutton decel-dontcommunicate : following : speedcontrol : 0.01
+T: none-pushbutton decel-dontcommunicate : following : off : 0.49
 T: none-pushbutton maintainspeed-communicate : following : error : 0.01
-T: none-pushbutton maintainspeed-communicate : following : standby : 0.99
+T: none-pushbutton maintainspeed-communicate : following : standby : 0.49
+T: none-pushbutton maintainspeed-communicate : following : speedcontrol : 0.01
+T: none-pushbutton maintainspeed-communicate : following : off : 0.49
 T: none-pushbutton maintainspeed-dontcommunicate : following : error : 0.01
-T: none-pushbutton maintainspeed-dontcommunicate : following : standby : 0.99
+T: none-pushbutton maintainspeed-dontcommunicate : following : standby : 0.49
+T: none-pushbutton maintainspeed-dontcommunicate : following : speedcontrol : 0.01
+T: none-pushbutton maintainspeed-dontcommunicate : following : off : 0.49
 T: none-pushbutton none-communicate : following : sink : 1
 T: none-pushbutton none-dontcommunicate : following : sink : 1
-T: none-dontpushbutton accel-communicate : following : following : 0.99
+T: none-dontpushbutton accel-communicate : following : following : 0.98
 T: none-dontpushbutton accel-communicate : following : error : 0.01
-T: none-dontpushbutton accel-dontcommunicate : following : following : 0.99
+T: none-dontpushbutton accel-communicate : following : speedcontrol : 0.01
+T: none-dontpushbutton accel-dontcommunicate : following : following : 0.98
 T: none-dontpushbutton accel-dontcommunicate : following : error : 0.01
-T: none-dontpushbutton decel-communicate : following : following : 0.99
+T: none-dontpushbutton accel-dontcommunicate : following : speedcontrol : 0.01
+T: none-dontpushbutton decel-communicate : following : following : 0.98
 T: none-dontpushbutton decel-communicate : following : error : 0.01
-T: none-dontpushbutton decel-dontcommunicate : following : following : 0.99
+T: none-dontpushbutton decel-communicate : following : speedcontrol : 0.01
+T: none-dontpushbutton decel-dontcommunicate : following : following : 0.98
 T: none-dontpushbutton decel-dontcommunicate : following : error : 0.01
-T: none-dontpushbutton maintainspeed-communicate : following : following : 0.99
+T: none-dontpushbutton decel-dontcommunicate : following : speedcontrol : 0.01
+T: none-dontpushbutton maintainspeed-communicate : following : following : 0.98
 T: none-dontpushbutton maintainspeed-communicate : following : error : 0.01
-T: none-dontpushbutton maintainspeed-dontcommunicate : following : following : 0.99
+T: none-dontpushbutton maintainspeed-communicate : following : speedcontrol : 0.01
+T: none-dontpushbutton maintainspeed-dontcommunicate : following : following : 0.98
 T: none-dontpushbutton maintainspeed-dontcommunicate : following : error : 0.01
+T: none-dontpushbutton maintainspeed-dontcommunicate : following : speedcontrol : 0.01
 T: none-dontpushbutton none-communicate : following : sink : 1
 T: none-dontpushbutton none-dontcommunicate : following : sink : 1
 T: accel-pushbutton maintainspeed-communicate : speedcontrol : error : 0.01
-T: accel-pushbutton maintainspeed-communicate : speedcontrol : standby : 0.495
-T: accel-pushbutton maintainspeed-communicate : speedcontrol : override : 0.495
+T: accel-pushbutton maintainspeed-communicate : speedcontrol : standby : 0.32666666666666666
+T: accel-pushbutton maintainspeed-communicate : speedcontrol : following : 0.01
+T: accel-pushbutton maintainspeed-communicate : speedcontrol : override : 0.32666666666666666
+T: accel-pushbutton maintainspeed-communicate : speedcontrol : off : 0.32666666666666666
 T: accel-pushbutton maintainspeed-dontcommunicate : speedcontrol : error : 0.01
-T: accel-pushbutton maintainspeed-dontcommunicate : speedcontrol : standby : 0.495
-T: accel-pushbutton maintainspeed-dontcommunicate : speedcontrol : override : 0.495
+T: accel-pushbutton maintainspeed-dontcommunicate : speedcontrol : standby : 0.32666666666666666
+T: accel-pushbutton maintainspeed-dontcommunicate : speedcontrol : following : 0.01
+T: accel-pushbutton maintainspeed-dontcommunicate : speedcontrol : override : 0.32666666666666666
+T: accel-pushbutton maintainspeed-dontcommunicate : speedcontrol : off : 0.32666666666666666
 T: accel-pushbutton accel-communicate : speedcontrol : sink : 1
 T: accel-pushbutton accel-dontcommunicate : speedcontrol : sink : 1
 T: accel-pushbutton decel-communicate : speedcontrol : sink : 1
@@ -220,9 +304,11 @@ T: accel-pushbutton decel-dontcommunicate : speedcontrol : sink : 1
 T: accel-pushbutton none-communicate : speedcontrol : sink : 1
 T: accel-pushbutton none-dontcommunicate : speedcontrol : sink : 1
 T: accel-dontpushbutton maintainspeed-communicate : speedcontrol : error : 0.01
-T: accel-dontpushbutton maintainspeed-communicate : speedcontrol : override : 0.99
+T: accel-dontpushbutton maintainspeed-communicate : speedcontrol : following : 0.01
+T: accel-dontpushbutton maintainspeed-communicate : speedcontrol : override : 0.98
 T: accel-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : error : 0.01
-T: accel-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : override : 0.99
+T: accel-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : following : 0.01
+T: accel-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : override : 0.98
 T: accel-dontpushbutton accel-communicate : speedcontrol : sink : 1
 T: accel-dontpushbutton accel-dontcommunicate : speedcontrol : sink : 1
 T: accel-dontpushbutton decel-communicate : speedcontrol : sink : 1
@@ -230,9 +316,13 @@ T: accel-dontpushbutton decel-dontcommunicate : speedcontrol : sink : 1
 T: accel-dontpushbutton none-communicate : speedcontrol : sink : 1
 T: accel-dontpushbutton none-dontcommunicate : speedcontrol : sink : 1
 T: decel-pushbutton maintainspeed-communicate : speedcontrol : error : 0.01
-T: decel-pushbutton maintainspeed-communicate : speedcontrol : standby : 0.99
+T: decel-pushbutton maintainspeed-communicate : speedcontrol : standby : 0.6533333333333333
+T: decel-pushbutton maintainspeed-communicate : speedcontrol : following : 0.01
+T: decel-pushbutton maintainspeed-communicate : speedcontrol : off : 0.32666666666666666
 T: decel-pushbutton maintainspeed-dontcommunicate : speedcontrol : error : 0.01
-T: decel-pushbutton maintainspeed-dontcommunicate : speedcontrol : standby : 0.99
+T: decel-pushbutton maintainspeed-dontcommunicate : speedcontrol : standby : 0.6533333333333333
+T: decel-pushbutton maintainspeed-dontcommunicate : speedcontrol : following : 0.01
+T: decel-pushbutton maintainspeed-dontcommunicate : speedcontrol : off : 0.32666666666666666
 T: decel-pushbutton accel-communicate : speedcontrol : sink : 1
 T: decel-pushbutton accel-dontcommunicate : speedcontrol : sink : 1
 T: decel-pushbutton decel-communicate : speedcontrol : sink : 1
@@ -240,9 +330,11 @@ T: decel-pushbutton decel-dontcommunicate : speedcontrol : sink : 1
 T: decel-pushbutton none-communicate : speedcontrol : sink : 1
 T: decel-pushbutton none-dontcommunicate : speedcontrol : sink : 1
 T: decel-dontpushbutton maintainspeed-communicate : speedcontrol : error : 0.01
-T: decel-dontpushbutton maintainspeed-communicate : speedcontrol : standby : 0.99
+T: decel-dontpushbutton maintainspeed-communicate : speedcontrol : standby : 0.98
+T: decel-dontpushbutton maintainspeed-communicate : speedcontrol : following : 0.01
 T: decel-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : error : 0.01
-T: decel-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : standby : 0.99
+T: decel-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : standby : 0.98
+T: decel-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : following : 0.01
 T: decel-dontpushbutton accel-communicate : speedcontrol : sink : 1
 T: decel-dontpushbutton accel-dontcommunicate : speedcontrol : sink : 1
 T: decel-dontpushbutton decel-communicate : speedcontrol : sink : 1
@@ -250,19 +342,25 @@ T: decel-dontpushbutton decel-dontcommunicate : speedcontrol : sink : 1
 T: decel-dontpushbutton none-communicate : speedcontrol : sink : 1
 T: decel-dontpushbutton none-dontcommunicate : speedcontrol : sink : 1
 T: maintainspeed-pushbutton maintainspeed-communicate : speedcontrol : error : 0.01
-T: maintainspeed-pushbutton maintainspeed-communicate : speedcontrol : standby : 0.99
+T: maintainspeed-pushbutton maintainspeed-communicate : speedcontrol : standby : 0.49
+T: maintainspeed-pushbutton maintainspeed-communicate : speedcontrol : following : 0.01
+T: maintainspeed-pushbutton maintainspeed-communicate : speedcontrol : off : 0.49
 T: maintainspeed-pushbutton maintainspeed-dontcommunicate : speedcontrol : error : 0.01
-T: maintainspeed-pushbutton maintainspeed-dontcommunicate : speedcontrol : standby : 0.99
+T: maintainspeed-pushbutton maintainspeed-dontcommunicate : speedcontrol : standby : 0.49
+T: maintainspeed-pushbutton maintainspeed-dontcommunicate : speedcontrol : following : 0.01
+T: maintainspeed-pushbutton maintainspeed-dontcommunicate : speedcontrol : off : 0.49
 T: maintainspeed-pushbutton accel-communicate : speedcontrol : sink : 1
 T: maintainspeed-pushbutton accel-dontcommunicate : speedcontrol : sink : 1
 T: maintainspeed-pushbutton decel-communicate : speedcontrol : sink : 1
 T: maintainspeed-pushbutton decel-dontcommunicate : speedcontrol : sink : 1
 T: maintainspeed-pushbutton none-communicate : speedcontrol : sink : 1
 T: maintainspeed-pushbutton none-dontcommunicate : speedcontrol : sink : 1
-T: maintainspeed-dontpushbutton maintainspeed-communicate : speedcontrol : speedcontrol : 0.99
+T: maintainspeed-dontpushbutton maintainspeed-communicate : speedcontrol : speedcontrol : 0.98
 T: maintainspeed-dontpushbutton maintainspeed-communicate : speedcontrol : error : 0.01
-T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : speedcontrol : 0.99
+T: maintainspeed-dontpushbutton maintainspeed-communicate : speedcontrol : following : 0.01
+T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : speedcontrol : 0.98
 T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : error : 0.01
+T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : following : 0.01
 T: maintainspeed-dontpushbutton accel-communicate : speedcontrol : sink : 1
 T: maintainspeed-dontpushbutton accel-dontcommunicate : speedcontrol : sink : 1
 T: maintainspeed-dontpushbutton decel-communicate : speedcontrol : sink : 1
@@ -270,27 +368,35 @@ T: maintainspeed-dontpushbutton decel-dontcommunicate : speedcontrol : sink : 1
 T: maintainspeed-dontpushbutton none-communicate : speedcontrol : sink : 1
 T: maintainspeed-dontpushbutton none-dontcommunicate : speedcontrol : sink : 1
 T: none-pushbutton maintainspeed-communicate : speedcontrol : error : 0.01
-T: none-pushbutton maintainspeed-communicate : speedcontrol : standby : 0.99
+T: none-pushbutton maintainspeed-communicate : speedcontrol : standby : 0.49
+T: none-pushbutton maintainspeed-communicate : speedcontrol : following : 0.01
+T: none-pushbutton maintainspeed-communicate : speedcontrol : off : 0.49
 T: none-pushbutton maintainspeed-dontcommunicate : speedcontrol : error : 0.01
-T: none-pushbutton maintainspeed-dontcommunicate : speedcontrol : standby : 0.99
+T: none-pushbutton maintainspeed-dontcommunicate : speedcontrol : standby : 0.49
+T: none-pushbutton maintainspeed-dontcommunicate : speedcontrol : following : 0.01
+T: none-pushbutton maintainspeed-dontcommunicate : speedcontrol : off : 0.49
 T: none-pushbutton accel-communicate : speedcontrol : sink : 1
 T: none-pushbutton accel-dontcommunicate : speedcontrol : sink : 1
 T: none-pushbutton decel-communicate : speedcontrol : sink : 1
 T: none-pushbutton decel-dontcommunicate : speedcontrol : sink : 1
 T: none-pushbutton none-communicate : speedcontrol : sink : 1
 T: none-pushbutton none-dontcommunicate : speedcontrol : sink : 1
-T: none-dontpushbutton maintainspeed-communicate : speedcontrol : speedcontrol : 0.99
+T: none-dontpushbutton maintainspeed-communicate : speedcontrol : speedcontrol : 0.98
 T: none-dontpushbutton maintainspeed-communicate : speedcontrol : error : 0.01
-T: none-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : speedcontrol : 0.99
+T: none-dontpushbutton maintainspeed-communicate : speedcontrol : following : 0.01
+T: none-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : speedcontrol : 0.98
 T: none-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : error : 0.01
+T: none-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : following : 0.01
 T: none-dontpushbutton accel-communicate : speedcontrol : sink : 1
 T: none-dontpushbutton accel-dontcommunicate : speedcontrol : sink : 1
 T: none-dontpushbutton decel-communicate : speedcontrol : sink : 1
 T: none-dontpushbutton decel-dontcommunicate : speedcontrol : sink : 1
 T: none-dontpushbutton none-communicate : speedcontrol : sink : 1
 T: none-dontpushbutton none-dontcommunicate : speedcontrol : sink : 1
-T: accel-pushbutton none-communicate : error : standby : 1.0
-T: accel-pushbutton none-dontcommunicate : error : standby : 1.0
+T: accel-pushbutton none-communicate : error : standby : 0.5
+T: accel-pushbutton none-communicate : error : off : 0.5
+T: accel-pushbutton none-dontcommunicate : error : standby : 0.5
+T: accel-pushbutton none-dontcommunicate : error : off : 0.5
 T: accel-pushbutton accel-communicate : error : sink : 1
 T: accel-pushbutton accel-dontcommunicate : error : sink : 1
 T: accel-pushbutton decel-communicate : error : sink : 1
@@ -305,8 +411,10 @@ T: accel-dontpushbutton decel-communicate : error : sink : 1
 T: accel-dontpushbutton decel-dontcommunicate : error : sink : 1
 T: accel-dontpushbutton maintainspeed-communicate : error : sink : 1
 T: accel-dontpushbutton maintainspeed-dontcommunicate : error : sink : 1
-T: decel-pushbutton none-communicate : error : standby : 1.0
-T: decel-pushbutton none-dontcommunicate : error : standby : 1.0
+T: decel-pushbutton none-communicate : error : standby : 0.5
+T: decel-pushbutton none-communicate : error : off : 0.5
+T: decel-pushbutton none-dontcommunicate : error : standby : 0.5
+T: decel-pushbutton none-dontcommunicate : error : off : 0.5
 T: decel-pushbutton accel-communicate : error : sink : 1
 T: decel-pushbutton accel-dontcommunicate : error : sink : 1
 T: decel-pushbutton decel-communicate : error : sink : 1
@@ -321,8 +429,10 @@ T: decel-dontpushbutton decel-communicate : error : sink : 1
 T: decel-dontpushbutton decel-dontcommunicate : error : sink : 1
 T: decel-dontpushbutton maintainspeed-communicate : error : sink : 1
 T: decel-dontpushbutton maintainspeed-dontcommunicate : error : sink : 1
-T: maintainspeed-pushbutton none-communicate : error : standby : 1.0
-T: maintainspeed-pushbutton none-dontcommunicate : error : standby : 1.0
+T: maintainspeed-pushbutton none-communicate : error : standby : 0.5
+T: maintainspeed-pushbutton none-communicate : error : off : 0.5
+T: maintainspeed-pushbutton none-dontcommunicate : error : standby : 0.5
+T: maintainspeed-pushbutton none-dontcommunicate : error : off : 0.5
 T: maintainspeed-pushbutton accel-communicate : error : sink : 1
 T: maintainspeed-pushbutton accel-dontcommunicate : error : sink : 1
 T: maintainspeed-pushbutton decel-communicate : error : sink : 1
@@ -337,8 +447,10 @@ T: maintainspeed-dontpushbutton decel-communicate : error : sink : 1
 T: maintainspeed-dontpushbutton decel-dontcommunicate : error : sink : 1
 T: maintainspeed-dontpushbutton maintainspeed-communicate : error : sink : 1
 T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : error : sink : 1
-T: none-pushbutton none-communicate : error : standby : 1.0
-T: none-pushbutton none-dontcommunicate : error : standby : 1.0
+T: none-pushbutton none-communicate : error : standby : 0.5
+T: none-pushbutton none-communicate : error : off : 0.5
+T: none-pushbutton none-dontcommunicate : error : standby : 0.5
+T: none-pushbutton none-dontcommunicate : error : off : 0.5
 T: none-pushbutton accel-communicate : error : sink : 1
 T: none-pushbutton accel-dontcommunicate : error : sink : 1
 T: none-pushbutton decel-communicate : error : sink : 1
@@ -357,12 +469,14 @@ T: accel-pushbutton none-communicate : hold : error : 0.01
 T: accel-pushbutton none-communicate : hold : standby : 0.196
 T: accel-pushbutton none-communicate : hold : following : 0.20600000000000002
 T: accel-pushbutton none-communicate : hold : speedcontrol : 0.196
-T: accel-pushbutton none-communicate : hold : override : 0.392
+T: accel-pushbutton none-communicate : hold : override : 0.196
+T: accel-pushbutton none-communicate : hold : off : 0.196
 T: accel-pushbutton none-dontcommunicate : hold : error : 0.01
 T: accel-pushbutton none-dontcommunicate : hold : standby : 0.196
 T: accel-pushbutton none-dontcommunicate : hold : following : 0.20600000000000002
 T: accel-pushbutton none-dontcommunicate : hold : speedcontrol : 0.196
-T: accel-pushbutton none-dontcommunicate : hold : override : 0.392
+T: accel-pushbutton none-dontcommunicate : hold : override : 0.196
+T: accel-pushbutton none-dontcommunicate : hold : off : 0.196
 T: accel-pushbutton accel-communicate : hold : sink : 1
 T: accel-pushbutton accel-dontcommunicate : hold : sink : 1
 T: accel-pushbutton decel-communicate : hold : sink : 1
@@ -385,12 +499,12 @@ T: decel-pushbutton none-communicate : hold : error : 0.01
 T: decel-pushbutton none-communicate : hold : standby : 0.392
 T: decel-pushbutton none-communicate : hold : following : 0.20600000000000002
 T: decel-pushbutton none-communicate : hold : speedcontrol : 0.196
-T: decel-pushbutton none-communicate : hold : override : 0.196
+T: decel-pushbutton none-communicate : hold : off : 0.196
 T: decel-pushbutton none-dontcommunicate : hold : error : 0.01
 T: decel-pushbutton none-dontcommunicate : hold : standby : 0.392
 T: decel-pushbutton none-dontcommunicate : hold : following : 0.20600000000000002
 T: decel-pushbutton none-dontcommunicate : hold : speedcontrol : 0.196
-T: decel-pushbutton none-dontcommunicate : hold : override : 0.196
+T: decel-pushbutton none-dontcommunicate : hold : off : 0.196
 T: decel-pushbutton accel-communicate : hold : sink : 1
 T: decel-pushbutton accel-dontcommunicate : hold : sink : 1
 T: decel-pushbutton decel-communicate : hold : sink : 1
@@ -413,12 +527,12 @@ T: maintainspeed-pushbutton none-communicate : hold : error : 0.01
 T: maintainspeed-pushbutton none-communicate : hold : standby : 0.245
 T: maintainspeed-pushbutton none-communicate : hold : following : 0.255
 T: maintainspeed-pushbutton none-communicate : hold : speedcontrol : 0.245
-T: maintainspeed-pushbutton none-communicate : hold : override : 0.245
+T: maintainspeed-pushbutton none-communicate : hold : off : 0.245
 T: maintainspeed-pushbutton none-dontcommunicate : hold : error : 0.01
 T: maintainspeed-pushbutton none-dontcommunicate : hold : standby : 0.245
 T: maintainspeed-pushbutton none-dontcommunicate : hold : following : 0.255
 T: maintainspeed-pushbutton none-dontcommunicate : hold : speedcontrol : 0.245
-T: maintainspeed-pushbutton none-dontcommunicate : hold : override : 0.245
+T: maintainspeed-pushbutton none-dontcommunicate : hold : off : 0.245
 T: maintainspeed-pushbutton accel-communicate : hold : sink : 1
 T: maintainspeed-pushbutton accel-dontcommunicate : hold : sink : 1
 T: maintainspeed-pushbutton decel-communicate : hold : sink : 1
@@ -441,12 +555,12 @@ T: none-pushbutton none-communicate : hold : error : 0.01
 T: none-pushbutton none-communicate : hold : standby : 0.245
 T: none-pushbutton none-communicate : hold : following : 0.255
 T: none-pushbutton none-communicate : hold : speedcontrol : 0.245
-T: none-pushbutton none-communicate : hold : override : 0.245
+T: none-pushbutton none-communicate : hold : off : 0.245
 T: none-pushbutton none-dontcommunicate : hold : error : 0.01
 T: none-pushbutton none-dontcommunicate : hold : standby : 0.245
 T: none-pushbutton none-dontcommunicate : hold : following : 0.255
 T: none-pushbutton none-dontcommunicate : hold : speedcontrol : 0.245
-T: none-pushbutton none-dontcommunicate : hold : override : 0.245
+T: none-pushbutton none-dontcommunicate : hold : off : 0.245
 T: none-pushbutton accel-communicate : hold : sink : 1
 T: none-pushbutton accel-dontcommunicate : hold : sink : 1
 T: none-pushbutton decel-communicate : hold : sink : 1
@@ -466,47 +580,43 @@ T: none-dontpushbutton decel-dontcommunicate : hold : sink : 1
 T: none-dontpushbutton maintainspeed-communicate : hold : sink : 1
 T: none-dontpushbutton maintainspeed-dontcommunicate : hold : sink : 1
 T: accel-pushbutton none-communicate : override : override : 0.99
-T: accel-pushbutton none-communicate : override : error : 0.01
+T: accel-pushbutton none-communicate : override : off : 0.99
 T: accel-pushbutton none-dontcommunicate : override : override : 0.99
-T: accel-pushbutton none-dontcommunicate : override : error : 0.01
+T: accel-pushbutton none-dontcommunicate : override : off : 0.99
 T: accel-pushbutton accel-communicate : override : sink : 1
 T: accel-pushbutton accel-dontcommunicate : override : sink : 1
 T: accel-pushbutton decel-communicate : override : sink : 1
 T: accel-pushbutton decel-dontcommunicate : override : sink : 1
 T: accel-pushbutton maintainspeed-communicate : override : sink : 1
 T: accel-pushbutton maintainspeed-dontcommunicate : override : sink : 1
-T: accel-dontpushbutton none-communicate : override : override : 0.99
-T: accel-dontpushbutton none-communicate : override : error : 0.01
-T: accel-dontpushbutton none-dontcommunicate : override : override : 0.99
-T: accel-dontpushbutton none-dontcommunicate : override : error : 0.01
+T: accel-dontpushbutton none-communicate : override : override : 1.0
+T: accel-dontpushbutton none-dontcommunicate : override : override : 1.0
 T: accel-dontpushbutton accel-communicate : override : sink : 1
 T: accel-dontpushbutton accel-dontcommunicate : override : sink : 1
 T: accel-dontpushbutton decel-communicate : override : sink : 1
 T: accel-dontpushbutton decel-dontcommunicate : override : sink : 1
 T: accel-dontpushbutton maintainspeed-communicate : override : sink : 1
 T: accel-dontpushbutton maintainspeed-dontcommunicate : override : sink : 1
-T: decel-pushbutton none-communicate : override : error : 0.01
 T: decel-pushbutton none-communicate : override : following : 0.33
 T: decel-pushbutton none-communicate : override : speedcontrol : 0.33
 T: decel-pushbutton none-communicate : override : hold : 0.33
-T: decel-pushbutton none-dontcommunicate : override : error : 0.01
+T: decel-pushbutton none-communicate : override : off : 0.33
 T: decel-pushbutton none-dontcommunicate : override : following : 0.33
 T: decel-pushbutton none-dontcommunicate : override : speedcontrol : 0.33
 T: decel-pushbutton none-dontcommunicate : override : hold : 0.33
+T: decel-pushbutton none-dontcommunicate : override : off : 0.33
 T: decel-pushbutton accel-communicate : override : sink : 1
 T: decel-pushbutton accel-dontcommunicate : override : sink : 1
 T: decel-pushbutton decel-communicate : override : sink : 1
 T: decel-pushbutton decel-dontcommunicate : override : sink : 1
 T: decel-pushbutton maintainspeed-communicate : override : sink : 1
 T: decel-pushbutton maintainspeed-dontcommunicate : override : sink : 1
-T: decel-dontpushbutton none-communicate : override : error : 0.01
-T: decel-dontpushbutton none-communicate : override : following : 0.33
-T: decel-dontpushbutton none-communicate : override : speedcontrol : 0.33
-T: decel-dontpushbutton none-communicate : override : hold : 0.33
-T: decel-dontpushbutton none-dontcommunicate : override : error : 0.01
-T: decel-dontpushbutton none-dontcommunicate : override : following : 0.33
-T: decel-dontpushbutton none-dontcommunicate : override : speedcontrol : 0.33
-T: decel-dontpushbutton none-dontcommunicate : override : hold : 0.33
+T: decel-dontpushbutton none-communicate : override : following : 0.495
+T: decel-dontpushbutton none-communicate : override : speedcontrol : 0.495
+T: decel-dontpushbutton none-communicate : override : hold : 0.495
+T: decel-dontpushbutton none-dontcommunicate : override : following : 0.495
+T: decel-dontpushbutton none-dontcommunicate : override : speedcontrol : 0.495
+T: decel-dontpushbutton none-dontcommunicate : override : hold : 0.495
 T: decel-dontpushbutton accel-communicate : override : sink : 1
 T: decel-dontpushbutton accel-dontcommunicate : override : sink : 1
 T: decel-dontpushbutton decel-communicate : override : sink : 1
@@ -514,60 +624,122 @@ T: decel-dontpushbutton decel-dontcommunicate : override : sink : 1
 T: decel-dontpushbutton maintainspeed-communicate : override : sink : 1
 T: decel-dontpushbutton maintainspeed-dontcommunicate : override : sink : 1
 T: maintainspeed-pushbutton none-communicate : override : override : 0.99
-T: maintainspeed-pushbutton none-communicate : override : error : 0.01
+T: maintainspeed-pushbutton none-communicate : override : off : 0.99
 T: maintainspeed-pushbutton none-dontcommunicate : override : override : 0.99
-T: maintainspeed-pushbutton none-dontcommunicate : override : error : 0.01
+T: maintainspeed-pushbutton none-dontcommunicate : override : off : 0.99
 T: maintainspeed-pushbutton accel-communicate : override : sink : 1
 T: maintainspeed-pushbutton accel-dontcommunicate : override : sink : 1
 T: maintainspeed-pushbutton decel-communicate : override : sink : 1
 T: maintainspeed-pushbutton decel-dontcommunicate : override : sink : 1
 T: maintainspeed-pushbutton maintainspeed-communicate : override : sink : 1
 T: maintainspeed-pushbutton maintainspeed-dontcommunicate : override : sink : 1
-T: maintainspeed-dontpushbutton none-communicate : override : override : 0.99
-T: maintainspeed-dontpushbutton none-communicate : override : error : 0.01
-T: maintainspeed-dontpushbutton none-dontcommunicate : override : override : 0.99
-T: maintainspeed-dontpushbutton none-dontcommunicate : override : error : 0.01
+T: maintainspeed-dontpushbutton none-communicate : override : override : 1.0
+T: maintainspeed-dontpushbutton none-dontcommunicate : override : override : 1.0
 T: maintainspeed-dontpushbutton accel-communicate : override : sink : 1
 T: maintainspeed-dontpushbutton accel-dontcommunicate : override : sink : 1
 T: maintainspeed-dontpushbutton decel-communicate : override : sink : 1
 T: maintainspeed-dontpushbutton decel-dontcommunicate : override : sink : 1
 T: maintainspeed-dontpushbutton maintainspeed-communicate : override : sink : 1
 T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : override : sink : 1
-T: none-pushbutton none-communicate : override : error : 0.01
 T: none-pushbutton none-communicate : override : following : 0.33
 T: none-pushbutton none-communicate : override : speedcontrol : 0.33
 T: none-pushbutton none-communicate : override : hold : 0.33
-T: none-pushbutton none-dontcommunicate : override : error : 0.01
+T: none-pushbutton none-communicate : override : off : 0.33
 T: none-pushbutton none-dontcommunicate : override : following : 0.33
 T: none-pushbutton none-dontcommunicate : override : speedcontrol : 0.33
 T: none-pushbutton none-dontcommunicate : override : hold : 0.33
+T: none-pushbutton none-dontcommunicate : override : off : 0.33
 T: none-pushbutton accel-communicate : override : sink : 1
 T: none-pushbutton accel-dontcommunicate : override : sink : 1
 T: none-pushbutton decel-communicate : override : sink : 1
 T: none-pushbutton decel-dontcommunicate : override : sink : 1
 T: none-pushbutton maintainspeed-communicate : override : sink : 1
 T: none-pushbutton maintainspeed-dontcommunicate : override : sink : 1
-T: none-dontpushbutton none-communicate : override : error : 0.01
-T: none-dontpushbutton none-communicate : override : following : 0.33
-T: none-dontpushbutton none-communicate : override : speedcontrol : 0.33
-T: none-dontpushbutton none-communicate : override : hold : 0.33
-T: none-dontpushbutton none-dontcommunicate : override : error : 0.01
-T: none-dontpushbutton none-dontcommunicate : override : following : 0.33
-T: none-dontpushbutton none-dontcommunicate : override : speedcontrol : 0.33
-T: none-dontpushbutton none-dontcommunicate : override : hold : 0.33
+T: none-dontpushbutton none-communicate : override : following : 0.495
+T: none-dontpushbutton none-communicate : override : speedcontrol : 0.495
+T: none-dontpushbutton none-communicate : override : hold : 0.495
+T: none-dontpushbutton none-dontcommunicate : override : following : 0.495
+T: none-dontpushbutton none-dontcommunicate : override : speedcontrol : 0.495
+T: none-dontpushbutton none-dontcommunicate : override : hold : 0.495
 T: none-dontpushbutton accel-communicate : override : sink : 1
 T: none-dontpushbutton accel-dontcommunicate : override : sink : 1
 T: none-dontpushbutton decel-communicate : override : sink : 1
 T: none-dontpushbutton decel-dontcommunicate : override : sink : 1
 T: none-dontpushbutton maintainspeed-communicate : override : sink : 1
 T: none-dontpushbutton maintainspeed-dontcommunicate : override : sink : 1
+T: accel-pushbutton none-communicate : off : standby : 1.0
+T: accel-pushbutton none-dontcommunicate : off : standby : 1.0
+T: accel-pushbutton accel-communicate : off : sink : 1
+T: accel-pushbutton accel-dontcommunicate : off : sink : 1
+T: accel-pushbutton decel-communicate : off : sink : 1
+T: accel-pushbutton decel-dontcommunicate : off : sink : 1
+T: accel-pushbutton maintainspeed-communicate : off : sink : 1
+T: accel-pushbutton maintainspeed-dontcommunicate : off : sink : 1
+T: accel-dontpushbutton none-communicate : off : off : 1.0
+T: accel-dontpushbutton none-dontcommunicate : off : off : 1.0
+T: accel-dontpushbutton accel-communicate : off : sink : 1
+T: accel-dontpushbutton accel-dontcommunicate : off : sink : 1
+T: accel-dontpushbutton decel-communicate : off : sink : 1
+T: accel-dontpushbutton decel-dontcommunicate : off : sink : 1
+T: accel-dontpushbutton maintainspeed-communicate : off : sink : 1
+T: accel-dontpushbutton maintainspeed-dontcommunicate : off : sink : 1
+T: decel-pushbutton none-communicate : off : standby : 1.0
+T: decel-pushbutton none-dontcommunicate : off : standby : 1.0
+T: decel-pushbutton accel-communicate : off : sink : 1
+T: decel-pushbutton accel-dontcommunicate : off : sink : 1
+T: decel-pushbutton decel-communicate : off : sink : 1
+T: decel-pushbutton decel-dontcommunicate : off : sink : 1
+T: decel-pushbutton maintainspeed-communicate : off : sink : 1
+T: decel-pushbutton maintainspeed-dontcommunicate : off : sink : 1
+T: decel-dontpushbutton none-communicate : off : off : 1.0
+T: decel-dontpushbutton none-dontcommunicate : off : off : 1.0
+T: decel-dontpushbutton accel-communicate : off : sink : 1
+T: decel-dontpushbutton accel-dontcommunicate : off : sink : 1
+T: decel-dontpushbutton decel-communicate : off : sink : 1
+T: decel-dontpushbutton decel-dontcommunicate : off : sink : 1
+T: decel-dontpushbutton maintainspeed-communicate : off : sink : 1
+T: decel-dontpushbutton maintainspeed-dontcommunicate : off : sink : 1
+T: maintainspeed-pushbutton none-communicate : off : standby : 1.0
+T: maintainspeed-pushbutton none-dontcommunicate : off : standby : 1.0
+T: maintainspeed-pushbutton accel-communicate : off : sink : 1
+T: maintainspeed-pushbutton accel-dontcommunicate : off : sink : 1
+T: maintainspeed-pushbutton decel-communicate : off : sink : 1
+T: maintainspeed-pushbutton decel-dontcommunicate : off : sink : 1
+T: maintainspeed-pushbutton maintainspeed-communicate : off : sink : 1
+T: maintainspeed-pushbutton maintainspeed-dontcommunicate : off : sink : 1
+T: maintainspeed-dontpushbutton none-communicate : off : off : 1.0
+T: maintainspeed-dontpushbutton none-dontcommunicate : off : off : 1.0
+T: maintainspeed-dontpushbutton accel-communicate : off : sink : 1
+T: maintainspeed-dontpushbutton accel-dontcommunicate : off : sink : 1
+T: maintainspeed-dontpushbutton decel-communicate : off : sink : 1
+T: maintainspeed-dontpushbutton decel-dontcommunicate : off : sink : 1
+T: maintainspeed-dontpushbutton maintainspeed-communicate : off : sink : 1
+T: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : off : sink : 1
+T: none-pushbutton none-communicate : off : standby : 1.0
+T: none-pushbutton none-dontcommunicate : off : standby : 1.0
+T: none-pushbutton accel-communicate : off : sink : 1
+T: none-pushbutton accel-dontcommunicate : off : sink : 1
+T: none-pushbutton decel-communicate : off : sink : 1
+T: none-pushbutton decel-dontcommunicate : off : sink : 1
+T: none-pushbutton maintainspeed-communicate : off : sink : 1
+T: none-pushbutton maintainspeed-dontcommunicate : off : sink : 1
+T: none-dontpushbutton none-communicate : off : off : 1.0
+T: none-dontpushbutton none-dontcommunicate : off : off : 1.0
+T: none-dontpushbutton accel-communicate : off : sink : 1
+T: none-dontpushbutton accel-dontcommunicate : off : sink : 1
+T: none-dontpushbutton decel-communicate : off : sink : 1
+T: none-dontpushbutton decel-dontcommunicate : off : sink : 1
+T: none-dontpushbutton maintainspeed-communicate : off : sink : 1
+T: none-dontpushbutton maintainspeed-dontcommunicate : off : sink : 1
 T: * * : sink : sink : 1
 O: accel-pushbutton none-communicate : following : following following : 1
 O: accel-pushbutton none-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: accel-pushbutton none-communicate : hold : hold hold : 1
+O: accel-pushbutton none-communicate : off : off off : 1
 O: accel-pushbutton none-dontcommunicate : following : none following : 1
 O: accel-pushbutton none-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: accel-pushbutton none-dontcommunicate : hold : none hold : 1
+O: accel-pushbutton none-dontcommunicate : off : none off : 1
 O: accel-pushbutton accel-communicate : sink : none sink : 1
 O: accel-pushbutton accel-dontcommunicate : sink : none sink : 1
 O: accel-pushbutton decel-communicate : sink : none sink : 1
@@ -585,9 +757,11 @@ O: accel-dontpushbutton maintainspeed-dontcommunicate : sink : none sink : 1
 O: decel-pushbutton none-communicate : following : following following : 1
 O: decel-pushbutton none-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: decel-pushbutton none-communicate : hold : hold hold : 1
+O: decel-pushbutton none-communicate : off : off off : 1
 O: decel-pushbutton none-dontcommunicate : following : none following : 1
 O: decel-pushbutton none-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: decel-pushbutton none-dontcommunicate : hold : none hold : 1
+O: decel-pushbutton none-dontcommunicate : off : none off : 1
 O: decel-pushbutton accel-communicate : sink : none sink : 1
 O: decel-pushbutton accel-dontcommunicate : sink : none sink : 1
 O: decel-pushbutton decel-communicate : sink : none sink : 1
@@ -605,9 +779,11 @@ O: decel-dontpushbutton maintainspeed-dontcommunicate : sink : none sink : 1
 O: maintainspeed-pushbutton none-communicate : following : following following : 1
 O: maintainspeed-pushbutton none-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: maintainspeed-pushbutton none-communicate : hold : hold hold : 1
+O: maintainspeed-pushbutton none-communicate : off : off off : 1
 O: maintainspeed-pushbutton none-dontcommunicate : following : none following : 1
 O: maintainspeed-pushbutton none-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: maintainspeed-pushbutton none-dontcommunicate : hold : none hold : 1
+O: maintainspeed-pushbutton none-dontcommunicate : off : none off : 1
 O: maintainspeed-pushbutton accel-communicate : sink : none sink : 1
 O: maintainspeed-pushbutton accel-dontcommunicate : sink : none sink : 1
 O: maintainspeed-pushbutton decel-communicate : sink : none sink : 1
@@ -625,9 +801,11 @@ O: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : sink : none sink
 O: none-pushbutton none-communicate : following : following following : 1
 O: none-pushbutton none-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: none-pushbutton none-communicate : hold : hold hold : 1
+O: none-pushbutton none-communicate : off : off off : 1
 O: none-pushbutton none-dontcommunicate : following : none following : 1
 O: none-pushbutton none-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: none-pushbutton none-dontcommunicate : hold : none hold : 1
+O: none-pushbutton none-dontcommunicate : off : none off : 1
 O: none-pushbutton accel-communicate : sink : none sink : 1
 O: none-pushbutton accel-dontcommunicate : sink : none sink : 1
 O: none-pushbutton decel-communicate : sink : none sink : 1
@@ -644,126 +822,206 @@ O: none-dontpushbutton maintainspeed-communicate : sink : none sink : 1
 O: none-dontpushbutton maintainspeed-dontcommunicate : sink : none sink : 1
 O: accel-pushbutton accel-communicate : error : error error : 1
 O: accel-pushbutton accel-communicate : standby : standby standby : 1
+O: accel-pushbutton accel-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: accel-pushbutton accel-communicate : override : override override : 1
+O: accel-pushbutton accel-communicate : off : off off : 1
 O: accel-pushbutton accel-dontcommunicate : error : none error : 1
 O: accel-pushbutton accel-dontcommunicate : standby : none standby : 1
+O: accel-pushbutton accel-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: accel-pushbutton accel-dontcommunicate : override : none override : 1
+O: accel-pushbutton accel-dontcommunicate : off : none off : 1
 O: accel-pushbutton decel-communicate : error : error error : 1
 O: accel-pushbutton decel-communicate : standby : standby standby : 1
+O: accel-pushbutton decel-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: accel-pushbutton decel-communicate : override : override override : 1
+O: accel-pushbutton decel-communicate : off : off off : 1
 O: accel-pushbutton decel-dontcommunicate : error : none error : 1
 O: accel-pushbutton decel-dontcommunicate : standby : none standby : 1
+O: accel-pushbutton decel-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: accel-pushbutton decel-dontcommunicate : override : none override : 1
+O: accel-pushbutton decel-dontcommunicate : off : none off : 1
 O: accel-pushbutton maintainspeed-communicate : error : error error : 1
 O: accel-pushbutton maintainspeed-communicate : standby : standby standby : 1
+O: accel-pushbutton maintainspeed-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: accel-pushbutton maintainspeed-communicate : override : override override : 1
+O: accel-pushbutton maintainspeed-communicate : off : off off : 1
 O: accel-pushbutton maintainspeed-dontcommunicate : error : none error : 1
 O: accel-pushbutton maintainspeed-dontcommunicate : standby : none standby : 1
+O: accel-pushbutton maintainspeed-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: accel-pushbutton maintainspeed-dontcommunicate : override : none override : 1
+O: accel-pushbutton maintainspeed-dontcommunicate : off : none off : 1
 O: accel-pushbutton none-communicate : sink : none sink : 1
 O: accel-pushbutton none-dontcommunicate : sink : none sink : 1
 O: accel-dontpushbutton accel-communicate : error : error error : 1
+O: accel-dontpushbutton accel-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: accel-dontpushbutton accel-communicate : override : override override : 1
 O: accel-dontpushbutton accel-dontcommunicate : error : none error : 1
+O: accel-dontpushbutton accel-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: accel-dontpushbutton accel-dontcommunicate : override : none override : 1
 O: accel-dontpushbutton decel-communicate : error : error error : 1
+O: accel-dontpushbutton decel-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: accel-dontpushbutton decel-communicate : override : override override : 1
 O: accel-dontpushbutton decel-dontcommunicate : error : none error : 1
+O: accel-dontpushbutton decel-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: accel-dontpushbutton decel-dontcommunicate : override : none override : 1
 O: accel-dontpushbutton maintainspeed-communicate : error : error error : 1
+O: accel-dontpushbutton maintainspeed-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: accel-dontpushbutton maintainspeed-communicate : override : override override : 1
 O: accel-dontpushbutton maintainspeed-dontcommunicate : error : none error : 1
+O: accel-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: accel-dontpushbutton maintainspeed-dontcommunicate : override : none override : 1
 O: accel-dontpushbutton none-communicate : sink : none sink : 1
 O: accel-dontpushbutton none-dontcommunicate : sink : none sink : 1
 O: decel-pushbutton accel-communicate : error : error error : 1
 O: decel-pushbutton accel-communicate : standby : standby standby : 1
+O: decel-pushbutton accel-communicate : speedcontrol : speedcontrol speedcontrol : 1
+O: decel-pushbutton accel-communicate : off : off off : 1
 O: decel-pushbutton accel-dontcommunicate : error : none error : 1
 O: decel-pushbutton accel-dontcommunicate : standby : none standby : 1
+O: decel-pushbutton accel-dontcommunicate : speedcontrol : none speedcontrol : 1
+O: decel-pushbutton accel-dontcommunicate : off : none off : 1
 O: decel-pushbutton decel-communicate : error : error error : 1
 O: decel-pushbutton decel-communicate : standby : standby standby : 1
+O: decel-pushbutton decel-communicate : speedcontrol : speedcontrol speedcontrol : 1
+O: decel-pushbutton decel-communicate : off : off off : 1
 O: decel-pushbutton decel-dontcommunicate : error : none error : 1
 O: decel-pushbutton decel-dontcommunicate : standby : none standby : 1
+O: decel-pushbutton decel-dontcommunicate : speedcontrol : none speedcontrol : 1
+O: decel-pushbutton decel-dontcommunicate : off : none off : 1
 O: decel-pushbutton maintainspeed-communicate : error : error error : 1
 O: decel-pushbutton maintainspeed-communicate : standby : standby standby : 1
+O: decel-pushbutton maintainspeed-communicate : speedcontrol : speedcontrol speedcontrol : 1
+O: decel-pushbutton maintainspeed-communicate : off : off off : 1
 O: decel-pushbutton maintainspeed-dontcommunicate : error : none error : 1
 O: decel-pushbutton maintainspeed-dontcommunicate : standby : none standby : 1
+O: decel-pushbutton maintainspeed-dontcommunicate : speedcontrol : none speedcontrol : 1
+O: decel-pushbutton maintainspeed-dontcommunicate : off : none off : 1
 O: decel-pushbutton none-communicate : sink : none sink : 1
 O: decel-pushbutton none-dontcommunicate : sink : none sink : 1
 O: decel-dontpushbutton accel-communicate : error : error error : 1
 O: decel-dontpushbutton accel-communicate : standby : standby standby : 1
+O: decel-dontpushbutton accel-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: decel-dontpushbutton accel-dontcommunicate : error : none error : 1
 O: decel-dontpushbutton accel-dontcommunicate : standby : none standby : 1
+O: decel-dontpushbutton accel-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: decel-dontpushbutton decel-communicate : error : error error : 1
 O: decel-dontpushbutton decel-communicate : standby : standby standby : 1
+O: decel-dontpushbutton decel-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: decel-dontpushbutton decel-dontcommunicate : error : none error : 1
 O: decel-dontpushbutton decel-dontcommunicate : standby : none standby : 1
+O: decel-dontpushbutton decel-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: decel-dontpushbutton maintainspeed-communicate : error : error error : 1
 O: decel-dontpushbutton maintainspeed-communicate : standby : standby standby : 1
+O: decel-dontpushbutton maintainspeed-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: decel-dontpushbutton maintainspeed-dontcommunicate : error : none error : 1
 O: decel-dontpushbutton maintainspeed-dontcommunicate : standby : none standby : 1
+O: decel-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: decel-dontpushbutton none-communicate : sink : none sink : 1
 O: decel-dontpushbutton none-dontcommunicate : sink : none sink : 1
 O: maintainspeed-pushbutton accel-communicate : error : error error : 1
 O: maintainspeed-pushbutton accel-communicate : standby : standby standby : 1
+O: maintainspeed-pushbutton accel-communicate : speedcontrol : speedcontrol speedcontrol : 1
+O: maintainspeed-pushbutton accel-communicate : off : off off : 1
 O: maintainspeed-pushbutton accel-dontcommunicate : error : none error : 1
 O: maintainspeed-pushbutton accel-dontcommunicate : standby : none standby : 1
+O: maintainspeed-pushbutton accel-dontcommunicate : speedcontrol : none speedcontrol : 1
+O: maintainspeed-pushbutton accel-dontcommunicate : off : none off : 1
 O: maintainspeed-pushbutton decel-communicate : error : error error : 1
 O: maintainspeed-pushbutton decel-communicate : standby : standby standby : 1
+O: maintainspeed-pushbutton decel-communicate : speedcontrol : speedcontrol speedcontrol : 1
+O: maintainspeed-pushbutton decel-communicate : off : off off : 1
 O: maintainspeed-pushbutton decel-dontcommunicate : error : none error : 1
 O: maintainspeed-pushbutton decel-dontcommunicate : standby : none standby : 1
+O: maintainspeed-pushbutton decel-dontcommunicate : speedcontrol : none speedcontrol : 1
+O: maintainspeed-pushbutton decel-dontcommunicate : off : none off : 1
 O: maintainspeed-pushbutton maintainspeed-communicate : error : error error : 1
 O: maintainspeed-pushbutton maintainspeed-communicate : standby : standby standby : 1
+O: maintainspeed-pushbutton maintainspeed-communicate : speedcontrol : speedcontrol speedcontrol : 1
+O: maintainspeed-pushbutton maintainspeed-communicate : off : off off : 1
 O: maintainspeed-pushbutton maintainspeed-dontcommunicate : error : none error : 1
 O: maintainspeed-pushbutton maintainspeed-dontcommunicate : standby : none standby : 1
+O: maintainspeed-pushbutton maintainspeed-dontcommunicate : speedcontrol : none speedcontrol : 1
+O: maintainspeed-pushbutton maintainspeed-dontcommunicate : off : none off : 1
 O: maintainspeed-pushbutton none-communicate : sink : none sink : 1
 O: maintainspeed-pushbutton none-dontcommunicate : sink : none sink : 1
 O: maintainspeed-dontpushbutton accel-communicate : following : following following : 1
 O: maintainspeed-dontpushbutton accel-communicate : error : error error : 1
+O: maintainspeed-dontpushbutton accel-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: maintainspeed-dontpushbutton accel-dontcommunicate : following : none following : 1
 O: maintainspeed-dontpushbutton accel-dontcommunicate : error : none error : 1
+O: maintainspeed-dontpushbutton accel-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: maintainspeed-dontpushbutton decel-communicate : following : following following : 1
 O: maintainspeed-dontpushbutton decel-communicate : error : error error : 1
+O: maintainspeed-dontpushbutton decel-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: maintainspeed-dontpushbutton decel-dontcommunicate : following : none following : 1
 O: maintainspeed-dontpushbutton decel-dontcommunicate : error : none error : 1
+O: maintainspeed-dontpushbutton decel-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: maintainspeed-dontpushbutton maintainspeed-communicate : following : following following : 1
 O: maintainspeed-dontpushbutton maintainspeed-communicate : error : error error : 1
+O: maintainspeed-dontpushbutton maintainspeed-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : following : none following : 1
 O: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : error : none error : 1
+O: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: maintainspeed-dontpushbutton none-communicate : sink : none sink : 1
 O: maintainspeed-dontpushbutton none-dontcommunicate : sink : none sink : 1
 O: none-pushbutton accel-communicate : error : error error : 1
 O: none-pushbutton accel-communicate : standby : standby standby : 1
+O: none-pushbutton accel-communicate : speedcontrol : speedcontrol speedcontrol : 1
+O: none-pushbutton accel-communicate : off : off off : 1
 O: none-pushbutton accel-dontcommunicate : error : none error : 1
 O: none-pushbutton accel-dontcommunicate : standby : none standby : 1
+O: none-pushbutton accel-dontcommunicate : speedcontrol : none speedcontrol : 1
+O: none-pushbutton accel-dontcommunicate : off : none off : 1
 O: none-pushbutton decel-communicate : error : error error : 1
 O: none-pushbutton decel-communicate : standby : standby standby : 1
+O: none-pushbutton decel-communicate : speedcontrol : speedcontrol speedcontrol : 1
+O: none-pushbutton decel-communicate : off : off off : 1
 O: none-pushbutton decel-dontcommunicate : error : none error : 1
 O: none-pushbutton decel-dontcommunicate : standby : none standby : 1
+O: none-pushbutton decel-dontcommunicate : speedcontrol : none speedcontrol : 1
+O: none-pushbutton decel-dontcommunicate : off : none off : 1
 O: none-pushbutton maintainspeed-communicate : error : error error : 1
 O: none-pushbutton maintainspeed-communicate : standby : standby standby : 1
+O: none-pushbutton maintainspeed-communicate : speedcontrol : speedcontrol speedcontrol : 1
+O: none-pushbutton maintainspeed-communicate : off : off off : 1
 O: none-pushbutton maintainspeed-dontcommunicate : error : none error : 1
 O: none-pushbutton maintainspeed-dontcommunicate : standby : none standby : 1
+O: none-pushbutton maintainspeed-dontcommunicate : speedcontrol : none speedcontrol : 1
+O: none-pushbutton maintainspeed-dontcommunicate : off : none off : 1
 O: none-pushbutton none-communicate : sink : none sink : 1
 O: none-pushbutton none-dontcommunicate : sink : none sink : 1
 O: none-dontpushbutton accel-communicate : following : following following : 1
 O: none-dontpushbutton accel-communicate : error : error error : 1
+O: none-dontpushbutton accel-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: none-dontpushbutton accel-dontcommunicate : following : none following : 1
 O: none-dontpushbutton accel-dontcommunicate : error : none error : 1
+O: none-dontpushbutton accel-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: none-dontpushbutton decel-communicate : following : following following : 1
 O: none-dontpushbutton decel-communicate : error : error error : 1
+O: none-dontpushbutton decel-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: none-dontpushbutton decel-dontcommunicate : following : none following : 1
 O: none-dontpushbutton decel-dontcommunicate : error : none error : 1
+O: none-dontpushbutton decel-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: none-dontpushbutton maintainspeed-communicate : following : following following : 1
 O: none-dontpushbutton maintainspeed-communicate : error : error error : 1
+O: none-dontpushbutton maintainspeed-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: none-dontpushbutton maintainspeed-dontcommunicate : following : none following : 1
 O: none-dontpushbutton maintainspeed-dontcommunicate : error : none error : 1
+O: none-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: none-dontpushbutton none-communicate : sink : none sink : 1
 O: none-dontpushbutton none-dontcommunicate : sink : none sink : 1
-O: maintainspeed-dontpushbutton maintainspeed-communicate : speedcontrol : speedcontrol speedcontrol : 1
-O: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : none speedcontrol : 1
-O: none-dontpushbutton maintainspeed-communicate : speedcontrol : speedcontrol speedcontrol : 1
-O: none-dontpushbutton maintainspeed-dontcommunicate : speedcontrol : none speedcontrol : 1
+O: accel-pushbutton maintainspeed-communicate : following : following following : 1
+O: accel-pushbutton maintainspeed-dontcommunicate : following : none following : 1
+O: accel-dontpushbutton maintainspeed-communicate : following : following following : 1
+O: accel-dontpushbutton maintainspeed-dontcommunicate : following : none following : 1
+O: decel-pushbutton maintainspeed-communicate : following : following following : 1
+O: decel-pushbutton maintainspeed-dontcommunicate : following : none following : 1
+O: decel-dontpushbutton maintainspeed-communicate : following : following following : 1
+O: decel-dontpushbutton maintainspeed-dontcommunicate : following : none following : 1
+O: maintainspeed-pushbutton maintainspeed-communicate : following : following following : 1
+O: maintainspeed-pushbutton maintainspeed-dontcommunicate : following : none following : 1
+O: none-pushbutton maintainspeed-communicate : following : following following : 1
+O: none-pushbutton maintainspeed-dontcommunicate : following : none following : 1
 O: accel-pushbutton none-communicate : standby : standby standby : 1
 O: accel-pushbutton none-dontcommunicate : standby : none standby : 1
 O: accel-dontpushbutton none-communicate : error : error error : 1
@@ -789,23 +1047,17 @@ O: accel-dontpushbutton none-communicate : override : override override : 1
 O: accel-dontpushbutton none-dontcommunicate : following : none following : 1
 O: accel-dontpushbutton none-dontcommunicate : override : none override : 1
 O: decel-pushbutton none-communicate : error : error error : 1
-O: decel-pushbutton none-communicate : override : override override : 1
 O: decel-pushbutton none-dontcommunicate : error : none error : 1
-O: decel-pushbutton none-dontcommunicate : override : none override : 1
 O: decel-dontpushbutton none-communicate : following : following following : 1
 O: decel-dontpushbutton none-dontcommunicate : following : none following : 1
 O: maintainspeed-pushbutton none-communicate : error : error error : 1
-O: maintainspeed-pushbutton none-communicate : override : override override : 1
 O: maintainspeed-pushbutton none-dontcommunicate : error : none error : 1
-O: maintainspeed-pushbutton none-dontcommunicate : override : none override : 1
 O: maintainspeed-dontpushbutton none-communicate : hold : hold hold : 1
 O: maintainspeed-dontpushbutton none-communicate : following : following following : 1
 O: maintainspeed-dontpushbutton none-dontcommunicate : hold : none hold : 1
 O: maintainspeed-dontpushbutton none-dontcommunicate : following : none following : 1
 O: none-pushbutton none-communicate : error : error error : 1
-O: none-pushbutton none-communicate : override : override override : 1
 O: none-pushbutton none-dontcommunicate : error : none error : 1
-O: none-pushbutton none-dontcommunicate : override : none override : 1
 O: none-dontpushbutton none-communicate : hold : hold hold : 1
 O: none-dontpushbutton none-communicate : following : following following : 1
 O: none-dontpushbutton none-dontcommunicate : hold : none hold : 1
@@ -814,10 +1066,20 @@ O: decel-dontpushbutton none-communicate : speedcontrol : speedcontrol speedcont
 O: decel-dontpushbutton none-communicate : hold : hold hold : 1
 O: decel-dontpushbutton none-dontcommunicate : speedcontrol : none speedcontrol : 1
 O: decel-dontpushbutton none-dontcommunicate : hold : none hold : 1
+O: maintainspeed-pushbutton none-communicate : override : override override : 1
+O: maintainspeed-pushbutton none-dontcommunicate : override : none override : 1
 O: maintainspeed-dontpushbutton none-communicate : override : override override : 1
 O: maintainspeed-dontpushbutton none-dontcommunicate : override : none override : 1
 O: none-dontpushbutton none-communicate : speedcontrol : speedcontrol speedcontrol : 1
 O: none-dontpushbutton none-dontcommunicate : speedcontrol : none speedcontrol : 1
+O: accel-dontpushbutton none-communicate : off : off off : 1
+O: accel-dontpushbutton none-dontcommunicate : off : none off : 1
+O: decel-dontpushbutton none-communicate : off : off off : 1
+O: decel-dontpushbutton none-dontcommunicate : off : none off : 1
+O: maintainspeed-dontpushbutton none-communicate : off : off off : 1
+O: maintainspeed-dontpushbutton none-dontcommunicate : off : none off : 1
+O: none-dontpushbutton none-communicate : off : off off : 1
+O: none-dontpushbutton none-dontcommunicate : off : none off : 1
 O: * * : sink : none sink : 1
 R: accel-pushbutton none-communicate : standby : * : * : 0
 R: accel-pushbutton none-dontcommunicate : standby : * : * : 1
@@ -1203,3 +1465,67 @@ R: none-dontpushbutton decel-communicate : override : * : * : -100000
 R: none-dontpushbutton decel-dontcommunicate : override : * : * : -100000
 R: none-dontpushbutton maintainspeed-communicate : override : * : * : -100000
 R: none-dontpushbutton maintainspeed-dontcommunicate : override : * : * : -100000
+R: accel-pushbutton none-communicate : off : * : * : 0
+R: accel-pushbutton none-dontcommunicate : off : * : * : 1
+R: accel-pushbutton accel-communicate : off : * : * : -100000
+R: accel-pushbutton accel-dontcommunicate : off : * : * : -100000
+R: accel-pushbutton decel-communicate : off : * : * : -100000
+R: accel-pushbutton decel-dontcommunicate : off : * : * : -100000
+R: accel-pushbutton maintainspeed-communicate : off : * : * : -100000
+R: accel-pushbutton maintainspeed-dontcommunicate : off : * : * : -100000
+R: accel-dontpushbutton none-communicate : off : * : * : 0
+R: accel-dontpushbutton none-dontcommunicate : off : * : * : 1
+R: accel-dontpushbutton accel-communicate : off : * : * : -100000
+R: accel-dontpushbutton accel-dontcommunicate : off : * : * : -100000
+R: accel-dontpushbutton decel-communicate : off : * : * : -100000
+R: accel-dontpushbutton decel-dontcommunicate : off : * : * : -100000
+R: accel-dontpushbutton maintainspeed-communicate : off : * : * : -100000
+R: accel-dontpushbutton maintainspeed-dontcommunicate : off : * : * : -100000
+R: decel-pushbutton none-communicate : off : * : * : 0
+R: decel-pushbutton none-dontcommunicate : off : * : * : 1
+R: decel-pushbutton accel-communicate : off : * : * : -100000
+R: decel-pushbutton accel-dontcommunicate : off : * : * : -100000
+R: decel-pushbutton decel-communicate : off : * : * : -100000
+R: decel-pushbutton decel-dontcommunicate : off : * : * : -100000
+R: decel-pushbutton maintainspeed-communicate : off : * : * : -100000
+R: decel-pushbutton maintainspeed-dontcommunicate : off : * : * : -100000
+R: decel-dontpushbutton none-communicate : off : * : * : 0
+R: decel-dontpushbutton none-dontcommunicate : off : * : * : 1
+R: decel-dontpushbutton accel-communicate : off : * : * : -100000
+R: decel-dontpushbutton accel-dontcommunicate : off : * : * : -100000
+R: decel-dontpushbutton decel-communicate : off : * : * : -100000
+R: decel-dontpushbutton decel-dontcommunicate : off : * : * : -100000
+R: decel-dontpushbutton maintainspeed-communicate : off : * : * : -100000
+R: decel-dontpushbutton maintainspeed-dontcommunicate : off : * : * : -100000
+R: maintainspeed-pushbutton none-communicate : off : * : * : 1000000
+R: maintainspeed-pushbutton none-dontcommunicate : off : * : * : 1000001
+R: maintainspeed-pushbutton accel-communicate : off : * : * : -100000
+R: maintainspeed-pushbutton accel-dontcommunicate : off : * : * : -100000
+R: maintainspeed-pushbutton decel-communicate : off : * : * : -100000
+R: maintainspeed-pushbutton decel-dontcommunicate : off : * : * : -100000
+R: maintainspeed-pushbutton maintainspeed-communicate : off : * : * : -100000
+R: maintainspeed-pushbutton maintainspeed-dontcommunicate : off : * : * : -100000
+R: maintainspeed-dontpushbutton none-communicate : off : * : * : 1000000
+R: maintainspeed-dontpushbutton none-dontcommunicate : off : * : * : 1000001
+R: maintainspeed-dontpushbutton accel-communicate : off : * : * : -100000
+R: maintainspeed-dontpushbutton accel-dontcommunicate : off : * : * : -100000
+R: maintainspeed-dontpushbutton decel-communicate : off : * : * : -100000
+R: maintainspeed-dontpushbutton decel-dontcommunicate : off : * : * : -100000
+R: maintainspeed-dontpushbutton maintainspeed-communicate : off : * : * : -100000
+R: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : off : * : * : -100000
+R: none-pushbutton none-communicate : off : * : * : 5
+R: none-pushbutton none-dontcommunicate : off : * : * : 6
+R: none-pushbutton accel-communicate : off : * : * : -100000
+R: none-pushbutton accel-dontcommunicate : off : * : * : -100000
+R: none-pushbutton decel-communicate : off : * : * : -100000
+R: none-pushbutton decel-dontcommunicate : off : * : * : -100000
+R: none-pushbutton maintainspeed-communicate : off : * : * : -100000
+R: none-pushbutton maintainspeed-dontcommunicate : off : * : * : -100000
+R: none-dontpushbutton none-communicate : off : * : * : 5
+R: none-dontpushbutton none-dontcommunicate : off : * : * : 6
+R: none-dontpushbutton accel-communicate : off : * : * : -100000
+R: none-dontpushbutton accel-dontcommunicate : off : * : * : -100000
+R: none-dontpushbutton decel-communicate : off : * : * : -100000
+R: none-dontpushbutton decel-dontcommunicate : off : * : * : -100000
+R: none-dontpushbutton maintainspeed-communicate : off : * : * : -100000
+R: none-dontpushbutton maintainspeed-dontcommunicate : off : * : * : -100000

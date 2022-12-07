@@ -92,7 +92,7 @@ def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix):
 modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
 #modes_wo_override = ["standby", "following", "speedcontrol", "error", "hold"]
 modes_with_off = ["standby", "following", "speedcontrol", "error", "hold", "override","off"]
-mode_change_table = "DPOMDP_Writer/Transitions_test.csv"
+mode_change_table = "DPOMDP_Writer/Transitions_off.csv"
 #mode_change_table_wo_override = "DPOMDP_Writer/MinExampleTransitions.csv"
 contaning_folder = "ACC/"
 #contaning_folder_wo_override = "ACC-min/"
@@ -101,6 +101,6 @@ prefix = "ACC"
 
 #machine_comm_actions = ["communicate","dontcommunicate"]
 
-generate_dpomdp(modes,mode_change_table,contaning_folder,prefix)
+generate_dpomdp(modes_with_off,mode_change_table,contaning_folder,prefix)
 #generate_dpomdp(modes_wo_override, mode_change_table_wo_override, contaning_folder_wo_override, prefix_wo_override, machine_comm_actions)
 #generate_dpomdp(modes, mode_change_table, "ACC-nocomm/","ACC-nocomm",["dontcommunicate"])

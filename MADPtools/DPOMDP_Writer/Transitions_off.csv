@@ -11,5 +11,5 @@ hold;following,speedcontrol;human_pushbutton
 override;following,speedcontrol,hold;human_none
 override;following,speedcontrol,hold;human_decel
 following,speedcontrol,hold;override;human_accel
+following,speedcontrol,hold,override,error,standby;off;human_pushbutton
 off;standby;human_pushbutton
-standby;off;human_pushbutton
