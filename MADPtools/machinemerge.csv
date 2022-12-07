@@ -1,12 +1,13 @@
 standby0:node0,"none-dontcommunicate">node1,"maintainspeed-dontcommunicate">node2,"maintainspeed-dontcommunicate">node3,"none-dontcommunicate">;node0,node1,following-node0,node2,speedcontrol-node0,node3,hold-:
 standby1 + standby2 + standby4 + error0 + error1 + error2 + error3 + error5 + error6:node0,"none-dontcommunicate">node1,"none-dontcommunicate">;node0,node1,standby-:
 standby3 + standby5 + standby6 + standby7:node0,"none-communicate">node1,"safest-dontcommunicate">node2,"safest-dontcommunicate">node3,"none-dontcommunicate">;node0,node1,following-node0,node2,speedcontrol-node0,node3,hold-:
-following0:node0,"decel-dontcommunicate">node1,"maintainspeed-dontcommunicate">node2,"none-dontcommunicate">;node0,node1,speedcontrol-node0,node2,error-:
-following1 + following4:node0,"safest-communicate">node1,"safest-dontcommunicate">node2,"maintainspeed-dontcommunicate">node3,"none-dontcommunicate">;node0,node1,following-node0,node2,speedcontrol-node0,node3,error-:
-following2:node0,"safest-communicate">node1,"none-dontcommunicate">node2,"maintainspeed-dontcommunicate">node3,"none-dontcommunicate">;node0,node1,standby-node0,node2,speedcontrol-node0,node3,error-:
-following3 + following5 + following6 + following7 + speedcontrol3 + speedcontrol5 + speedcontrol6 + speedcontrol7:node0,"safest-communicate">node1,"safest-dontcommunicate">node2,"safest-dontcommunicate">node3,"none-dontcommunicate">;node0,node1,following-node0,node2,speedcontrol-node0,node3,error-:
-speedcontrol0:node0,"maintainspeed-dontcommunicate">node1,"none-dontcommunicate">node2,"accel-dontcommunicate">node3,"none-dontcommunicate">;node0,node1,standby-node0,node2,following-node0,node3,error-:
-speedcontrol1 + speedcontrol2 + speedcontrol4:node0,"maintainspeed-dontcommunicate">node1,"none-dontcommunicate">node2,"safest-dontcommunicate">node3,"none-dontcommunicate">;node0,node1,standby-node0,node2,following-node0,node3,error-:
+following0:node0,"decel-dontcommunicate">node1,"accel-communicate">node2,"none-dontcommunicate">;node0,node1,speedcontrol-node0,node2,error-:
+following1 + following4 + following5 + following7:node0,"safest-communicate">node1,"safest-communicate">node2,"none-dontcommunicate">;node0,node1,speedcontrol-node0,node2,error-:
+following2 + following3 + following6:node0,"safest-communicate">node1,"accel-communicate">node2,"none-dontcommunicate">;node0,node1,speedcontrol-node0,node2,error-:
+speedcontrol0 + speedcontrol2:node0,"maintainspeed-dontcommunicate">node1,"none-dontcommunicate">node2,"accel-communicate">node3,"none-dontcommunicate">;node0,node1,standby-node0,node2,following-node0,node3,error-:
+speedcontrol1 + speedcontrol4:node0,"maintainspeed-dontcommunicate">node1,"none-dontcommunicate">node2,"safest-communicate">node3,"none-dontcommunicate">;node0,node1,standby-node0,node2,following-node0,node3,error-:
+speedcontrol3 + speedcontrol6:node0,"safest-communicate">node1,"accel-communicate">node2,"none-dontcommunicate">;node0,node1,following-node0,node2,error-:
+speedcontrol5 + speedcontrol7:node0,"safest-communicate">node1,"safest-communicate">node2,"none-dontcommunicate">;node0,node1,following-node0,node2,error-:
 error4 + error7:node0,"none-dontcommunicate">node1,"none-dontcommunicate">;node0,node1,error-:
 hold0:node0,"none-dontcommunicate">node1,"none-dontcommunicate">node2,"maintainspeed-dontcommunicate">node3,"maintainspeed-dontcommunicate">node4,"none-dontcommunicate">node5,"none-dontcommunicate">;node0,node1,standby-node0,node2,following-node0,node3,speedcontrol-node0,node4,error-node0,node5,override-:
 hold1:node0,"none-dontcommunicate">node1,"safest-dontcommunicate">node2,"none-dontcommunicate">node3,"none-dontcommunicate">;node0,node1,following-node0,node2,error-node0,node3,override-:
