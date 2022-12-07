@@ -202,8 +202,8 @@ class DPOMDPWriterACC:
         #if (is_non_auto) & (hum_comm == "pushbutton") :
         #    cost += self.costs["automation reward"]
         #reward for STAYING in autonomous state
-        if (is_non_auto == False) & (hum_comm == "dontpushbutton"):
-            cost += self.costs["automation reward"]            
+        # if (is_non_auto == False) & (hum_comm == "dontpushbutton"):
+        #     cost += self.costs["automation reward"]            
         return cost
     
 
