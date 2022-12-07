@@ -40,7 +40,7 @@ def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix):
     human_movement_cost = -1000
     unsafe_cost = -1000000
     comm_cost = -1
-    automation_reward = 1
+    automation_reward = 100
 
     cost_dict = {"human movement":human_movement_cost, "unsafe": unsafe_cost, "machine communication": comm_cost, "automation reward" : automation_reward}
 
