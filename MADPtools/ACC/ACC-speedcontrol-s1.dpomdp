@@ -728,6 +728,7 @@ O: maintainspeed-dontpushbutton decel-dontcommunicate : following : none followi
 O: maintainspeed-dontpushbutton decel-dontcommunicate : error : none error : 1
 O: maintainspeed-dontpushbutton maintainspeed-communicate : following : following following : 1
 O: maintainspeed-dontpushbutton maintainspeed-communicate : error : error error : 1
+O: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : following : none following : 1
 O: maintainspeed-dontpushbutton maintainspeed-dontcommunicate : error : none error : 1
 O: maintainspeed-dontpushbutton none-communicate : sink : none sink : 1
 O: maintainspeed-dontpushbutton none-dontcommunicate : sink : none sink : 1
@@ -755,6 +756,7 @@ O: none-dontpushbutton decel-dontcommunicate : following : none following : 1
 O: none-dontpushbutton decel-dontcommunicate : error : none error : 1
 O: none-dontpushbutton maintainspeed-communicate : following : following following : 1
 O: none-dontpushbutton maintainspeed-communicate : error : error error : 1
+O: none-dontpushbutton maintainspeed-dontcommunicate : following : none following : 1
 O: none-dontpushbutton maintainspeed-dontcommunicate : error : none error : 1
 O: none-dontpushbutton none-communicate : sink : none sink : 1
 O: none-dontpushbutton none-dontcommunicate : sink : none sink : 1
