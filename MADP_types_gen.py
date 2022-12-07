@@ -155,3 +155,6 @@ GenerateSolvers("ACC", modes)
 GenerateQ("ACC", modes)
 GenerateSolvers("ACC-min", modes_wo_override)   
 GenerateQ("ACC-min", modes_wo_override)
+
+GenerateSolvers("ACC", modes)   
+GenerateQ("ACC", modes)
