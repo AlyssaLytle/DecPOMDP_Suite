@@ -91,7 +91,8 @@ def generate_dpomdp(inp_modes, inp_mc_table, containing_folder, file_prefix):
 
 modes = ["standby", "following", "speedcontrol", "error", "hold", "override"]
 #modes_wo_override = ["standby", "following", "speedcontrol", "error", "hold"]
-mode_change_table = "DPOMDP_Writer/Transitions.csv"
+modes_with_off = ["standby", "following", "speedcontrol", "error", "hold", "override","off"]
+mode_change_table = "DPOMDP_Writer/Transitions_test.csv"
 #mode_change_table_wo_override = "DPOMDP_Writer/MinExampleTransitions.csv"
 contaning_folder = "ACC/"
 #contaning_folder_wo_override = "ACC-min/"

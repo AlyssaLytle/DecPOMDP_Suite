@@ -4,10 +4,6 @@ following,speedcontrol,hold;standby;human_pushbutton
 following,speedcontrol,hold;standby;human_decel
 error;standby;human_pushbutton
 following;hold;machine_none
-following;speedcontrol;random,switch
-speedcontrol;following;random,switch
-following;speedcontrol;machine_decel
-speedcontrol;following;machine_decel
 hold;following,speedcontrol,override;random,exit
 hold;following,speedcontrol,override;human_pushbutton
 override;following,speedcontrol,hold;human_none
