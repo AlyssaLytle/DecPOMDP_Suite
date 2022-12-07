@@ -1,6 +1,7 @@
 standby,2000000.0
-following,2000010.0
+following,1747300.0
 speedcontrol,1000010.0
 error,2000000.0
 hold,2000000.0
-override,1664400.0
+override,1754600.0
+off,2000000.0

@@ -1,12 +1,6 @@
 digraph human_tree {
 edge [dir=none];
-node0 [ label = "decel-pushbutton" ];
-node1 [ label = "none-dontpushbutton" ];
-node2 [ label = "none-pushbutton" ];
-node3 [ label = "accel-dontpushbutton" ];
-node4 [ label = "decel-pushbutton" ];
-node0 -> node1 [label="following"];
-node0 -> node2 [label="speedcontrol"];
-node0 -> node3 [label="error"];
-node0 -> node4 [label="hold"];
+node0 [ label = "accel-dontpushbutton" ];
+node1 [ label = "accel-pushbutton" ];
+node0 -> node1 [label="none"];
 }
