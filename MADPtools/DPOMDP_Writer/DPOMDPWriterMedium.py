@@ -371,7 +371,7 @@ class DPOMDPWriterACC:
                 elif cause[1] == "exit": 
                     trans_line = [[end_state, prob_hold]]
                 elif cause[1] == "switch":
-                    trans_line = [[end_state, prob_switch]]
+                    trans_line = [[end_state, p_switch]]
                 else:
                     trans_line = [[end_state, remaining_prob]]
                 transition_table += trans_line
