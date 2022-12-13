@@ -120,6 +120,7 @@ def GenerateSolvers(prefix, inp_modes, inc_clustering,inc_expansion, q_cache):
         g = open(fpath, "w")
         g.writelines(output)
         g.close()
+        wrap_output += 'echo "Running:' + fname0 +'"\n'
         wrap_output += "timeout -k 4h 4h sh " + fname0 + " > " + log_name + "\n"
     fname = "scripts/solvers" + prefix + ".sh"
     f = open(fname, "w")
