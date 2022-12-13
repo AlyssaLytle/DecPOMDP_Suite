@@ -1,3 +1,4 @@
+sh ClearResults.sh
 echo "Running:solversACC-noopt-standby.sh"
 timeout -k 4h 4h sh solversACC-noopt-standby.sh > /afs/cs.unc.edu/home/abyrnes1/public/alyssadpomdp/DecPOMDP_Suite/logs/ACC-noopt-standby.log
 echo "Running:solversACC-noopt-following.sh"

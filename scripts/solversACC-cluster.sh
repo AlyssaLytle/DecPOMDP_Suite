@@ -1,3 +1,4 @@
+sh ClearResults.sh
 echo "Running:solversACC-cluster-standby.sh"
 timeout -k 4h 4h sh solversACC-cluster-standby.sh > /afs/cs.unc.edu/home/abyrnes1/public/alyssadpomdp/DecPOMDP_Suite/logs/ACC-cluster-standby.log
 echo "Running:solversACC-cluster-following.sh"

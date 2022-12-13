@@ -1,3 +1,4 @@
+sh ClearResults.sh
 echo "Running:solversACC-incexp-standby.sh"
 timeout -k 4h 4h sh solversACC-incexp-standby.sh > /afs/cs.unc.edu/home/abyrnes1/public/alyssadpomdp/DecPOMDP_Suite/logs/ACC-incexp-standby.log
 echo "Running:solversACC-incexp-following.sh"

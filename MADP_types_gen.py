@@ -92,8 +92,9 @@ for solver in solver_types:
 '''
 
 def GenerateSolvers(prefix, inp_modes, inc_clustering,inc_expansion, q_cache):
-    wrap_output = ""
+    wrap_output = "sh ClearResults.sh\n"
     for mode in inp_modes:
+        
         output = "cd ..\n"
         for scenario in scenarios:
             #output += "set NOW=`date '+%T'` \n" 
