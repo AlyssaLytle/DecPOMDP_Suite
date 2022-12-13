@@ -91,7 +91,7 @@ for solver in solver_types:
         count += 1
 '''
 
-def GenerateSolvers(prefix, inp_modes):
+def GenerateSolvers(prefix, inp_modes, inc_clustering,inc_expansion, q_cache):
     wrap_output = ""
     for mode in inp_modes:
         output = "cd ..\n"
@@ -100,7 +100,15 @@ def GenerateSolvers(prefix, inp_modes):
             name = prefix + "-" + mode + "-s" + str(scenario)
             fullname = name + ".dpomdp"
             output += "timeout -k 1h 1h "
-            output += "../MADP2/src/solvers/GMAA --sparse --GMAA=MAAstar  --useBGclustering --BGIP_Solver=BnB --BnB-ordering=Prob  -Q QMDP --useQcache MADPtools/" + prefix + "/" + fullname + " -h2\n"
+            output += "../MADP2/src/solvers/GMAA --sparse --GMAA=MAAstar "
+            if inc_clustering: 
+                output += "--useBGclustering "
+            if inc_expansion:
+                output += "--BGIP_Solver=BnB --BnB-ordering=Prob " 
+            output += "-Q QMDP "
+            if q_cache:
+                output += "--useQcache "
+            output += "MADPtools/" + prefix + "/" + fullname + " -h2\n"
             #output += "set END=`date '+%T'` \n" 
             #output += 'echo "Start time: "$NOW " End Time: "$END\n'
         fname0 = "solvers" + prefix + "-" + mode + ".sh"
@@ -151,10 +159,12 @@ def GenerateQ(prefix, inp_modes):
     f.writelines(output)
     f.close()
 
-GenerateSolvers("ACC", modes)   
-GenerateQ("ACC", modes)
-GenerateSolvers("ACC-min", modes_wo_override)   
-GenerateQ("ACC-min", modes_wo_override)
+# GenerateSolvers("ACC", modes)   
+# GenerateQ("ACC", modes)
+# GenerateSolvers("ACC-min", modes_wo_override)   
+# GenerateQ("ACC-min", modes_wo_override)
 
-GenerateSolvers("ACC", modes)   
-GenerateQ("ACC", modes)
+GenerateSolvers("ACC", modes, True, True, False)   
+GenerateSolvers("ACC-noopt", modes, False, False, False)   
+GenerateSolvers("ACC-cluster", modes, True, False, False)   
+GenerateSolvers("ACC-incexp", modes, False, True, False)   
