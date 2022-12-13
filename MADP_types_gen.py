@@ -97,7 +97,7 @@ def GenerateSolvers(prefix, inp_modes, inc_clustering,inc_expansion, q_cache):
         output = "cd ..\n"
         for scenario in scenarios:
             #output += "set NOW=`date '+%T'` \n" 
-            name = prefix + "-" + mode + "-s" + str(scenario)
+            name = "ACC" + "-" + mode + "-s" + str(scenario)
             fullname = name + ".dpomdp"
             output += '''now="$(date +'%M:%S:%3N')"\n'''
             output += '''echo "Time: $now"\n'''
@@ -110,7 +110,7 @@ def GenerateSolvers(prefix, inp_modes, inc_clustering,inc_expansion, q_cache):
             output += "-Q QMDP "
             if q_cache:
                 output += "--useQcache "
-            output += "MADPtools/" + prefix + "/" + fullname + " -h2\n"
+            output += "MADPtools/" + "ACC" + "/" + fullname + " -h2\n"
             #output += "set END=`date '+%T'` \n" 
             #output += 'echo "Start time: "$NOW " End Time: "$END\n'
         fname0 = "solvers" + prefix + "-" + mode + ".sh"
