@@ -114,7 +114,8 @@ def GenerateSolvers(prefix, inp_modes, inc_clustering,inc_expansion, q_cache):
             #output += "set END=`date '+%T'` \n" 
             #output += 'echo "Start time: "$NOW " End Time: "$END\n'
         fname0 = "solvers" + prefix + "-" + mode + ".sh"
-        log_name = prefix + "-" + mode + ".log"
+        log_path = "/afs/cs.unc.edu/home/abyrnes1/public/alyssadpomdp/DecPOMDP_Suite/logs/"
+        log_name = log_path + prefix + "-" + mode + ".log"
         fpath = "scripts/"+ fname0
         g = open(fpath, "w")
         g.writelines(output)
